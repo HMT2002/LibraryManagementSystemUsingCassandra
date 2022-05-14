@@ -18,5 +18,6 @@ namespace LibraryManagementSystem
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new login());
         }
+        // minh comment
     }
 }
