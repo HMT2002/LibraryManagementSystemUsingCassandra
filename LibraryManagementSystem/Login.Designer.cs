@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.loginLblQuote = new System.Windows.Forms.Label();
             this.LoginBtnSubmit = new System.Windows.Forms.Button();
             this.loginTbxPassword = new System.Windows.Forms.TextBox();
             this.loginTbxUserId = new System.Windows.Forms.TextBox();
             this.loginLblPassword = new System.Windows.Forms.Label();
             this.loginLblUserId = new System.Windows.Forms.Label();
+            this.loginLblQuote = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,31 +47,20 @@
             this.panel1.Controls.Add(this.loginLblPassword);
             this.panel1.Controls.Add(this.loginLblUserId);
             this.panel1.Controls.Add(this.loginLblQuote);
-            this.panel1.Location = new System.Drawing.Point(67, 53);
+            this.panel1.Location = new System.Drawing.Point(89, 65);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(901, 559);
+            this.panel1.Size = new System.Drawing.Size(1201, 688);
             this.panel1.TabIndex = 0;
-            // 
-            // loginLblQuote
-            // 
-            this.loginLblQuote.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.loginLblQuote.AutoSize = true;
-            this.loginLblQuote.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginLblQuote.Location = new System.Drawing.Point(158, 124);
-            this.loginLblQuote.Name = "loginLblQuote";
-            this.loginLblQuote.Size = new System.Drawing.Size(585, 37);
-            this.loginLblQuote.TabIndex = 3;
-            this.loginLblQuote.Text = "A book is a gift you can open again and again...";
-            this.loginLblQuote.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.loginLblQuote.UseCompatibleTextRendering = true;
             // 
             // LoginBtnSubmit
             // 
             this.LoginBtnSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LoginBtnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginBtnSubmit.Location = new System.Drawing.Point(456, 305);
+            this.LoginBtnSubmit.Location = new System.Drawing.Point(608, 375);
+            this.LoginBtnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LoginBtnSubmit.Name = "LoginBtnSubmit";
-            this.LoginBtnSubmit.Size = new System.Drawing.Size(74, 32);
+            this.LoginBtnSubmit.Size = new System.Drawing.Size(99, 39);
             this.LoginBtnSubmit.TabIndex = 9;
             this.LoginBtnSubmit.Text = "Submit";
             this.LoginBtnSubmit.UseVisualStyleBackColor = true;
@@ -80,27 +69,30 @@
             // loginTbxPassword
             // 
             this.loginTbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginTbxPassword.Location = new System.Drawing.Point(354, 256);
+            this.loginTbxPassword.Location = new System.Drawing.Point(472, 315);
+            this.loginTbxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.loginTbxPassword.Name = "loginTbxPassword";
             this.loginTbxPassword.PasswordChar = '*';
-            this.loginTbxPassword.Size = new System.Drawing.Size(294, 27);
+            this.loginTbxPassword.Size = new System.Drawing.Size(391, 32);
             this.loginTbxPassword.TabIndex = 8;
             // 
             // loginTbxUserId
             // 
             this.loginTbxUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginTbxUserId.Location = new System.Drawing.Point(354, 211);
+            this.loginTbxUserId.Location = new System.Drawing.Point(472, 260);
+            this.loginTbxUserId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.loginTbxUserId.Name = "loginTbxUserId";
-            this.loginTbxUserId.Size = new System.Drawing.Size(294, 27);
+            this.loginTbxUserId.Size = new System.Drawing.Size(391, 32);
             this.loginTbxUserId.TabIndex = 7;
             // 
             // loginLblPassword
             // 
             this.loginLblPassword.AutoSize = true;
             this.loginLblPassword.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginLblPassword.Location = new System.Drawing.Point(224, 261);
+            this.loginLblPassword.Location = new System.Drawing.Point(299, 321);
+            this.loginLblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.loginLblPassword.Name = "loginLblPassword";
-            this.loginLblPassword.Size = new System.Drawing.Size(110, 22);
+            this.loginLblPassword.Size = new System.Drawing.Size(142, 28);
             this.loginLblPassword.TabIndex = 6;
             this.loginLblPassword.Text = "Password :";
             // 
@@ -108,18 +100,34 @@
             // 
             this.loginLblUserId.AutoSize = true;
             this.loginLblUserId.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginLblUserId.Location = new System.Drawing.Point(224, 216);
+            this.loginLblUserId.Location = new System.Drawing.Point(299, 266);
+            this.loginLblUserId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.loginLblUserId.Name = "loginLblUserId";
-            this.loginLblUserId.Size = new System.Drawing.Size(100, 22);
+            this.loginLblUserId.Size = new System.Drawing.Size(168, 28);
             this.loginLblUserId.TabIndex = 5;
-            this.loginLblUserId.Text = "User ID :";
+            this.loginLblUserId.Text = "User Email :";
+            // 
+            // loginLblQuote
+            // 
+            this.loginLblQuote.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.loginLblQuote.AutoSize = true;
+            this.loginLblQuote.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginLblQuote.Location = new System.Drawing.Point(211, 153);
+            this.loginLblQuote.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.loginLblQuote.Name = "loginLblQuote";
+            this.loginLblQuote.Size = new System.Drawing.Size(732, 45);
+            this.loginLblQuote.TabIndex = 3;
+            this.loginLblQuote.Text = "A book is a gift you can open again and again...";
+            this.loginLblQuote.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.loginLblQuote.UseCompatibleTextRendering = true;
             // 
             // login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1041, 638);
+            this.ClientSize = new System.Drawing.Size(1388, 785);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "login";
             this.Text = "Login";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

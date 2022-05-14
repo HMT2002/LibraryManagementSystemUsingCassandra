@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
-
+using System.Security.Cryptography;
+using System.Threading;
 namespace LibraryManagementSystem
 {
     public partial class login : Form
@@ -24,9 +25,6 @@ namespace LibraryManagementSystem
 
         private void login_Load(object sender, EventArgs e)
         {
-            // initialise connection to db
-            string connectionString = ConfigurationManager.ConnectionStrings["LibraryManagementSystem.Properties.Settings.LibraryDB"].ToString();
-            con = new SqlConnection(connectionString);
         }
 
         public login()
@@ -43,42 +41,71 @@ namespace LibraryManagementSystem
 
         private void LoginBtnSubmit_Click(object sender, EventArgs e)
         {
-            if (con.State == ConnectionState.Closed)
-                con.Open();
+            #region prev
+            //if (con.State == ConnectionState.Closed)
+            //    con.Open();
 
-            cmd = new SqlCommand("select * from users where user_id = @user_id and password = @password", con);
-            cmd.Parameters.AddWithValue("@user_id", loginTbxUserId.Text);
-            cmd.Parameters.AddWithValue("@password", loginTbxPassword.Text);
+            //cmd = new SqlCommand("select * from users where user_id = @user_id and password = @password", con);
+            //cmd.Parameters.AddWithValue("@user_id", loginTbxUserId.Text);
+            //cmd.Parameters.AddWithValue("@password", loginTbxPassword.Text);
 
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
+            //SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            //DataTable dt = new DataTable();
 
-            sda.Fill(dt);
+            //sda.Fill(dt);
 
-            if (dt.Rows.Count > 0)
+            //if (dt.Rows.Count > 0)
+            //{
+            //    // successfully logged in pass userid and pwd
+            //    userid = Convert.ToInt32(loginTbxUserId.Text);
+            //    password = loginTbxPassword.Text;
+
+            //    if (Convert.ToString(dt.Rows[0][1]) == "False")
+            //    {
+            //        this.Hide();
+            //        userBookSearch ubs = new userBookSearch();
+            //        ubs.Show();
+            //    }
+            //    else
+            //    {
+            //        this.Hide();
+            //        admStartPage asp = new admStartPage();
+            //        asp.Show();
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("The entered USER ID or PASSWORD is WRONG.\nPlease check and try again.\nIf you have forgotten the password then go to the librarian to create a new one.");
+            //    clear();
+            //}
+            #endregion
+            string query = "Select * from User Where Email ='" + loginTbxUserId.Text.Trim() + "' and Password = '" + loginTbxPassword.Text.Trim() + "'  ALLOW FILTERING";
+
+            Cassandra.RowSet row = DataConnection.Ins.session.Execute(query);
+            if (row.FirstOrDefault() != null)
             {
-                // successfully logged in pass userid and pwd
-                userid = Convert.ToInt32(loginTbxUserId.Text);
-                password = loginTbxPassword.Text;
-
-                if (Convert.ToString(dt.Rows[0][1]) == "False")
-                {
-                    this.Hide();
-                    userBookSearch ubs = new userBookSearch();
-                    ubs.Show();
-                }
-                else
-                {
-                    this.Hide();
-                    admStartPage asp = new admStartPage();
-                    asp.Show();
-                }
+                admStartPage menuF = new admStartPage();
+                this.Hide();
+                menuF.ShowDialog();
             }
             else
             {
-                MessageBox.Show("The entered USER ID or PASSWORD is WRONG.\nPlease check and try again.\nIf you have forgotten the password then go to the librarian to create a new one.");
-                clear();
+                MessageBox.Show("Wrong email or password!!!!");
             }
+
+        }
+
+        public bool Login()
+        {
+            string query = "Select * from User Where Email ='" + userid + "' and Password = '" + password + "'  ALLOW FILTERING";
+            Cassandra.RowSet row = DataConnection.Ins.session.Execute(query);
+
+            if (row.FirstOrDefault() != null)
+            {
+                return true;
+            }
+            return false;
         }
     }
+
 }
