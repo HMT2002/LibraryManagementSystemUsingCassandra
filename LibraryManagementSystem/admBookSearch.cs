@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using Cassandra;
+using LibraryManagementSystem.Model;
 
 namespace LibraryManagementSystem
 {
@@ -21,34 +23,67 @@ namespace LibraryManagementSystem
         public int userid;
         public string password;
 
+        Func<Row, tblBook> TicketSelector;
+
+
         public admBookSearch()
         {
             InitializeComponent();
+
+            TicketSelector = delegate (Row r)
+            {
+                tblBook card = new tblBook
+                {
+                    MaSach = r.GetValue<string>("masach"),
+                    GiaDenBu = r.GetValue<Decimal>("giadenbu"),
+                    TacGia = r.GetValue<string>("tacgia"),
+                    TheLoai = r.GetValue<string>("theloai"),
+
+                    TieuDe = r.GetValue<string>("tieude"),
+                    NgayTra = r.GetValue<DateTime>("ngaytra"),
+                    NgayMuon = r.GetValue<DateTime>("ngaymuon"),
+                };
+                return card;
+            };
+
+
+            string query = "SELECT MaSach, TieuDe, TacGia, TheLoai, NgayMuon, NgayTra, GiaDenBu FROM Sach";
+
+            var TicketTable = DataConnection.Ins.session.Execute(query)
+                .Select(TicketSelector);
+
+            admBookSearchDgv.DataSource = TicketTable.ToList();
+
         }
+
+
 
         private void admBookSearch_Load(object sender, EventArgs e)
         {
-            // copy userid and pwd
-            userid = login.userid;
-            password = login.password;
+            //// copy userid and pwd
+            //userid = login.userid;
+            //password = login.password;
 
-            // establish connection to db
-            string connectionString = ConfigurationManager.ConnectionStrings["LibraryManagementSystem.Properties.Settings.LibraryDB"].ToString();
-            con = new SqlConnection(connectionString);
+            //// establish connection to db
+            //string connectionString = ConfigurationManager.ConnectionStrings["LibraryManagementSystem.Properties.Settings.LibraryDB"].ToString();
+            //con = new SqlConnection(connectionString);
 
-            // on intialise display books table
-            cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', i_user_id as 'User ID', name as 'User Name', date_issued as 'Date Issued', DATEDIFF(day, date_issued, CONVERT(date, GETDATE()))  as 'Total days passed', publisher as 'Publisher', year_of_pub as 'Year of Pub', genres as 'Genres' from books left join issue on i_book_id = book_id left join users on i_user_id = user_id", con);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
+            //// on intialise display books table
+            //cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', i_user_id as 'User ID', name as 'User Name', date_issued as 'Date Issued', DATEDIFF(day, date_issued, CONVERT(date, GETDATE()))  as 'Total days passed', publisher as 'Publisher', year_of_pub as 'Year of Pub', genres as 'Genres' from books left join issue on i_book_id = book_id left join users on i_user_id = user_id", con);
+            //SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            //DataSet ds = new DataSet();
+            //sda.Fill(ds);
 
-            admBookSearchDgv.DataSource = ds.Tables[0];
+            //admBookSearchDgv.DataSource = ds.Tables[0];
 
-            // make read only
-            admBookSearchDgv.ReadOnly = true;
+            //// make read only
+            //admBookSearchDgv.ReadOnly = true;
 
-            // select both radio button by default
-            admBookSearchRbBoth.Select();
+            //// select both radio button by default
+            //admBookSearchRbBoth.Select();
+
+
+
         }
 
         private void admBookSearchBtnLogout_Click(object sender, EventArgs e)
