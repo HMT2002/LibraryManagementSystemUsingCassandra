@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.admEditBookDBBtnClear = new System.Windows.Forms.Button();
             this.editBookDBBtnAddToDB = new System.Windows.Forms.Button();
@@ -89,17 +89,19 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.admEditBookDBBtnLogout);
             this.panel1.Controls.Add(this.admEditBookDBBtnBack);
-            this.panel1.Location = new System.Drawing.Point(39, 5);
+            this.panel1.Location = new System.Drawing.Point(52, 6);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1181, 771);
+            this.panel1.Size = new System.Drawing.Size(1575, 949);
             this.panel1.TabIndex = 0;
             // 
             // admEditBookDBBtnClear
             // 
             this.admEditBookDBBtnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admEditBookDBBtnClear.Location = new System.Drawing.Point(880, 564);
+            this.admEditBookDBBtnClear.Location = new System.Drawing.Point(1173, 694);
+            this.admEditBookDBBtnClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.admEditBookDBBtnClear.Name = "admEditBookDBBtnClear";
-            this.admEditBookDBBtnClear.Size = new System.Drawing.Size(131, 39);
+            this.admEditBookDBBtnClear.Size = new System.Drawing.Size(175, 48);
             this.admEditBookDBBtnClear.TabIndex = 67;
             this.admEditBookDBBtnClear.Text = "Clear Boxes";
             this.admEditBookDBBtnClear.UseVisualStyleBackColor = true;
@@ -108,9 +110,10 @@
             // editBookDBBtnAddToDB
             // 
             this.editBookDBBtnAddToDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editBookDBBtnAddToDB.Location = new System.Drawing.Point(264, 654);
+            this.editBookDBBtnAddToDB.Location = new System.Drawing.Point(352, 805);
+            this.editBookDBBtnAddToDB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editBookDBBtnAddToDB.Name = "editBookDBBtnAddToDB";
-            this.editBookDBBtnAddToDB.Size = new System.Drawing.Size(149, 54);
+            this.editBookDBBtnAddToDB.Size = new System.Drawing.Size(199, 66);
             this.editBookDBBtnAddToDB.TabIndex = 56;
             this.editBookDBBtnAddToDB.Text = "Add to DB";
             this.editBookDBBtnAddToDB.UseVisualStyleBackColor = true;
@@ -119,9 +122,10 @@
             // editBookDBBtnDelete
             // 
             this.editBookDBBtnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.editBookDBBtnDelete.Location = new System.Drawing.Point(726, 654);
+            this.editBookDBBtnDelete.Location = new System.Drawing.Point(968, 805);
+            this.editBookDBBtnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editBookDBBtnDelete.Name = "editBookDBBtnDelete";
-            this.editBookDBBtnDelete.Size = new System.Drawing.Size(147, 54);
+            this.editBookDBBtnDelete.Size = new System.Drawing.Size(196, 66);
             this.editBookDBBtnDelete.TabIndex = 56;
             this.editBookDBBtnDelete.Text = "Delete";
             this.editBookDBBtnDelete.UseVisualStyleBackColor = true;
@@ -130,9 +134,10 @@
             // editBookDBBtnSave
             // 
             this.editBookDBBtnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editBookDBBtnSave.Location = new System.Drawing.Point(501, 654);
+            this.editBookDBBtnSave.Location = new System.Drawing.Point(668, 805);
+            this.editBookDBBtnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editBookDBBtnSave.Name = "editBookDBBtnSave";
-            this.editBookDBBtnSave.Size = new System.Drawing.Size(142, 54);
+            this.editBookDBBtnSave.Size = new System.Drawing.Size(189, 66);
             this.editBookDBBtnSave.TabIndex = 56;
             this.editBookDBBtnSave.Text = "Save Edit";
             this.editBookDBBtnSave.UseVisualStyleBackColor = true;
@@ -141,9 +146,10 @@
             // editBookDBBtnSearch
             // 
             this.editBookDBBtnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editBookDBBtnSearch.Location = new System.Drawing.Point(689, 148);
+            this.editBookDBBtnSearch.Location = new System.Drawing.Point(919, 182);
+            this.editBookDBBtnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editBookDBBtnSearch.Name = "editBookDBBtnSearch";
-            this.editBookDBBtnSearch.Size = new System.Drawing.Size(88, 33);
+            this.editBookDBBtnSearch.Size = new System.Drawing.Size(117, 41);
             this.editBookDBBtnSearch.TabIndex = 2;
             this.editBookDBBtnSearch.Text = "Search";
             this.editBookDBBtnSearch.UseVisualStyleBackColor = true;
@@ -152,18 +158,20 @@
             // editBookDBTbxSearch
             // 
             this.editBookDBTbxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editBookDBTbxSearch.Location = new System.Drawing.Point(175, 119);
+            this.editBookDBTbxSearch.Location = new System.Drawing.Point(233, 146);
+            this.editBookDBTbxSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editBookDBTbxSearch.Name = "editBookDBTbxSearch";
-            this.editBookDBTbxSearch.Size = new System.Drawing.Size(602, 23);
+            this.editBookDBTbxSearch.Size = new System.Drawing.Size(801, 26);
             this.editBookDBTbxSearch.TabIndex = 1;
             // 
             // admEditBookDBRbBoth
             // 
             this.admEditBookDBRbBoth.AutoSize = true;
             this.admEditBookDBRbBoth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admEditBookDBRbBoth.Location = new System.Drawing.Point(318, 148);
+            this.admEditBookDBRbBoth.Location = new System.Drawing.Point(424, 182);
+            this.admEditBookDBRbBoth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.admEditBookDBRbBoth.Name = "admEditBookDBRbBoth";
-            this.admEditBookDBRbBoth.Size = new System.Drawing.Size(61, 24);
+            this.admEditBookDBRbBoth.Size = new System.Drawing.Size(73, 29);
             this.admEditBookDBRbBoth.TabIndex = 61;
             this.admEditBookDBRbBoth.TabStop = true;
             this.admEditBookDBRbBoth.Text = "Both";
@@ -173,9 +181,10 @@
             // 
             this.admEditBookDBRbAuthor.AutoSize = true;
             this.admEditBookDBRbAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admEditBookDBRbAuthor.Location = new System.Drawing.Point(237, 148);
+            this.admEditBookDBRbAuthor.Location = new System.Drawing.Point(316, 182);
+            this.admEditBookDBRbAuthor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.admEditBookDBRbAuthor.Name = "admEditBookDBRbAuthor";
-            this.admEditBookDBRbAuthor.Size = new System.Drawing.Size(75, 24);
+            this.admEditBookDBRbAuthor.Size = new System.Drawing.Size(91, 29);
             this.admEditBookDBRbAuthor.TabIndex = 60;
             this.admEditBookDBRbAuthor.TabStop = true;
             this.admEditBookDBRbAuthor.Text = "Author";
@@ -185,9 +194,10 @@
             // 
             this.admEditBookDBRbTitle.AutoSize = true;
             this.admEditBookDBRbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admEditBookDBRbTitle.Location = new System.Drawing.Point(175, 148);
+            this.admEditBookDBRbTitle.Location = new System.Drawing.Point(233, 182);
+            this.admEditBookDBRbTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.admEditBookDBRbTitle.Name = "admEditBookDBRbTitle";
-            this.admEditBookDBRbTitle.Size = new System.Drawing.Size(56, 24);
+            this.admEditBookDBRbTitle.Size = new System.Drawing.Size(70, 29);
             this.admEditBookDBRbTitle.TabIndex = 59;
             this.admEditBookDBRbTitle.TabStop = true;
             this.admEditBookDBRbTitle.Text = "Title";
@@ -197,9 +207,10 @@
             // 
             this.editBookDBLblSearch.AutoSize = true;
             this.editBookDBLblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editBookDBLblSearch.Location = new System.Drawing.Point(99, 122);
+            this.editBookDBLblSearch.Location = new System.Drawing.Point(132, 150);
+            this.editBookDBLblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.editBookDBLblSearch.Name = "editBookDBLblSearch";
-            this.editBookDBLblSearch.Size = new System.Drawing.Size(64, 20);
+            this.editBookDBLblSearch.Size = new System.Drawing.Size(81, 25);
             this.editBookDBLblSearch.TabIndex = 58;
             this.editBookDBLblSearch.Text = "Search:";
             // 
@@ -207,84 +218,94 @@
             // 
             this.editBookDBDgvTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.editBookDBDgvTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.editBookDBDgvTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.editBookDBDgvTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.editBookDBDgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.editBookDBDgvTable.Location = new System.Drawing.Point(102, 206);
+            this.editBookDBDgvTable.Location = new System.Drawing.Point(136, 254);
+            this.editBookDBDgvTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editBookDBDgvTable.Name = "editBookDBDgvTable";
-            this.editBookDBDgvTable.Size = new System.Drawing.Size(969, 169);
+            this.editBookDBDgvTable.RowHeadersWidth = 51;
+            this.editBookDBDgvTable.Size = new System.Drawing.Size(1292, 208);
             this.editBookDBDgvTable.TabIndex = 57;
             this.editBookDBDgvTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.editBookDBDgvTable_CellClick);
             // 
             // label7
             // 
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label7.Location = new System.Drawing.Point(102, 416);
+            this.label7.Location = new System.Drawing.Point(136, 512);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(969, 2);
+            this.label7.Size = new System.Drawing.Size(1292, 2);
             this.label7.TabIndex = 56;
             // 
             // editBookDBTbxGenres
             // 
             this.editBookDBTbxGenres.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.editBookDBTbxGenres.Location = new System.Drawing.Point(186, 573);
+            this.editBookDBTbxGenres.Location = new System.Drawing.Point(248, 705);
+            this.editBookDBTbxGenres.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editBookDBTbxGenres.Name = "editBookDBTbxGenres";
-            this.editBookDBTbxGenres.Size = new System.Drawing.Size(514, 23);
+            this.editBookDBTbxGenres.Size = new System.Drawing.Size(684, 26);
             this.editBookDBTbxGenres.TabIndex = 53;
             // 
             // editBookDBTbxTitle
             // 
             this.editBookDBTbxTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.editBookDBTbxTitle.Location = new System.Drawing.Point(186, 492);
+            this.editBookDBTbxTitle.Location = new System.Drawing.Point(248, 606);
+            this.editBookDBTbxTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editBookDBTbxTitle.Name = "editBookDBTbxTitle";
-            this.editBookDBTbxTitle.Size = new System.Drawing.Size(514, 23);
+            this.editBookDBTbxTitle.Size = new System.Drawing.Size(684, 26);
             this.editBookDBTbxTitle.TabIndex = 51;
             // 
             // editBookDBTbxAuthor
             // 
             this.editBookDBTbxAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.editBookDBTbxAuthor.Location = new System.Drawing.Point(880, 495);
+            this.editBookDBTbxAuthor.Location = new System.Drawing.Point(1173, 609);
+            this.editBookDBTbxAuthor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editBookDBTbxAuthor.Name = "editBookDBTbxAuthor";
-            this.editBookDBTbxAuthor.Size = new System.Drawing.Size(200, 23);
+            this.editBookDBTbxAuthor.Size = new System.Drawing.Size(265, 26);
             this.editBookDBTbxAuthor.TabIndex = 54;
             // 
             // editBookDBTbxPublisher
             // 
             this.editBookDBTbxPublisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.editBookDBTbxPublisher.Location = new System.Drawing.Point(186, 530);
+            this.editBookDBTbxPublisher.Location = new System.Drawing.Point(248, 652);
+            this.editBookDBTbxPublisher.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editBookDBTbxPublisher.Name = "editBookDBTbxPublisher";
-            this.editBookDBTbxPublisher.Size = new System.Drawing.Size(514, 23);
+            this.editBookDBTbxPublisher.Size = new System.Drawing.Size(684, 26);
             this.editBookDBTbxPublisher.TabIndex = 52;
             // 
             // editBookDBTbxYop
             // 
             this.editBookDBTbxYop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.editBookDBTbxYop.Location = new System.Drawing.Point(965, 533);
+            this.editBookDBTbxYop.Location = new System.Drawing.Point(1287, 656);
+            this.editBookDBTbxYop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editBookDBTbxYop.Name = "editBookDBTbxYop";
-            this.editBookDBTbxYop.Size = new System.Drawing.Size(115, 23);
+            this.editBookDBTbxYop.Size = new System.Drawing.Size(152, 26);
             this.editBookDBTbxYop.TabIndex = 55;
             // 
             // editBookDBTbxBookID
             // 
             this.editBookDBTbxBookID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.editBookDBTbxBookID.Location = new System.Drawing.Point(186, 458);
+            this.editBookDBTbxBookID.Location = new System.Drawing.Point(248, 564);
+            this.editBookDBTbxBookID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editBookDBTbxBookID.Name = "editBookDBTbxBookID";
-            this.editBookDBTbxBookID.Size = new System.Drawing.Size(79, 23);
+            this.editBookDBTbxBookID.Size = new System.Drawing.Size(104, 26);
             this.editBookDBTbxBookID.TabIndex = 50;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(98, 530);
+            this.label6.Location = new System.Drawing.Point(131, 652);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 20);
+            this.label6.Size = new System.Drawing.Size(104, 25);
             this.label6.TabIndex = 49;
             this.label6.Text = "Publisher :";
             // 
@@ -292,9 +313,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label5.Location = new System.Drawing.Point(99, 458);
+            this.label5.Location = new System.Drawing.Point(132, 564);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 20);
+            this.label5.Size = new System.Drawing.Size(92, 25);
             this.label5.TabIndex = 48;
             this.label5.Text = "Book ID :";
             // 
@@ -302,9 +324,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label4.Location = new System.Drawing.Point(98, 573);
+            this.label4.Location = new System.Drawing.Point(131, 705);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 20);
+            this.label4.Size = new System.Drawing.Size(87, 25);
             this.label4.TabIndex = 47;
             this.label4.Text = "Genres :";
             // 
@@ -312,9 +335,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(795, 495);
+            this.label3.Location = new System.Drawing.Point(1060, 609);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 20);
+            this.label3.Size = new System.Drawing.Size(81, 25);
             this.label3.TabIndex = 46;
             this.label3.Text = "Author :";
             // 
@@ -322,9 +346,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(795, 533);
+            this.label2.Location = new System.Drawing.Point(1060, 656);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 20);
+            this.label2.Size = new System.Drawing.Size(185, 25);
             this.label2.TabIndex = 45;
             this.label2.Text = "Year of Publication :";
             // 
@@ -332,18 +357,20 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(99, 495);
+            this.label1.Location = new System.Drawing.Point(132, 609);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 20);
+            this.label1.Size = new System.Drawing.Size(60, 25);
             this.label1.TabIndex = 44;
             this.label1.Text = "Title :";
             // 
             // admEditBookDBBtnLogout
             // 
             this.admEditBookDBBtnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.admEditBookDBBtnLogout.Location = new System.Drawing.Point(996, 80);
+            this.admEditBookDBBtnLogout.Location = new System.Drawing.Point(1328, 98);
+            this.admEditBookDBBtnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.admEditBookDBBtnLogout.Name = "admEditBookDBBtnLogout";
-            this.admEditBookDBBtnLogout.Size = new System.Drawing.Size(75, 35);
+            this.admEditBookDBBtnLogout.Size = new System.Drawing.Size(100, 43);
             this.admEditBookDBBtnLogout.TabIndex = 43;
             this.admEditBookDBBtnLogout.Text = "Logout";
             this.admEditBookDBBtnLogout.UseVisualStyleBackColor = true;
@@ -352,9 +379,10 @@
             // admEditBookDBBtnBack
             // 
             this.admEditBookDBBtnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.admEditBookDBBtnBack.Location = new System.Drawing.Point(99, 63);
+            this.admEditBookDBBtnBack.Location = new System.Drawing.Point(132, 78);
+            this.admEditBookDBBtnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.admEditBookDBBtnBack.Name = "admEditBookDBBtnBack";
-            this.admEditBookDBBtnBack.Size = new System.Drawing.Size(82, 35);
+            this.admEditBookDBBtnBack.Size = new System.Drawing.Size(109, 43);
             this.admEditBookDBBtnBack.TabIndex = 42;
             this.admEditBookDBBtnBack.Text = "Back";
             this.admEditBookDBBtnBack.UseVisualStyleBackColor = true;
@@ -362,13 +390,15 @@
             // 
             // admEditBookDB
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1253, 845);
+            this.ClientSize = new System.Drawing.Size(1671, 1040);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "admEditBookDB";
             this.Text = "Edit Book DB";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.admEditBookDB_FormClosing);
             this.Load += new System.EventHandler(this.admEditBookDB_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

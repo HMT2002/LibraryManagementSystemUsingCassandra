@@ -1,0 +1,30 @@
+sudo service cassandra start
+sudo service cassandra status
+sudo service cassandra stop
+nodetool status
+
+cqlsh
+CREATE KEYSPACE blg WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 };
+CREATE KEYSPACE blog WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 };
+CREATE TABLE blg.pst (post_id uuid PRIMARY KEY, title text, body text, lastupdated timestamp);
+CREATE TABLE blog.posts (post_id int PRIMARY KEY, title text, body text, lastupdated timestamp);
+
+use blg;
+use blog;
+select * from posts;
+
+insert into  posts (post_id, title, body, lastupdated) values (fbb77abe-1acb-4bd1-b026-ac4f0f8db5ac, 'Hello World', 'Welcome to my new blog', '2022-03-16');
+insert into  posts (post_id, title, body, lastupdated) values (4b995673-8b92-4cc1-8eea-6a5cc118bd5f, 'test 2', 'this is second test', '2002-06-08');
+insert into  posts (post_id, title, body, lastupdated) values (b02edf90-0bf1-4aba-b693-03da860b86ff, 'test 3', '3rd test ', '2202-09-06');
+insert into  posts (post_id, title, body, lastupdated) values (0, 'Hello ubuntu', 'Welcome to ubuntu', '2022-03-16');
+
+
+
+
+CREATE KEYSPACE LibraryManagement WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 };
+CREATE TABLE LibraryManagement.User (email text primary key, password text);
+use LibraryManagement;
+insert into  User (email, password) values ('mail', 'pass');
+select * from User;
+CREATE TABLE LibraryManagement.Sach (MaSach text primary key, TieuDe text, TacGia text,TheLoai text, NgayMuon timestamp, NgayTra timestamp, GiaDenBu decimal);
+insert into  Sach (MaSach, TieuDe,TheLoai, TacGia, NgayMuon, NgayTra, GiaDenBu) values('S001','Sach nau an','Dan dung','Jeff','2020-10-3','2021-3-10',200000);

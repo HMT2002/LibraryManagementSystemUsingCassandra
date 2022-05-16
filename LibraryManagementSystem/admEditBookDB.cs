@@ -342,5 +342,9 @@ namespace LibraryManagementSystem
             }
         }
 
+        private void admEditBookDB_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

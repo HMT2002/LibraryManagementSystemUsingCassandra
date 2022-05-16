@@ -84,15 +84,14 @@ namespace LibraryManagementSystem
             Cassandra.RowSet row = DataConnection.Ins.session.Execute(query);
             if (row.FirstOrDefault() != null)
             {
-                admStartPage menuF = new admStartPage();
                 this.Hide();
-                menuF.ShowDialog();
+                admStartPage menuF = new admStartPage();
+                menuF.Show();
             }
             else
             {
                 MessageBox.Show("Wrong email or password!!!!");
             }
-
         }
 
         public bool Login()
@@ -105,6 +104,11 @@ namespace LibraryManagementSystem
                 return true;
             }
             return false;
+        }
+
+        private void login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 

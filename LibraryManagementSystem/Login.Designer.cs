@@ -48,7 +48,7 @@
             this.panel1.Controls.Add(this.loginLblUserId);
             this.panel1.Controls.Add(this.loginLblQuote);
             this.panel1.Location = new System.Drawing.Point(89, 65);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1201, 688);
             this.panel1.TabIndex = 0;
@@ -58,7 +58,7 @@
             this.LoginBtnSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LoginBtnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginBtnSubmit.Location = new System.Drawing.Point(608, 375);
-            this.LoginBtnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LoginBtnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.LoginBtnSubmit.Name = "LoginBtnSubmit";
             this.LoginBtnSubmit.Size = new System.Drawing.Size(99, 39);
             this.LoginBtnSubmit.TabIndex = 9;
@@ -70,7 +70,7 @@
             // 
             this.loginTbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginTbxPassword.Location = new System.Drawing.Point(472, 315);
-            this.loginTbxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.loginTbxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.loginTbxPassword.Name = "loginTbxPassword";
             this.loginTbxPassword.PasswordChar = '*';
             this.loginTbxPassword.Size = new System.Drawing.Size(391, 32);
@@ -80,7 +80,7 @@
             // 
             this.loginTbxUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginTbxUserId.Location = new System.Drawing.Point(472, 260);
-            this.loginTbxUserId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.loginTbxUserId.Margin = new System.Windows.Forms.Padding(4);
             this.loginTbxUserId.Name = "loginTbxUserId";
             this.loginTbxUserId.Size = new System.Drawing.Size(391, 32);
             this.loginTbxUserId.TabIndex = 7;
@@ -123,14 +123,16 @@
             // 
             // login
             // 
+            this.AcceptButton = this.LoginBtnSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1388, 785);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "login";
             this.Text = "Login";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.login_FormClosing);
             this.Load += new System.EventHandler(this.login_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

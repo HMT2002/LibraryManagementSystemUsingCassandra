@@ -30,6 +30,7 @@ namespace LibraryManagementSystem
             this.Hide();
             login lg = new login();
             lg.Show();
+
         }
 
         private void admStartPageBtnChangePassword_Click(object sender, EventArgs e)
@@ -37,6 +38,7 @@ namespace LibraryManagementSystem
             this.Hide();
             changePassword cp = new changePassword();
             cp.Show();
+
         }
 
         private void admStartPageBtnBookSearch_Click(object sender, EventArgs e)
@@ -44,6 +46,7 @@ namespace LibraryManagementSystem
             this.Hide();
             admBookSearch abs = new admBookSearch();
             abs.Show();
+
         }
 
         private void admStartPageBtnEditBookDB_Click(object sender, EventArgs e)
@@ -58,6 +61,7 @@ namespace LibraryManagementSystem
             this.Hide();
             admEditStudentDB aes = new admEditStudentDB();
             aes.Show();
+
         }
 
         private void admStartPageBtnIssue_Click(object sender, EventArgs e)
@@ -65,6 +69,7 @@ namespace LibraryManagementSystem
             this.Hide();
             admIssue ai = new admIssue();
             ai.Show();
+
         }
 
         private void admStartPageBtnReturn_Click(object sender, EventArgs e)
@@ -72,6 +77,12 @@ namespace LibraryManagementSystem
             this.Hide();
             admReturn ar = new admReturn();
             ar.Show();
+
+        }
+
+        private void admStartPage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

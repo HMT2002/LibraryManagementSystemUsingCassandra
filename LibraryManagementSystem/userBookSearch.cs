@@ -115,5 +115,10 @@ namespace LibraryManagementSystem
             usrIssuedBooks uib = new usrIssuedBooks();
             uib.Show();
         }
+
+        private void userBookSearch_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

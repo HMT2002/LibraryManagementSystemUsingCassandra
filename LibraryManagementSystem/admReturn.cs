@@ -184,5 +184,10 @@ namespace LibraryManagementSystem
             login lg = new login();
             lg.Show();
         }
+
+        private void admReturn_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

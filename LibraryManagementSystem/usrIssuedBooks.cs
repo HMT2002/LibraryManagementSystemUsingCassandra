@@ -53,5 +53,10 @@ namespace LibraryManagementSystem
             userBookSearch ubs = new userBookSearch();
             ubs.Show();
         }
+
+        private void usrIssuedBooks_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

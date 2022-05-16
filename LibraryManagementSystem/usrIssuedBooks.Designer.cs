@@ -41,18 +41,20 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.usrIssuedBooksBtnBack);
             this.panel1.Controls.Add(this.usrIssuedBooksDgvBooks);
-            this.panel1.Location = new System.Drawing.Point(23, 35);
+            this.panel1.Location = new System.Drawing.Point(31, 43);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1069, 640);
+            this.panel1.Size = new System.Drawing.Size(1425, 788);
             this.panel1.TabIndex = 0;
             // 
             // usrIssuedBooksBtnBack
             // 
             this.usrIssuedBooksBtnBack.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.usrIssuedBooksBtnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.usrIssuedBooksBtnBack.Location = new System.Drawing.Point(923, 28);
+            this.usrIssuedBooksBtnBack.Location = new System.Drawing.Point(1231, 34);
+            this.usrIssuedBooksBtnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.usrIssuedBooksBtnBack.Name = "usrIssuedBooksBtnBack";
-            this.usrIssuedBooksBtnBack.Size = new System.Drawing.Size(106, 41);
+            this.usrIssuedBooksBtnBack.Size = new System.Drawing.Size(141, 50);
             this.usrIssuedBooksBtnBack.TabIndex = 3;
             this.usrIssuedBooksBtnBack.Text = "Back";
             this.usrIssuedBooksBtnBack.UseVisualStyleBackColor = true;
@@ -71,21 +73,25 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.usrIssuedBooksDgvBooks.DefaultCellStyle = dataGridViewCellStyle1;
-            this.usrIssuedBooksDgvBooks.Location = new System.Drawing.Point(19, 102);
+            this.usrIssuedBooksDgvBooks.Location = new System.Drawing.Point(25, 126);
+            this.usrIssuedBooksDgvBooks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.usrIssuedBooksDgvBooks.Name = "usrIssuedBooksDgvBooks";
+            this.usrIssuedBooksDgvBooks.RowHeadersWidth = 51;
             this.usrIssuedBooksDgvBooks.RowTemplate.Height = 30;
-            this.usrIssuedBooksDgvBooks.Size = new System.Drawing.Size(1034, 510);
+            this.usrIssuedBooksDgvBooks.Size = new System.Drawing.Size(1379, 628);
             this.usrIssuedBooksDgvBooks.TabIndex = 2;
             // 
             // usrIssuedBooks
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1123, 699);
+            this.ClientSize = new System.Drawing.Size(1497, 860);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "usrIssuedBooks";
             this.Text = "Issued Books";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.usrIssuedBooks_FormClosing);
             this.Load += new System.EventHandler(this.usrIssuedBooks_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.usrIssuedBooksDgvBooks)).EndInit();

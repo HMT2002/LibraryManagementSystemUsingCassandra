@@ -93,5 +93,10 @@ namespace LibraryManagementSystem
             login lg = new login();
             lg.Show();
         }
+
+        private void changePassword_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
     }
 }

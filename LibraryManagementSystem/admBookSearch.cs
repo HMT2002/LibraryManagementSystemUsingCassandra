@@ -139,5 +139,10 @@ namespace LibraryManagementSystem
             admStartPage asp = new admStartPage();
             asp.Show();
         }
+
+        private void admBookSearch_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

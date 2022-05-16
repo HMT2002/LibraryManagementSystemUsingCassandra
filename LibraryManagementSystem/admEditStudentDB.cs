@@ -309,5 +309,10 @@ namespace LibraryManagementSystem
                 }
             }
         }
+
+        private void admEditStudentDB_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
