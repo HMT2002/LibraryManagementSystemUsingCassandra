@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
+using Cassandra;
+using LibraryManagementSystem.Model;
 
 namespace LibraryManagementSystem
 {
@@ -27,24 +29,50 @@ namespace LibraryManagementSystem
             displayBooks();
 
             // select both radio button by default
-            admEditBookDBRbBoth.Select();
+            admEditBookDBRbTitle.Select();
         }
+
+
+        Func<Row, tblBook> BookSelector;
 
         // display the table of books
         public void displayBooks()
         {
-            // establish connection to db
-            string connectionString = ConfigurationManager.ConnectionStrings["LibraryManagementSystem.Properties.Settings.LibraryDB"].ToString();
-            con = new SqlConnection(connectionString);
+            //// establish connection to db
+            //string connectionString = ConfigurationManager.ConnectionStrings["LibraryManagementSystem.Properties.Settings.LibraryDB"].ToString();
+            //con = new SqlConnection(connectionString);
 
-            // on intialise display books table
-            cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', publisher as 'Publisher', year_of_pub as 'Year of Publication', genres as 'Genres' from books order by book_id asc", con);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
+            //// on intialise display books table
+            //cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', publisher as 'Publisher', year_of_pub as 'Year of Publication', genres as 'Genres' from books order by book_id asc", con);
+            //SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            //DataSet ds = new DataSet();
+            //sda.Fill(ds);
 
-            editBookDBDgvTable.DataSource = ds.Tables[0];
+            //editBookDBDgvTable.DataSource = ds.Tables[0];
 
+
+
+            BookSelector = delegate (Row r)
+            {
+                tblBook card = new tblBook
+                {
+                    MaSach = r.GetValue<string>("masach"),
+                    GiaDenBu = r.GetValue<Decimal>("giadenbu"),
+                    TacGia = r.GetValue<string>("tacgia"),
+                    TheLoai = r.GetValue<string>("theloai"),
+
+                    TieuDe = r.GetValue<string>("tieude"),
+                    NgayTra = r.GetValue<DateTime>("ngaytra"),
+                    NgayMuon = r.GetValue<DateTime>("ngaymuon"),
+                };
+                return card;
+            };
+            string query = "SELECT MaSach, TieuDe, TacGia, TheLoai, NgayMuon, NgayTra, GiaDenBu FROM Sach";
+
+            var BookTable = DataConnection.Ins.session.Execute(query)
+                .Select(BookSelector);
+
+            editBookDBDgvTable.DataSource = BookTable.ToList();
             // make read only
             editBookDBDgvTable.ReadOnly = true;
         }
@@ -82,41 +110,59 @@ namespace LibraryManagementSystem
         // search the book DB functionality
         private void editBookDBBtnSearch_Click(object sender, EventArgs e)
         {
-            if (con.State == ConnectionState.Closed)
-                con.Open();
+            //if (con.State == ConnectionState.Closed)
+            //    con.Open();
 
             if (admEditBookDBRbBoth.Checked == true)
             {
-                cmd = new SqlCommand("select * from books where title like @searchQuery or author like @searchQuery", con);
-                cmd.Parameters.AddWithValue("@searchQuery", "%" + editBookDBTbxSearch.Text + "%");
+                //cmd = new SqlCommand("select * from books where title like @searchQuery or author like @searchQuery", con);
+                //cmd.Parameters.AddWithValue("@searchQuery", "%" + editBookDBTbxSearch.Text + "%");
 
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                sda.Fill(ds);
+                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                //DataSet ds = new DataSet();
+                //sda.Fill(ds);
 
-                editBookDBDgvTable.DataSource = ds.Tables[0];
+                //editBookDBDgvTable.DataSource = ds.Tables[0];
+
             }
             else if (admEditBookDBRbTitle.Checked == true)
             {
-                cmd = new SqlCommand("select * from books where title like @searchQuery", con);
-                cmd.Parameters.AddWithValue("@searchQuery", "%" + editBookDBTbxSearch.Text + "%");
+                //cmd = new SqlCommand("select * from books where title like @searchQuery", con);
+                //cmd.Parameters.AddWithValue("@searchQuery", "%" + editBookDBTbxSearch.Text + "%");
 
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                sda.Fill(ds);
+                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                //DataSet ds = new DataSet();
+                //sda.Fill(ds);
 
-                editBookDBDgvTable.DataSource = ds.Tables[0];
+                //editBookDBDgvTable.DataSource = ds.Tables[0];
+
+                string query = "SELECT * FROM Sach Where TieuDe = '" + editBookDBTbxSearch.Text.Trim() + "'  ALLOW FILTERING";
+
+                var BookTable = DataConnection.Ins.session.Execute(query)
+                    .Select(BookSelector);
+
+                editBookDBDgvTable.DataSource = BookTable.ToList();
+
             }
             else if (admEditBookDBRbAuthor.Checked == true)
             {
-                cmd = new SqlCommand("select * from books where author like @searchQuery", con);
-                cmd.Parameters.AddWithValue("@searchQuery", "%" + editBookDBTbxSearch.Text + "%");
+                //cmd = new SqlCommand("select * from books where author like @searchQuery", con);
+                //cmd.Parameters.AddWithValue("@searchQuery", "%" + editBookDBTbxSearch.Text + "%");
 
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                sda.Fill(ds);
+                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                //DataSet ds = new DataSet();
+                //sda.Fill(ds);
 
-                editBookDBDgvTable.DataSource = ds.Tables[0];
+                //editBookDBDgvTable.DataSource = ds.Tables[0];
+
+
+                string query = "SELECT * FROM Sach Where TacGia = '" + editBookDBTbxSearch.Text.Trim() + "'  ALLOW FILTERING";
+
+                var BookTable = DataConnection.Ins.session.Execute(query)
+                    .Select(BookSelector);
+
+                editBookDBDgvTable.DataSource = BookTable.ToList();
+
             }
         }
 

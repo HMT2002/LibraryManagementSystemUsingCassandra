@@ -23,14 +23,14 @@ namespace LibraryManagementSystem
         public int userid;
         public string password;
 
-        Func<Row, tblBook> TicketSelector;
+        Func<Row, tblBook> BookSelector;
 
 
         public admBookSearch()
         {
             InitializeComponent();
 
-            TicketSelector = delegate (Row r)
+            BookSelector = delegate (Row r)
             {
                 tblBook card = new tblBook
                 {
@@ -50,10 +50,11 @@ namespace LibraryManagementSystem
             string query = "SELECT MaSach, TieuDe, TacGia, TheLoai, NgayMuon, NgayTra, GiaDenBu FROM Sach";
 
             var TicketTable = DataConnection.Ins.session.Execute(query)
-                .Select(TicketSelector);
+                .Select(BookSelector);
 
             admBookSearchDgv.DataSource = TicketTable.ToList();
 
+            admBookSearchRbTitle.Select();
         }
 
 
@@ -95,41 +96,59 @@ namespace LibraryManagementSystem
 
         private void admBookSearchBtnSearch_Click(object sender, EventArgs e)
         {
-            if (con.State == ConnectionState.Closed)
-                con.Open();
+            //if (con.State == ConnectionState.Closed)
+            //    con.Open();
 
             if (admBookSearchRbBoth.Checked == true)
             {
-                cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', i_user_id as 'User ID', name as 'User Name', date_issued as 'Date Issued', DATEDIFF(day, date_issued, CONVERT(date, GETDATE())) as 'Total days passed', publisher as 'Publisher', year_of_pub as 'Year of Pub', genres as 'Genres' from books left join issue on i_book_id = book_id left join users on i_user_id = user_id where title like @searchQuery or author like @searchQuery", con);
-                cmd.Parameters.AddWithValue("@searchQuery", "%" + admBookSearchTbxQuery.Text + "%");
+                //cmd = new SqlCommand("select * from books where title like @searchQuery or author like @searchQuery", con);
+                //cmd.Parameters.AddWithValue("@searchQuery", "%" + editBookDBTbxSearch.Text + "%");
 
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                sda.Fill(ds);
+                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                //DataSet ds = new DataSet();
+                //sda.Fill(ds);
 
-                admBookSearchDgv.DataSource = ds.Tables[0];
+                //editBookDBDgvTable.DataSource = ds.Tables[0];
+
             }
             else if (admBookSearchRbTitle.Checked == true)
             {
-                cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', i_user_id as 'User ID', name as 'User Name', date_issued as 'Date Issued', DATEDIFF(day, date_issued, CONVERT(date, GETDATE()))  as 'Total days passed', publisher as 'Publisher', year_of_pub as 'Year of Pub', genres as 'Genres' from books left join issue on i_book_id = book_id left join users on i_user_id = user_id where title like @searchQuery", con);
-                cmd.Parameters.AddWithValue("@searchQuery", "%" + admBookSearchTbxQuery.Text + "%");
+                //cmd = new SqlCommand("select * from books where title like @searchQuery", con);
+                //cmd.Parameters.AddWithValue("@searchQuery", "%" + editBookDBTbxSearch.Text + "%");
 
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                sda.Fill(ds);
+                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                //DataSet ds = new DataSet();
+                //sda.Fill(ds);
 
-                admBookSearchDgv.DataSource = ds.Tables[0];
+                //editBookDBDgvTable.DataSource = ds.Tables[0];
+
+                string query = "SELECT * FROM Sach Where TieuDe = '" + admBookSearchTbxQuery.Text.Trim() + "'  ALLOW FILTERING";
+
+                var BookTable = DataConnection.Ins.session.Execute(query)
+                    .Select(BookSelector);
+
+                admBookSearchDgv.DataSource = BookTable.ToList();
+
             }
             else if (admBookSearchRbAuthor.Checked == true)
             {
-                cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', i_user_id as 'User ID', name as 'User Name', date_issued as 'Date Issued', DATEDIFF(day, date_issued, CONVERT(date, GETDATE()))  as 'Total days passed', publisher as 'Publisher', year_of_pub as 'Year of Pub', genres as 'Genres' from books left join issue on i_book_id = book_id left join users on i_user_id = user_id where author like @searchQuery", con);
-                cmd.Parameters.AddWithValue("@searchQuery", "%" + admBookSearchTbxQuery.Text + "%");
+                //cmd = new SqlCommand("select * from books where author like @searchQuery", con);
+                //cmd.Parameters.AddWithValue("@searchQuery", "%" + editBookDBTbxSearch.Text + "%");
 
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                sda.Fill(ds);
+                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                //DataSet ds = new DataSet();
+                //sda.Fill(ds);
 
-                admBookSearchDgv.DataSource = ds.Tables[0];
+                //editBookDBDgvTable.DataSource = ds.Tables[0];
+
+
+                string query = "SELECT * FROM Sach Where TacGia = '" + admBookSearchTbxQuery.Text.Trim() + "'  ALLOW FILTERING";
+
+                var BookTable = DataConnection.Ins.session.Execute(query)
+                    .Select(BookSelector);
+
+                admBookSearchDgv.DataSource = BookTable.ToList();
+
             }
         }
 

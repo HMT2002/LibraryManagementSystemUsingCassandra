@@ -79,6 +79,8 @@ namespace LibraryManagementSystem
             //    clear();
             //}
             #endregion
+
+
             string query = "Select * from User Where Email ='" + loginTbxUserId.Text.Trim() + "' and Password = '" + loginTbxPassword.Text.Trim() + "'  ALLOW FILTERING";
 
             Cassandra.RowSet row = DataConnection.Ins.session.Execute(query);
