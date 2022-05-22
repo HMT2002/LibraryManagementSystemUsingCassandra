@@ -23,27 +23,27 @@ namespace LibraryManagementSystem
 
         private void userBookSearch_Load(object sender, EventArgs e)
         {
-            // copy userid and pwd
-            userid = login.userid;
-            password = login.password;
+            //// copy userid and pwd
+            //userid = login.userid;
+            //password = login.password;
 
-            // establish connection to db
-            string connectionString = ConfigurationManager.ConnectionStrings["LibraryManagementSystem.Properties.Settings.LibraryDB"].ToString();
-            con = new SqlConnection(connectionString);
+            //// establish connection to db
+            //string connectionString = ConfigurationManager.ConnectionStrings["LibraryManagementSystem.Properties.Settings.LibraryDB"].ToString();
+            //con = new SqlConnection(connectionString);
 
-            // on intialise display books table
-            cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', publisher as 'Publisher', year_of_pub as 'Y.O.P', genres as 'Genres' from books order by book_id asc", con);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
+            //// on intialise display books table
+            //cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', publisher as 'Publisher', year_of_pub as 'Y.O.P', genres as 'Genres' from books order by book_id asc", con);
+            //SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            //DataSet ds = new DataSet();
+            //sda.Fill(ds);
 
-            userBookSearchDgv.DataSource = ds.Tables[0];
+            //userBookSearchDgv.DataSource = ds.Tables[0];
 
-            // make dgv read only
-            userBookSearchDgv.ReadOnly = true;
+            //// make dgv read only
+            //userBookSearchDgv.ReadOnly = true;
 
-            // select both radio button by default
-            userBookSearchRbBoth.Select();
+            //// select both radio button by default
+            //userBookSearchRbBoth.Select();
         }
 
         private void UserBookSearchBtnSearch_Click(object sender, EventArgs e)
