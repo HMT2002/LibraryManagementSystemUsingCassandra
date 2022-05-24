@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using Cassandra;
+using LibraryManagementSystem.Model;
 
 namespace LibraryManagementSystem
 {
@@ -20,6 +22,7 @@ namespace LibraryManagementSystem
         // userid and pwd
         public int userid;
         public string password;
+        Func<Row, tblBook> BookSelector;
 
         private void userBookSearch_Load(object sender, EventArgs e)
         {
@@ -39,11 +42,39 @@ namespace LibraryManagementSystem
 
             //userBookSearchDgv.DataSource = ds.Tables[0];
 
+
+
+            BookSelector = delegate (Row r)
+            {
+                tblBook card = new tblBook
+                {
+                    Id = r.GetValue<int>("id"),
+                    Title = r.GetValue<string>("title"),
+                    Publisher = r.GetValue<string>("publisher"),
+                    Genres = r.GetValue<string>("genres"),
+                    Author = r.GetValue<string>("author"),
+                    PublishYear = r.GetValue<string>("publishyear"),
+                    Status = r.GetValue<int>("status"),
+                    UserId = r.GetValue<int>("userid"),
+                    UserEmail = r.GetValue<string>("useremail"),
+                    DateIssue = r.GetValue<DateTime>("dateissue"),
+                };
+                return card;
+            };
+
+
+            string query = "SELECT * FROM books";
+
+            var BookTable = DataConnection.Ins.session.Execute(query)
+                .Select(BookSelector);
+
+            userBookSearchDgv.DataSource = BookTable.ToList();
+
             //// make dgv read only
-            //userBookSearchDgv.ReadOnly = true;
+            userBookSearchDgv.ReadOnly = true;
 
             //// select both radio button by default
-            //userBookSearchRbBoth.Select();
+            userBookSearchRbTitle.Select();
         }
 
         private void UserBookSearchBtnSearch_Click(object sender, EventArgs e)
@@ -51,38 +82,54 @@ namespace LibraryManagementSystem
             if (con.State == ConnectionState.Closed)
                 con.Open();
 
-            if(userBookSearchRbBoth.Checked == true)
+            if (userBookSearchRbTitle.Checked == true)
             {
-                cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', publisher as 'Publisher', year_of_pub as 'Y.O.P', genres as 'Genres' from books where title like @searchQuery or author like @searchQuery", con);
-                cmd.Parameters.AddWithValue("@searchQuery", "%" + UserBookSearchTbxQuery.Text + "%");
+                //cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', publisher as 'Publisher', year_of_pub as 'Y.O.P', genres as 'Genres' from books where title like @searchQuery", con);
+                //cmd.Parameters.AddWithValue("@searchQuery", "%" + UserBookSearchTbxQuery.Text + "%");
 
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                sda.Fill(ds);
+                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                //DataSet ds = new DataSet();
+                //sda.Fill(ds);
 
-                userBookSearchDgv.DataSource = ds.Tables[0];
+                //userBookSearchDgv.DataSource = ds.Tables[0];
+
+                string query = "SELECT * FROM books Where title = '" + UserBookSearchTbxQuery.Text.Trim() + "'  ALLOW FILTERING";
+
+                var BookTable = DataConnection.Ins.session.Execute(query)
+                    .Select(BookSelector);
+
+                userBookSearchDgv.DataSource = BookTable.ToList();
             }
-            else if (userBookSearchRbTitle.Checked == true)
-            {
-                cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', publisher as 'Publisher', year_of_pub as 'Y.O.P', genres as 'Genres' from books where title like @searchQuery", con);
-                cmd.Parameters.AddWithValue("@searchQuery", "%" + UserBookSearchTbxQuery.Text + "%");
 
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                sda.Fill(ds);
+            //else if(userBookSearchRbBoth.Checked == true)
+            //{
+            //    //cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', publisher as 'Publisher', year_of_pub as 'Y.O.P', genres as 'Genres' from books where title like @searchQuery or author like @searchQuery", con);
+            //    //cmd.Parameters.AddWithValue("@searchQuery", "%" + UserBookSearchTbxQuery.Text + "%");
 
-                userBookSearchDgv.DataSource = ds.Tables[0];
-            }
+            //    //SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            //    //DataSet ds = new DataSet();
+            //    //sda.Fill(ds);
+
+            //    //userBookSearchDgv.DataSource = ds.Tables[0];
+            //}
+
             else if(userBookSearchRbAuthor.Checked == true)
             {
-                cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', publisher as 'Publisher', year_of_pub as 'Y.O.P', genres as 'Genres' from books where author like @searchQuery", con);
-                cmd.Parameters.AddWithValue("@searchQuery", "%" + UserBookSearchTbxQuery.Text + "%");
+                //cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', publisher as 'Publisher', year_of_pub as 'Y.O.P', genres as 'Genres' from books where author like @searchQuery", con);
+                //cmd.Parameters.AddWithValue("@searchQuery", "%" + UserBookSearchTbxQuery.Text + "%");
 
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                sda.Fill(ds);
+                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                //DataSet ds = new DataSet();
+                //sda.Fill(ds);
 
-                userBookSearchDgv.DataSource = ds.Tables[0];
+                //userBookSearchDgv.DataSource = ds.Tables[0];
+
+                string query = "SELECT * FROM books Where author = '" + UserBookSearchTbxQuery.Text.Trim() + "'  ALLOW FILTERING";
+
+                var BookTable = DataConnection.Ins.session.Execute(query)
+                    .Select(BookSelector);
+
+                userBookSearchDgv.DataSource = BookTable.ToList();
             }
         }
 

@@ -58,7 +58,7 @@
             this.panel1.Controls.Add(this.userBookSearchLblSearch);
             this.panel1.Controls.Add(this.userBookSearchDgv);
             this.panel1.Location = new System.Drawing.Point(57, 58);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1703, 889);
             this.panel1.TabIndex = 0;
@@ -67,7 +67,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button2.Location = new System.Drawing.Point(1307, 204);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(195, 43);
             this.button2.TabIndex = 23;
@@ -79,7 +79,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button1.Location = new System.Drawing.Point(1307, 57);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(195, 43);
             this.button1.TabIndex = 22;
@@ -91,7 +91,7 @@
             // 
             this.usrBookSearchBtnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.usrBookSearchBtnLogout.Location = new System.Drawing.Point(1401, 105);
-            this.usrBookSearchBtnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usrBookSearchBtnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.usrBookSearchBtnLogout.Name = "usrBookSearchBtnLogout";
             this.usrBookSearchBtnLogout.Size = new System.Drawing.Size(100, 43);
             this.usrBookSearchBtnLogout.TabIndex = 21;
@@ -103,7 +103,7 @@
             // 
             this.UserBookSearchBtnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserBookSearchBtnSearch.Location = new System.Drawing.Point(613, 149);
-            this.UserBookSearchBtnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UserBookSearchBtnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.UserBookSearchBtnSearch.Name = "UserBookSearchBtnSearch";
             this.UserBookSearchBtnSearch.Size = new System.Drawing.Size(117, 41);
             this.UserBookSearchBtnSearch.TabIndex = 19;
@@ -115,7 +115,7 @@
             // 
             this.UserBookSearchTbxQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserBookSearchTbxQuery.Location = new System.Drawing.Point(295, 113);
-            this.UserBookSearchTbxQuery.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UserBookSearchTbxQuery.Margin = new System.Windows.Forms.Padding(4);
             this.UserBookSearchTbxQuery.Name = "UserBookSearchTbxQuery";
             this.UserBookSearchTbxQuery.Size = new System.Drawing.Size(435, 26);
             this.UserBookSearchTbxQuery.TabIndex = 18;
@@ -125,20 +125,21 @@
             this.userBookSearchRbBoth.AutoSize = true;
             this.userBookSearchRbBoth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userBookSearchRbBoth.Location = new System.Drawing.Point(485, 149);
-            this.userBookSearchRbBoth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.userBookSearchRbBoth.Margin = new System.Windows.Forms.Padding(4);
             this.userBookSearchRbBoth.Name = "userBookSearchRbBoth";
             this.userBookSearchRbBoth.Size = new System.Drawing.Size(73, 29);
             this.userBookSearchRbBoth.TabIndex = 17;
             this.userBookSearchRbBoth.TabStop = true;
             this.userBookSearchRbBoth.Text = "Both";
             this.userBookSearchRbBoth.UseVisualStyleBackColor = true;
+            this.userBookSearchRbBoth.Visible = false;
             // 
             // userBookSearchRbAuthor
             // 
             this.userBookSearchRbAuthor.AutoSize = true;
             this.userBookSearchRbAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userBookSearchRbAuthor.Location = new System.Drawing.Point(377, 149);
-            this.userBookSearchRbAuthor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.userBookSearchRbAuthor.Margin = new System.Windows.Forms.Padding(4);
             this.userBookSearchRbAuthor.Name = "userBookSearchRbAuthor";
             this.userBookSearchRbAuthor.Size = new System.Drawing.Size(91, 29);
             this.userBookSearchRbAuthor.TabIndex = 16;
@@ -151,7 +152,7 @@
             this.userBookSearchRbTitle.AutoSize = true;
             this.userBookSearchRbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userBookSearchRbTitle.Location = new System.Drawing.Point(295, 149);
-            this.userBookSearchRbTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.userBookSearchRbTitle.Margin = new System.Windows.Forms.Padding(4);
             this.userBookSearchRbTitle.Name = "userBookSearchRbTitle";
             this.userBookSearchRbTitle.Size = new System.Drawing.Size(70, 29);
             this.userBookSearchRbTitle.TabIndex = 15;
@@ -184,7 +185,7 @@
             this.userBookSearchDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.userBookSearchDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.userBookSearchDgv.Location = new System.Drawing.Point(209, 255);
-            this.userBookSearchDgv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.userBookSearchDgv.Margin = new System.Windows.Forms.Padding(4);
             this.userBookSearchDgv.Name = "userBookSearchDgv";
             this.userBookSearchDgv.RowHeadersWidth = 51;
             this.userBookSearchDgv.Size = new System.Drawing.Size(1292, 592);
@@ -196,7 +197,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1803, 961);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "userBookSearch";
             this.Text = "Search Books";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
