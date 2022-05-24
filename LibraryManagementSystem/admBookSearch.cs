@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using Cassandra;
 using LibraryManagementSystem.Model;
+using Cassandra.Mapping;
 
 namespace LibraryManagementSystem
 {
@@ -26,6 +27,8 @@ namespace LibraryManagementSystem
         Func<Row, tblBook> BookSelector;
 
 
+        private readonly IMapper mapper = new Mapper(DataConnection.Ins.session);
+
         public admBookSearch()
         {
             InitializeComponent();
@@ -34,25 +37,27 @@ namespace LibraryManagementSystem
             {
                 tblBook card = new tblBook
                 {
-                    MaSach = r.GetValue<string>("masach"),
-                    GiaDenBu = r.GetValue<Decimal>("giadenbu"),
-                    TacGia = r.GetValue<string>("tacgia"),
-                    TheLoai = r.GetValue<string>("theloai"),
-
-                    TieuDe = r.GetValue<string>("tieude"),
-                    NgayTra = r.GetValue<DateTime>("ngaytra"),
-                    NgayMuon = r.GetValue<DateTime>("ngaymuon"),
+                    Id = r.GetValue<int>("id"),
+                    Title = r.GetValue<string>("title"),
+                    Publisher = r.GetValue<string>("publisher"),
+                    Genres = r.GetValue<string>("genres"),
+                    Author = r.GetValue<string>("author"),
+                    PublishYear = r.GetValue<string>("publishyear"),
+                    Status = r.GetValue<int>("status"),
+                    UserId = r.GetValue<int>("userid"),
+                    UserEmail = r.GetValue<string>("useremail"),
+                    DateIssue = r.GetValue<DateTime>("dateissue"),
                 };
                 return card;
             };
 
 
-            string query = "SELECT MaSach, TieuDe, TacGia, TheLoai, NgayMuon, NgayTra, GiaDenBu FROM Sach";
+            string query = "SELECT * FROM books";
 
-            var TicketTable = DataConnection.Ins.session.Execute(query)
+            var BookTable = DataConnection.Ins.session.Execute(query)
                 .Select(BookSelector);
 
-            admBookSearchDgv.DataSource = TicketTable.ToList();
+            admBookSearchDgv.DataSource = BookTable.ToList();
 
             admBookSearchRbTitle.Select();
         }
@@ -84,6 +89,27 @@ namespace LibraryManagementSystem
             //admBookSearchRbBoth.Select();
 
 
+            //User user = mapper.Fetch<User>(query).ToList().FirstOrDefault();
+            //if (user != null)
+            //{
+            //    userid = user.id;
+            //    password = user.password;
+            //    this.Hide();
+            //    if (user.type == 1)
+            //    {
+            //        admStartPage menuF = new admStartPage();
+            //        menuF.Show();
+            //    }
+            //    else
+            //    {
+            //        userBookSearch ubs = new userBookSearch();
+            //        ubs.Show();
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Wrong email or password!!!!");
+            //}
 
         }
 
@@ -122,7 +148,7 @@ namespace LibraryManagementSystem
 
                 //editBookDBDgvTable.DataSource = ds.Tables[0];
 
-                string query = "SELECT * FROM Sach Where TieuDe = '" + admBookSearchTbxQuery.Text.Trim() + "'  ALLOW FILTERING";
+                string query = "SELECT * FROM books Where title = '" + admBookSearchTbxQuery.Text.Trim() + "'  ALLOW FILTERING";
 
                 var BookTable = DataConnection.Ins.session.Execute(query)
                     .Select(BookSelector);
@@ -142,7 +168,7 @@ namespace LibraryManagementSystem
                 //editBookDBDgvTable.DataSource = ds.Tables[0];
 
 
-                string query = "SELECT * FROM Sach Where TacGia = '" + admBookSearchTbxQuery.Text.Trim() + "'  ALLOW FILTERING";
+                string query = "SELECT * FROM books Where author = '" + admBookSearchTbxQuery.Text.Trim() + "'  ALLOW FILTERING";
 
                 var BookTable = DataConnection.Ins.session.Execute(query)
                     .Select(BookSelector);

@@ -8,13 +8,19 @@ namespace LibraryManagementSystem.Model
 {
     class tblBook
     {
-        public string MaSach { set; get; }
-        public Decimal GiaDenBu { set; get; }
-        public string TacGia { set; get; }
+        public int Id { set; get; }
+        public string Title { set; get; }
 
-        public string TheLoai { set; get; }
-        public string TieuDe { set; get; }
-        public DateTime NgayTra { set; get; }
-        public DateTime NgayMuon { set; get; }
+        public string Publisher { set; get; }
+        public string Genres { set; get; }
+
+        public string Author { set; get; }
+        public string PublishYear { set; get; }
+        public int Status { set; get; }
+
+        public int UserId { set; get; }
+        public string UserEmail { set; get; }
+
+        public DateTime DateIssue { set; get; }
     }
 }
