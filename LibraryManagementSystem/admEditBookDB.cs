@@ -56,18 +56,20 @@ namespace LibraryManagementSystem
             {
                 tblBook card = new tblBook
                 {
-                    MaSach = r.GetValue<string>("masach"),
-                    GiaDenBu = r.GetValue<Decimal>("giadenbu"),
-                    TacGia = r.GetValue<string>("tacgia"),
-                    TheLoai = r.GetValue<string>("theloai"),
-
-                    TieuDe = r.GetValue<string>("tieude"),
-                    NgayTra = r.GetValue<DateTime>("ngaytra"),
-                    NgayMuon = r.GetValue<DateTime>("ngaymuon"),
+                    Id = r.GetValue<int>("id"),
+                    Title = r.GetValue<string>("title"),
+                    Publisher = r.GetValue<string>("publisher"),
+                    Genres = r.GetValue<string>("genres"),
+                    Author = r.GetValue<string>("author"),
+                    PublishYear = r.GetValue<string>("publishyear"),
+                    Status = r.GetValue<int>("status"),
+                    UserId = r.GetValue<int>("userid"),
+                    UserEmail = r.GetValue<string>("useremail"),
+                    DateIssue = r.GetValue<DateTime>("dateissue"),
                 };
                 return card;
             };
-            string query = "SELECT MaSach, TieuDe, TacGia, TheLoai, NgayMuon, NgayTra, GiaDenBu FROM Sach";
+            string query = "SELECT * FROM books";
 
             var BookTable = DataConnection.Ins.session.Execute(query)
                 .Select(BookSelector);
