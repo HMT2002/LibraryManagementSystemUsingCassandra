@@ -103,6 +103,7 @@
     <Compile Include="Model\DateCodec.cs" />
     <Compile Include="Model\tblBook.cs" />
     <Compile Include="Model\book.cs" />
+    <Compile Include="Model\tblStudent.cs" />
     <Compile Include="Model\user.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

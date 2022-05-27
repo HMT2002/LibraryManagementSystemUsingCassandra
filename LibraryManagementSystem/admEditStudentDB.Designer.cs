@@ -59,10 +59,10 @@
             // editStudentDBBtnDelete
             // 
             this.editStudentDBBtnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.editStudentDBBtnDelete.Location = new System.Drawing.Point(1117, 1006);
-            this.editStudentDBBtnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.editStudentDBBtnDelete.Location = new System.Drawing.Point(993, 805);
+            this.editStudentDBBtnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editStudentDBBtnDelete.Name = "editStudentDBBtnDelete";
-            this.editStudentDBBtnDelete.Size = new System.Drawing.Size(188, 82);
+            this.editStudentDBBtnDelete.Size = new System.Drawing.Size(167, 66);
             this.editStudentDBBtnDelete.TabIndex = 65;
             this.editStudentDBBtnDelete.Text = "Delete";
             this.editStudentDBBtnDelete.UseVisualStyleBackColor = true;
@@ -71,10 +71,10 @@
             // editStudentDBBtnSave
             // 
             this.editStudentDBBtnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editStudentDBBtnSave.Location = new System.Drawing.Point(728, 1006);
-            this.editStudentDBBtnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.editStudentDBBtnSave.Location = new System.Drawing.Point(647, 805);
+            this.editStudentDBBtnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editStudentDBBtnSave.Name = "editStudentDBBtnSave";
-            this.editStudentDBBtnSave.Size = new System.Drawing.Size(213, 82);
+            this.editStudentDBBtnSave.Size = new System.Drawing.Size(189, 66);
             this.editStudentDBBtnSave.TabIndex = 64;
             this.editStudentDBBtnSave.Text = "Save Edit";
             this.editStudentDBBtnSave.UseVisualStyleBackColor = true;
@@ -83,10 +83,10 @@
             // editStudentDBBtnSearch
             // 
             this.editStudentDBBtnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editStudentDBBtnSearch.Location = new System.Drawing.Point(1034, 228);
-            this.editStudentDBBtnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.editStudentDBBtnSearch.Location = new System.Drawing.Point(919, 182);
+            this.editStudentDBBtnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editStudentDBBtnSearch.Name = "editStudentDBBtnSearch";
-            this.editStudentDBBtnSearch.Size = new System.Drawing.Size(132, 51);
+            this.editStudentDBBtnSearch.Size = new System.Drawing.Size(117, 41);
             this.editStudentDBBtnSearch.TabIndex = 63;
             this.editStudentDBBtnSearch.Text = "Search";
             this.editStudentDBBtnSearch.UseVisualStyleBackColor = true;
@@ -95,20 +95,20 @@
             // editStudentDBTbxSearch
             // 
             this.editStudentDBTbxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editStudentDBTbxSearch.Location = new System.Drawing.Point(392, 182);
-            this.editStudentDBTbxSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.editStudentDBTbxSearch.Location = new System.Drawing.Point(348, 146);
+            this.editStudentDBTbxSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editStudentDBTbxSearch.Name = "editStudentDBTbxSearch";
-            this.editStudentDBTbxSearch.Size = new System.Drawing.Size(772, 30);
+            this.editStudentDBTbxSearch.Size = new System.Drawing.Size(687, 26);
             this.editStudentDBTbxSearch.TabIndex = 62;
             // 
             // userBookSearchLblSearch
             // 
             this.userBookSearchLblSearch.AutoSize = true;
             this.userBookSearchLblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userBookSearchLblSearch.Location = new System.Drawing.Point(148, 188);
+            this.userBookSearchLblSearch.Location = new System.Drawing.Point(132, 150);
             this.userBookSearchLblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.userBookSearchLblSearch.Name = "userBookSearchLblSearch";
-            this.userBookSearchLblSearch.Size = new System.Drawing.Size(237, 29);
+            this.userBookSearchLblSearch.Size = new System.Drawing.Size(196, 25);
             this.userBookSearchLblSearch.TabIndex = 58;
             this.userBookSearchLblSearch.Text = "Search (name or id) :";
             // 
@@ -125,30 +125,30 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.editStudentDBDgvTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.editStudentDBDgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.editStudentDBDgvTable.Location = new System.Drawing.Point(153, 318);
-            this.editStudentDBDgvTable.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.editStudentDBDgvTable.Location = new System.Drawing.Point(136, 254);
+            this.editStudentDBDgvTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editStudentDBDgvTable.Name = "editStudentDBDgvTable";
             this.editStudentDBDgvTable.RowHeadersWidth = 51;
-            this.editStudentDBDgvTable.Size = new System.Drawing.Size(1454, 260);
+            this.editStudentDBDgvTable.Size = new System.Drawing.Size(1292, 208);
             this.editStudentDBDgvTable.TabIndex = 57;
             this.editStudentDBDgvTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.editStudentDBDgvTable_CellClick);
             // 
             // editStudentDBTbxEmail
             // 
             this.editStudentDBTbxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.editStudentDBTbxEmail.Location = new System.Drawing.Point(640, 881);
-            this.editStudentDBTbxEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.editStudentDBTbxEmail.Location = new System.Drawing.Point(569, 705);
+            this.editStudentDBTbxEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editStudentDBTbxEmail.Name = "editStudentDBTbxEmail";
-            this.editStudentDBTbxEmail.Size = new System.Drawing.Size(716, 30);
+            this.editStudentDBTbxEmail.Size = new System.Drawing.Size(637, 26);
             this.editStudentDBTbxEmail.TabIndex = 55;
             // 
             // admStudentDBTbxName
             // 
             this.admStudentDBTbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.admStudentDBTbxName.Location = new System.Drawing.Point(279, 758);
-            this.admStudentDBTbxName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.admStudentDBTbxName.Location = new System.Drawing.Point(248, 606);
+            this.admStudentDBTbxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.admStudentDBTbxName.Name = "admStudentDBTbxName";
-            this.admStudentDBTbxName.Size = new System.Drawing.Size(769, 30);
+            this.admStudentDBTbxName.Size = new System.Drawing.Size(684, 26);
             this.admStudentDBTbxName.TabIndex = 54;
             // 
             // panel1
@@ -176,20 +176,20 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.editStudentDBBtnLogout);
             this.panel1.Controls.Add(this.editStudentDBBtnBack);
-            this.panel1.Location = new System.Drawing.Point(58, 19);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel1.Location = new System.Drawing.Point(54, 80);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1772, 1102);
+            this.panel1.Size = new System.Drawing.Size(1575, 882);
             this.panel1.TabIndex = 1;
             // 
             // admStudentDBCbAdmin
             // 
             this.admStudentDBCbAdmin.AutoSize = true;
             this.admStudentDBCbAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.admStudentDBCbAdmin.Location = new System.Drawing.Point(1198, 761);
-            this.admStudentDBCbAdmin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.admStudentDBCbAdmin.Location = new System.Drawing.Point(1065, 609);
+            this.admStudentDBCbAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.admStudentDBCbAdmin.Name = "admStudentDBCbAdmin";
-            this.admStudentDBCbAdmin.Size = new System.Drawing.Size(107, 33);
+            this.admStudentDBCbAdmin.Size = new System.Drawing.Size(90, 29);
             this.admStudentDBCbAdmin.TabIndex = 69;
             this.admStudentDBCbAdmin.Text = "Admin";
             this.admStudentDBCbAdmin.UseVisualStyleBackColor = true;
@@ -197,10 +197,10 @@
             // admEditStudentDBBtnClear
             // 
             this.admEditStudentDBBtnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admEditStudentDBBtnClear.Location = new System.Drawing.Point(1410, 901);
-            this.admEditStudentDBBtnClear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.admEditStudentDBBtnClear.Location = new System.Drawing.Point(1253, 721);
+            this.admEditStudentDBBtnClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.admEditStudentDBBtnClear.Name = "admEditStudentDBBtnClear";
-            this.admEditStudentDBBtnClear.Size = new System.Drawing.Size(197, 60);
+            this.admEditStudentDBBtnClear.Size = new System.Drawing.Size(175, 48);
             this.admEditStudentDBBtnClear.TabIndex = 68;
             this.admEditStudentDBBtnClear.Text = "Clear Values";
             this.admEditStudentDBBtnClear.UseVisualStyleBackColor = true;
@@ -209,10 +209,10 @@
             // editStudentDBBtnAddToDB
             // 
             this.editStudentDBBtnAddToDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editStudentDBBtnAddToDB.Location = new System.Drawing.Point(377, 1006);
-            this.editStudentDBBtnAddToDB.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.editStudentDBBtnAddToDB.Location = new System.Drawing.Point(335, 805);
+            this.editStudentDBBtnAddToDB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editStudentDBBtnAddToDB.Name = "editStudentDBBtnAddToDB";
-            this.editStudentDBBtnAddToDB.Size = new System.Drawing.Size(224, 82);
+            this.editStudentDBBtnAddToDB.Size = new System.Drawing.Size(199, 66);
             this.editStudentDBBtnAddToDB.TabIndex = 67;
             this.editStudentDBBtnAddToDB.Text = "Add to DB";
             this.editStudentDBBtnAddToDB.UseVisualStyleBackColor = true;
@@ -221,37 +221,37 @@
             // label7
             // 
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label7.Location = new System.Drawing.Point(153, 640);
+            this.label7.Location = new System.Drawing.Point(136, 512);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(1454, 2);
+            this.label7.Size = new System.Drawing.Size(1292, 2);
             this.label7.TabIndex = 56;
             // 
             // editStudentDBTbxAddress
             // 
             this.editStudentDBTbxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.editStudentDBTbxAddress.Location = new System.Drawing.Point(279, 815);
-            this.editStudentDBTbxAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.editStudentDBTbxAddress.Location = new System.Drawing.Point(248, 652);
+            this.editStudentDBTbxAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editStudentDBTbxAddress.Name = "editStudentDBTbxAddress";
-            this.editStudentDBTbxAddress.Size = new System.Drawing.Size(769, 30);
+            this.editStudentDBTbxAddress.Size = new System.Drawing.Size(684, 26);
             this.editStudentDBTbxAddress.TabIndex = 52;
             // 
             // editStudentDBTbxPassword
             // 
             this.editStudentDBTbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.editStudentDBTbxPassword.Location = new System.Drawing.Point(1320, 820);
-            this.editStudentDBTbxPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.editStudentDBTbxPassword.Location = new System.Drawing.Point(1173, 656);
+            this.editStudentDBTbxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editStudentDBTbxPassword.Name = "editStudentDBTbxPassword";
-            this.editStudentDBTbxPassword.Size = new System.Drawing.Size(284, 30);
+            this.editStudentDBTbxPassword.Size = new System.Drawing.Size(253, 26);
             this.editStudentDBTbxPassword.TabIndex = 51;
             // 
             // editStudentDBTbxUserID
             // 
             this.editStudentDBTbxUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.editStudentDBTbxUserID.Location = new System.Drawing.Point(279, 705);
-            this.editStudentDBTbxUserID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.editStudentDBTbxUserID.Location = new System.Drawing.Point(248, 564);
+            this.editStudentDBTbxUserID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editStudentDBTbxUserID.Name = "editStudentDBTbxUserID";
-            this.editStudentDBTbxUserID.Size = new System.Drawing.Size(116, 30);
+            this.editStudentDBTbxUserID.Size = new System.Drawing.Size(104, 26);
             this.editStudentDBTbxUserID.TabIndex = 50;
             this.editStudentDBTbxUserID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editStudentDBTbxUserID_KeyPress);
             // 
@@ -259,10 +259,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(147, 815);
+            this.label6.Location = new System.Drawing.Point(131, 652);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(114, 29);
+            this.label6.Size = new System.Drawing.Size(96, 25);
             this.label6.TabIndex = 49;
             this.label6.Text = "Address :";
             // 
@@ -270,10 +270,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label5.Location = new System.Drawing.Point(148, 705);
+            this.label5.Location = new System.Drawing.Point(132, 564);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 29);
+            this.label5.Size = new System.Drawing.Size(88, 25);
             this.label5.TabIndex = 48;
             this.label5.Text = "User ID :";
             // 
@@ -281,10 +281,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label4.Location = new System.Drawing.Point(541, 881);
+            this.label4.Location = new System.Drawing.Point(481, 705);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 29);
+            this.label4.Size = new System.Drawing.Size(76, 25);
             this.label4.TabIndex = 47;
             this.label4.Text = "E mail :";
             // 
@@ -292,10 +292,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(1192, 820);
+            this.label2.Location = new System.Drawing.Point(1060, 656);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 29);
+            this.label2.Size = new System.Drawing.Size(109, 25);
             this.label2.TabIndex = 45;
             this.label2.Text = "Password :";
             // 
@@ -303,20 +303,20 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(148, 761);
+            this.label1.Location = new System.Drawing.Point(132, 609);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 29);
+            this.label1.Size = new System.Drawing.Size(75, 25);
             this.label1.TabIndex = 44;
             this.label1.Text = "Name :";
             // 
             // editStudentDBBtnLogout
             // 
             this.editStudentDBBtnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.editStudentDBBtnLogout.Location = new System.Drawing.Point(1494, 122);
-            this.editStudentDBBtnLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.editStudentDBBtnLogout.Location = new System.Drawing.Point(1328, 98);
+            this.editStudentDBBtnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editStudentDBBtnLogout.Name = "editStudentDBBtnLogout";
-            this.editStudentDBBtnLogout.Size = new System.Drawing.Size(112, 54);
+            this.editStudentDBBtnLogout.Size = new System.Drawing.Size(100, 43);
             this.editStudentDBBtnLogout.TabIndex = 43;
             this.editStudentDBBtnLogout.Text = "Logout";
             this.editStudentDBBtnLogout.UseVisualStyleBackColor = true;
@@ -325,10 +325,10 @@
             // editStudentDBBtnBack
             // 
             this.editStudentDBBtnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.editStudentDBBtnBack.Location = new System.Drawing.Point(148, 98);
-            this.editStudentDBBtnBack.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.editStudentDBBtnBack.Location = new System.Drawing.Point(132, 78);
+            this.editStudentDBBtnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editStudentDBBtnBack.Name = "editStudentDBBtnBack";
-            this.editStudentDBBtnBack.Size = new System.Drawing.Size(123, 54);
+            this.editStudentDBBtnBack.Size = new System.Drawing.Size(109, 43);
             this.editStudentDBBtnBack.TabIndex = 42;
             this.editStudentDBBtnBack.Text = "Back";
             this.editStudentDBBtnBack.UseVisualStyleBackColor = true;
@@ -336,11 +336,11 @@
             // 
             // admEditStudentDB
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1880, 1170);
+            this.ClientSize = new System.Drawing.Size(1675, 975);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "admEditStudentDB";
             this.Text = "Edit User DB";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

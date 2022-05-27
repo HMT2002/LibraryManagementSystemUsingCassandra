@@ -59,10 +59,12 @@ namespace LibraryManagementSystem
                 {
                     Id = r.GetValue<int>("id"),
                     Title = r.GetValue<string>("title"),
-                    Publisher = r.GetValue<string>("publisher"),
                     Genres = r.GetValue<string>("genres"),
-                    Author = r.GetValue<string>("author"),
                     PublishYear = r.GetValue<string>("publishyear"),
+                    Publisher = r.GetValue<string>("publisher"),
+
+                    Author = r.GetValue<string>("author"),
+
                     Status = r.GetValue<int>("status"),
                     UserId = r.GetValue<int>("userid"),
                     UserEmail = r.GetValue<string>("useremail"),
@@ -183,10 +185,10 @@ namespace LibraryManagementSystem
                 // copy value to variable even if unnecessary
                 selected_book_id = Convert.ToInt32(editBookDBDgvTable.Rows[e.RowIndex].Cells[0].Value);
                 string title = Convert.ToString(editBookDBDgvTable.Rows[e.RowIndex].Cells[1].Value);
-                string author = Convert.ToString(editBookDBDgvTable.Rows[e.RowIndex].Cells[2].Value);
-                string publisher = Convert.ToString(editBookDBDgvTable.Rows[e.RowIndex].Cells[3].Value);
-                string year_of_pub = Convert.ToString(editBookDBDgvTable.Rows[e.RowIndex].Cells[4].Value);
-                string genres = Convert.ToString(editBookDBDgvTable.Rows[e.RowIndex].Cells[5].Value);
+                string author = Convert.ToString(editBookDBDgvTable.Rows[e.RowIndex].Cells[4].Value);
+                string publisher = Convert.ToString(editBookDBDgvTable.Rows[e.RowIndex].Cells[2].Value);
+                string year_of_pub = Convert.ToString(editBookDBDgvTable.Rows[e.RowIndex].Cells[5].Value);
+                string genres = Convert.ToString(editBookDBDgvTable.Rows[e.RowIndex].Cells[3].Value);
 
                 // paste into textbox
                 editBookDBTbxBookID.Text = Convert.ToString(selected_book_id);
@@ -378,8 +380,6 @@ namespace LibraryManagementSystem
             //    }
             //}
 
-        TypeSerializerDefinitions definitions = new TypeSerializerDefinitions();
-        definitions.Define(new DateCodec());
             try
             {
                 tblBook tk = new tblBook();
@@ -452,10 +452,12 @@ namespace LibraryManagementSystem
                     var ps = DataConnection.Ins.session.Prepare("DELETE from books WHERE id=? ");
                     var query = ps.Bind(tk.Id);
                     DataConnection.Ins.session.Execute(query);
-                    MessageBox.Show("Book successfully deleted.");
+
                     clearFields();
                     // display updated books
                     displayBooks();
+                    MessageBox.Show("Book successfully deleted.");
+
                 }
                 catch
                 {
