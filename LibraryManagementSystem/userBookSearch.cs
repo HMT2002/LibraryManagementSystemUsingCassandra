@@ -84,15 +84,6 @@ namespace LibraryManagementSystem
 
             if (userBookSearchRbTitle.Checked == true)
             {
-                //cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', publisher as 'Publisher', year_of_pub as 'Y.O.P', genres as 'Genres' from books where title like @searchQuery", con);
-                //cmd.Parameters.AddWithValue("@searchQuery", "%" + UserBookSearchTbxQuery.Text + "%");
-
-                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                //DataSet ds = new DataSet();
-                //sda.Fill(ds);
-
-                //userBookSearchDgv.DataSource = ds.Tables[0];
-
                 string query = "SELECT * FROM books Where title = '" + UserBookSearchTbxQuery.Text.Trim() + "'  ALLOW FILTERING";
 
                 var BookTable = DataConnection.Ins.session.Execute(query)
@@ -101,29 +92,8 @@ namespace LibraryManagementSystem
                 userBookSearchDgv.DataSource = BookTable.ToList();
             }
 
-            //else if(userBookSearchRbBoth.Checked == true)
-            //{
-            //    //cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', publisher as 'Publisher', year_of_pub as 'Y.O.P', genres as 'Genres' from books where title like @searchQuery or author like @searchQuery", con);
-            //    //cmd.Parameters.AddWithValue("@searchQuery", "%" + UserBookSearchTbxQuery.Text + "%");
-
-            //    //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            //    //DataSet ds = new DataSet();
-            //    //sda.Fill(ds);
-
-            //    //userBookSearchDgv.DataSource = ds.Tables[0];
-            //}
-
             else if(userBookSearchRbAuthor.Checked == true)
             {
-                //cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', publisher as 'Publisher', year_of_pub as 'Y.O.P', genres as 'Genres' from books where author like @searchQuery", con);
-                //cmd.Parameters.AddWithValue("@searchQuery", "%" + UserBookSearchTbxQuery.Text + "%");
-
-                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                //DataSet ds = new DataSet();
-                //sda.Fill(ds);
-
-                //userBookSearchDgv.DataSource = ds.Tables[0];
-
                 string query = "SELECT * FROM books Where author = '" + UserBookSearchTbxQuery.Text.Trim() + "'  ALLOW FILTERING";
 
                 var BookTable = DataConnection.Ins.session.Execute(query)
