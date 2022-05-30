@@ -45,6 +45,7 @@
             this.amdIssueTbxBookID = new System.Windows.Forms.TextBox();
             this.admIssueLblUserID = new System.Windows.Forms.Label();
             this.admIssueLblBookID = new System.Windows.Forms.Label();
+            this.admIssueBtnDeleteIssue = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.admIssueDgvTable)).BeginInit();
             this.SuspendLayout();
@@ -52,6 +53,7 @@
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Controls.Add(this.admIssueBtnDeleteIssue);
             this.panel1.Controls.Add(this.admIssueBooksBtnLogout);
             this.panel1.Controls.Add(this.admIssueBooksBtnBack);
             this.panel1.Controls.Add(this.label1);
@@ -69,7 +71,7 @@
             this.panel1.Controls.Add(this.admIssueLblUserID);
             this.panel1.Controls.Add(this.admIssueLblBookID);
             this.panel1.Location = new System.Drawing.Point(92, 30);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1081, 875);
             this.panel1.TabIndex = 0;
@@ -78,7 +80,7 @@
             // 
             this.admIssueBooksBtnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.admIssueBooksBtnLogout.Location = new System.Drawing.Point(956, 21);
-            this.admIssueBooksBtnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admIssueBooksBtnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.admIssueBooksBtnLogout.Name = "admIssueBooksBtnLogout";
             this.admIssueBooksBtnLogout.Size = new System.Drawing.Size(103, 37);
             this.admIssueBooksBtnLogout.TabIndex = 68;
@@ -90,7 +92,7 @@
             // 
             this.admIssueBooksBtnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.admIssueBooksBtnBack.Location = new System.Drawing.Point(33, 21);
-            this.admIssueBooksBtnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admIssueBooksBtnBack.Margin = new System.Windows.Forms.Padding(4);
             this.admIssueBooksBtnBack.Name = "admIssueBooksBtnBack";
             this.admIssueBooksBtnBack.Size = new System.Drawing.Size(103, 37);
             this.admIssueBooksBtnBack.TabIndex = 67;
@@ -112,7 +114,7 @@
             // 
             this.admIssueBtnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.admIssueBtnSearch.Location = new System.Drawing.Point(736, 251);
-            this.admIssueBtnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admIssueBtnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.admIssueBtnSearch.Name = "admIssueBtnSearch";
             this.admIssueBtnSearch.Size = new System.Drawing.Size(117, 41);
             this.admIssueBtnSearch.TabIndex = 64;
@@ -124,7 +126,7 @@
             // 
             this.admIssueTbxSearchQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.admIssueTbxSearchQuery.Location = new System.Drawing.Point(265, 215);
-            this.admIssueTbxSearchQuery.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admIssueTbxSearchQuery.Margin = new System.Windows.Forms.Padding(4);
             this.admIssueTbxSearchQuery.Name = "admIssueTbxSearchQuery";
             this.admIssueTbxSearchQuery.Size = new System.Drawing.Size(587, 26);
             this.admIssueTbxSearchQuery.TabIndex = 63;
@@ -134,20 +136,21 @@
             this.admIssueRbBoth.AutoSize = true;
             this.admIssueRbBoth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.admIssueRbBoth.Location = new System.Drawing.Point(456, 251);
-            this.admIssueRbBoth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admIssueRbBoth.Margin = new System.Windows.Forms.Padding(4);
             this.admIssueRbBoth.Name = "admIssueRbBoth";
             this.admIssueRbBoth.Size = new System.Drawing.Size(73, 29);
             this.admIssueRbBoth.TabIndex = 62;
             this.admIssueRbBoth.TabStop = true;
             this.admIssueRbBoth.Text = "Both";
             this.admIssueRbBoth.UseVisualStyleBackColor = true;
+            this.admIssueRbBoth.Visible = false;
             // 
             // admIssueRbAuthor
             // 
             this.admIssueRbAuthor.AutoSize = true;
             this.admIssueRbAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.admIssueRbAuthor.Location = new System.Drawing.Point(348, 251);
-            this.admIssueRbAuthor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admIssueRbAuthor.Margin = new System.Windows.Forms.Padding(4);
             this.admIssueRbAuthor.Name = "admIssueRbAuthor";
             this.admIssueRbAuthor.Size = new System.Drawing.Size(91, 29);
             this.admIssueRbAuthor.TabIndex = 61;
@@ -160,7 +163,7 @@
             this.admIssueRbTitle.AutoSize = true;
             this.admIssueRbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.admIssueRbTitle.Location = new System.Drawing.Point(265, 251);
-            this.admIssueRbTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admIssueRbTitle.Margin = new System.Windows.Forms.Padding(4);
             this.admIssueRbTitle.Name = "admIssueRbTitle";
             this.admIssueRbTitle.Size = new System.Drawing.Size(70, 29);
             this.admIssueRbTitle.TabIndex = 60;
@@ -184,7 +187,7 @@
             this.admIssueDgvTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.admIssueDgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.admIssueDgvTable.Location = new System.Drawing.Point(33, 346);
-            this.admIssueDgvTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admIssueDgvTable.Margin = new System.Windows.Forms.Padding(4);
             this.admIssueDgvTable.Name = "admIssueDgvTable";
             this.admIssueDgvTable.RowHeadersWidth = 51;
             this.admIssueDgvTable.Size = new System.Drawing.Size(1025, 498);
@@ -204,7 +207,7 @@
             // 
             this.admIssueBtnIssue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.admIssueBtnIssue.Location = new System.Drawing.Point(455, 126);
-            this.admIssueBtnIssue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admIssueBtnIssue.Margin = new System.Windows.Forms.Padding(4);
             this.admIssueBtnIssue.Name = "admIssueBtnIssue";
             this.admIssueBtnIssue.Size = new System.Drawing.Size(128, 41);
             this.admIssueBtnIssue.TabIndex = 19;
@@ -216,7 +219,7 @@
             // 
             this.admIssueTbxUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.admIssueTbxUserID.Location = new System.Drawing.Point(499, 80);
-            this.admIssueTbxUserID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admIssueTbxUserID.Margin = new System.Windows.Forms.Padding(4);
             this.admIssueTbxUserID.Name = "admIssueTbxUserID";
             this.admIssueTbxUserID.Size = new System.Drawing.Size(200, 37);
             this.admIssueTbxUserID.TabIndex = 18;
@@ -225,7 +228,7 @@
             // 
             this.amdIssueTbxBookID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.amdIssueTbxBookID.Location = new System.Drawing.Point(499, 23);
-            this.amdIssueTbxBookID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.amdIssueTbxBookID.Margin = new System.Windows.Forms.Padding(4);
             this.amdIssueTbxBookID.Name = "amdIssueTbxBookID";
             this.amdIssueTbxBookID.Size = new System.Drawing.Size(200, 37);
             this.amdIssueTbxBookID.TabIndex = 17;
@@ -252,13 +255,25 @@
             this.admIssueLblBookID.TabIndex = 15;
             this.admIssueLblBookID.Text = "Book ID: ";
             // 
+            // admIssueBtnDeleteIssue
+            // 
+            this.admIssueBtnDeleteIssue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.admIssueBtnDeleteIssue.Location = new System.Drawing.Point(591, 126);
+            this.admIssueBtnDeleteIssue.Margin = new System.Windows.Forms.Padding(4);
+            this.admIssueBtnDeleteIssue.Name = "admIssueBtnDeleteIssue";
+            this.admIssueBtnDeleteIssue.Size = new System.Drawing.Size(128, 41);
+            this.admIssueBtnDeleteIssue.TabIndex = 69;
+            this.admIssueBtnDeleteIssue.Text = "Delete";
+            this.admIssueBtnDeleteIssue.UseVisualStyleBackColor = true;
+            this.admIssueBtnDeleteIssue.Click += new System.EventHandler(this.admIssueBtnDeleteIssue_Click);
+            // 
             // admIssue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1273, 940);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "admIssue";
             this.Text = "Issue Books";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -290,5 +305,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button admIssueBooksBtnLogout;
         private System.Windows.Forms.Button admIssueBooksBtnBack;
+        private System.Windows.Forms.Button admIssueBtnDeleteIssue;
     }
 }
