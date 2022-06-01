@@ -180,7 +180,7 @@ namespace LibraryManagementSystem
         private void editBookDBDgvTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // remove column headers
-            if(e.RowIndex != -1 && e.RowIndex != editBookDBDgvTable.Rows.Count - 1)
+            if(e.RowIndex != -1 && e.RowIndex != editBookDBDgvTable.Rows.Count)
             {
                 // copy value to variable even if unnecessary
                 selected_book_id = Convert.ToInt32(editBookDBDgvTable.Rows[e.RowIndex].Cells[0].Value);

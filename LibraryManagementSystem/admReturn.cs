@@ -24,8 +24,8 @@ namespace LibraryManagementSystem
         private void admReturn_Load(object sender, EventArgs e)
         {
             // establish connection to db
-            string connectionString = ConfigurationManager.ConnectionStrings["LibraryManagementSystem.Properties.Settings.LibraryDB"].ToString();
-            con = new SqlConnection(connectionString);
+            //string connectionString = ConfigurationManager.ConnectionStrings["LibraryManagementSystem.Properties.Settings.LibraryDB"].ToString();
+            //con = new SqlConnection(connectionString);
 
             // display table
             display();

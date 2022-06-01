@@ -45,7 +45,6 @@
             this.amdIssueTbxBookID = new System.Windows.Forms.TextBox();
             this.admIssueLblUserID = new System.Windows.Forms.Label();
             this.admIssueLblBookID = new System.Windows.Forms.Label();
-            this.admIssueBtnDeleteIssue = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.admIssueDgvTable)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +52,6 @@
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.Controls.Add(this.admIssueBtnDeleteIssue);
             this.panel1.Controls.Add(this.admIssueBooksBtnLogout);
             this.panel1.Controls.Add(this.admIssueBooksBtnBack);
             this.panel1.Controls.Add(this.label1);
@@ -255,18 +253,6 @@
             this.admIssueLblBookID.TabIndex = 15;
             this.admIssueLblBookID.Text = "Book ID: ";
             // 
-            // admIssueBtnDeleteIssue
-            // 
-            this.admIssueBtnDeleteIssue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.admIssueBtnDeleteIssue.Location = new System.Drawing.Point(591, 126);
-            this.admIssueBtnDeleteIssue.Margin = new System.Windows.Forms.Padding(4);
-            this.admIssueBtnDeleteIssue.Name = "admIssueBtnDeleteIssue";
-            this.admIssueBtnDeleteIssue.Size = new System.Drawing.Size(128, 41);
-            this.admIssueBtnDeleteIssue.TabIndex = 69;
-            this.admIssueBtnDeleteIssue.Text = "Delete";
-            this.admIssueBtnDeleteIssue.UseVisualStyleBackColor = true;
-            this.admIssueBtnDeleteIssue.Click += new System.EventHandler(this.admIssueBtnDeleteIssue_Click);
-            // 
             // admIssue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -305,6 +291,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button admIssueBooksBtnLogout;
         private System.Windows.Forms.Button admIssueBooksBtnBack;
-        private System.Windows.Forms.Button admIssueBtnDeleteIssue;
     }
 }

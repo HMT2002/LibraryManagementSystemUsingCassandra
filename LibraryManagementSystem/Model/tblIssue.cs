@@ -11,6 +11,9 @@ namespace LibraryManagementSystem.Model
         public int Id { set; get; }
         public int BookId { set; get; }
         public int StudentId { set; get; }
+        public string BookName { set; get; }
+        public string StudentName { set; get; }
+        public DateTime DateIssue { set; get; }
 
     }
 }
