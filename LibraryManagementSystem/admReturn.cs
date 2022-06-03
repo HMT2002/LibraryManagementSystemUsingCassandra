@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using LibraryManagementSystem.Model;
+using Cassandra;
 
 namespace LibraryManagementSystem
 {
@@ -16,6 +18,11 @@ namespace LibraryManagementSystem
     {
         SqlConnection con;
         SqlCommand cmd;
+
+        Func<Row, tblIssue> IssueSelector;
+
+        int issue_id = 0;
+
         public admReturn()
         {
             InitializeComponent();
@@ -45,12 +52,35 @@ namespace LibraryManagementSystem
         public void display()
         {
             // on intialise display books table
-            cmd = new SqlCommand("select user_id as 'User ID', name as 'Name', book_id as 'Book ID', title as 'Title', date_issued as 'Date Issued', DATEDIFF(day, date_issued, CONVERT(date, GETDATE())) as 'Days Passed' from issue, users, books where i_user_id = user_id and i_book_id = book_id", con);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
+            //cmd = new SqlCommand("select user_id as 'User ID', name as 'Name', book_id as 'Book ID', title as 'Title', date_issued as 'Date Issued', DATEDIFF(day, date_issued, CONVERT(date, GETDATE())) as 'Days Passed' from issue, users, books where i_user_id = user_id and i_book_id = book_id", con);
+            //SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            //DataSet ds = new DataSet();
+            //sda.Fill(ds);
 
-            admReturnDgvTable.DataSource = ds.Tables[0];
+            //admReturnDgvTable.DataSource = ds.Tables[0];
+
+            IssueSelector = delegate (Row r)
+            {
+                tblIssue card = new tblIssue
+                {
+                    Id = r.GetValue<int>("id"),
+                    BookId = r.GetValue<int>("book"),
+                    StudentId = r.GetValue<int>("user"),
+                    BookName = r.GetValue<string>("bookname"),
+                    StudentName = r.GetValue<string>("username"),
+                    DateIssue = r.GetValue<DateTime>("dateissue"),
+
+                };
+                return card;
+            };
+
+
+            string query = "SELECT * FROM issues";
+            var IssueTable = DataConnection.Ins.session.Execute(query)
+                .Select(IssueSelector);
+
+            admReturnDgvTable.DataSource = IssueTable.ToList();
+
             admReturnDgvTable.ReadOnly = true;
         }
 
@@ -58,22 +88,23 @@ namespace LibraryManagementSystem
         private void admReturnDgvTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // not a column header
-            if(e.RowIndex != -1 && e.RowIndex != admReturnDgvTable.Rows.Count - 1)
+            if(e.RowIndex != -1 && e.RowIndex != admReturnDgvTable.Rows.Count )
             {
-                int book_id = Convert.ToInt32(admReturnDgvTable.Rows[e.RowIndex].Cells[2].Value);
-                int user_id = Convert.ToInt32(admReturnDgvTable.Rows[e.RowIndex].Cells[0].Value);
+                issue_id = Convert.ToInt32(admReturnDgvTable.Rows[e.RowIndex].Cells[0].Value);
+                int book_id = Convert.ToInt32(admReturnDgvTable.Rows[e.RowIndex].Cells[1].Value);
+                int user_id = Convert.ToInt32(admReturnDgvTable.Rows[e.RowIndex].Cells[2].Value);
 
                 amdReturnTbxBookID.Text = Convert.ToString(book_id);
                 admReturnTbxUserID.Text = Convert.ToString(user_id);
 
                 // calculate fine too
                 int fine = 0;
-                int days_passed = Convert.ToInt32(admReturnDgvTable.Rows[e.RowIndex].Cells[5].Value);
+                //int days_passed = Convert.ToInt32(admReturnDgvTable.Rows[e.RowIndex].Cells[5].Value);
 
-                if(days_passed > 15)
-                {
-                    fine = days_passed - 15;
-                }
+                //if(days_passed > 15)
+                //{
+                //    fine = days_passed - 15;
+                //}
 
                 admReturnBooksLblFine.Text = Convert.ToString(fine + " Rs.");
             }
@@ -82,8 +113,6 @@ namespace LibraryManagementSystem
         // SEARCH BUTTON
         private void admReturnBtnSearch_Click(object sender, EventArgs e)
         {
-            if (con.State == ConnectionState.Closed)
-                con.Open();
             try
             {
                 if(admReturnTbxSearchQuery.Text == string.Empty)
@@ -92,14 +121,19 @@ namespace LibraryManagementSystem
                 }
                 else
                 {
-                    cmd = new SqlCommand("select user_id as 'User ID', name as 'Name', book_id as 'Book ID', title as 'Title', date_issued as 'Date Issued', DATEDIFF(day, date_issued, CONVERT(date, GETDATE())) as 'Days Passed' from issue, users, books where i_user_id = user_id and i_book_id = book_id and ( book_id = @searchQuery or user_id = @searchQuery )", con);
-                    cmd.Parameters.AddWithValue("@searchQuery", Convert.ToInt32(admReturnTbxSearchQuery.Text));
+                    //cmd = new SqlCommand("select user_id as 'User ID', name as 'Name', book_id as 'Book ID', title as 'Title', date_issued as 'Date Issued', DATEDIFF(day, date_issued, CONVERT(date, GETDATE())) as 'Days Passed' from issue, users, books where i_user_id = user_id and i_book_id = book_id and ( book_id = @searchQuery or user_id = @searchQuery )", con);
+                    //cmd.Parameters.AddWithValue("@searchQuery", Convert.ToInt32(admReturnTbxSearchQuery.Text));
 
-                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                    DataSet ds = new DataSet();
-                    sda.Fill(ds);
+                    //SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                    //DataSet ds = new DataSet();
+                    //sda.Fill(ds);
 
-                    admReturnDgvTable.DataSource = ds.Tables[0];
+                    //admReturnDgvTable.DataSource = ds.Tables[0];
+
+
+
+
+
                 }
             }
             catch
@@ -113,14 +147,13 @@ namespace LibraryManagementSystem
         private void admReturnBtnReturn_Click(object sender, EventArgs e)
         {
             // open connection
-            if (con.State == ConnectionState.Closed)
-                con.Open();
+            //if (con.State == ConnectionState.Closed)
+            //    con.Open();
 
             // variables
             int book_id = 0;
             int user_id = 0;
             bool preliminaryAcceptedState = true;
-
             // check values
             try
             {
@@ -147,26 +180,30 @@ namespace LibraryManagementSystem
                 try
                 {
                     cmd = new SqlCommand("delete from issue where i_book_id = @book_id and i_user_id = @user_id", con);
-                    cmd.Parameters.AddWithValue("@book_id", book_id);
-                    cmd.Parameters.AddWithValue("@user_id", user_id);
+                    //cmd.Parameters.AddWithValue("@book_id", book_id);
+                    //cmd.Parameters.AddWithValue("@user_id", user_id);
 
-                    int result = cmd.ExecuteNonQuery();
 
-                    if (result == 0)
-                    {
-                        MessageBox.Show("Please enter a valid User ID and Book ID.\nInvalid Input.");
-                    }
 
-                    if(result == 1)
-                    {
-                        MessageBox.Show("Book successfully returned.");
-                        clear();
-                        display();
-                    }
+                    tblIssue tk = new tblIssue();
+                    tk.Id = issue_id;
+
+                    var ps = DataConnection.Ins.session.Prepare("DELETE from issues WHERE id=? ");
+                    var query = ps.Bind(tk.Id);
+                    DataConnection.Ins.session.Execute(query);
+
+
+                    //int result = cmd.ExecuteNonQuery();
+
+
+                    MessageBox.Show("Book successfully returned.");
+                    clear();
+                    display();
+
                 }
-                catch
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Internal system error.\nPlease contact the developer.");
+                    MessageBox.Show("Internal system error.\nPlease contact the developer."+ex.Message);
                 }
             }
         }

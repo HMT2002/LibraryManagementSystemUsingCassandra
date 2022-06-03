@@ -236,13 +236,13 @@ namespace LibraryManagementSystem
         {
             //need to do
 
-            int book_id = 0;
+            int user_id = 0;
 
             bool preliminaryAcceptedState = true;
 
             try
             {
-                book_id = selected_user_id;
+                user_id = selected_user_id;
             }
             catch
             {
@@ -260,8 +260,8 @@ namespace LibraryManagementSystem
 
                     //int result = cmd.ExecuteNonQuery();
 
-                    tblBook tk = new tblBook();
-                    tk.Id = book_id;
+                    tblStudent tk = new tblStudent();
+                    tk.Id = user_id;
 
                     var ps = DataConnection.Ins.session.Prepare("DELETE from users WHERE id=? ");
                     var query = ps.Bind(tk.Id);
