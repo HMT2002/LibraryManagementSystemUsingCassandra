@@ -31,28 +31,12 @@ namespace LibraryManagementSystem
 
         private void admIssue_Load(object sender, EventArgs e)
         {
-
-            // establish connection to db
-            //string connectionString = ConfigurationManager.ConnectionStrings["LibraryManagementSystem.Properties.Settings.LibraryDB"].ToString();
-            //con = new SqlConnection(connectionString);
-            // display table
             display();
-
-            // select both radio button by default
             admIssueRbTitle.Select();
         }
 
         public void display()
         {
-            //// on intialise display books table
-            //cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', publisher as 'Publisher', year_of_pub as 'Y.O.P', genres as 'Genres' from books where book_id not in ( select i_book_id from issue)", con);
-            //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            //DataSet ds = new DataSet();
-            //sda.Fill(ds);
-
-            //admIssueDgvTable.DataSource = ds.Tables[0];
-
-
             IssueSelector = delegate (Row r)
             {
                 tblIssue card = new tblIssue
@@ -101,13 +85,12 @@ namespace LibraryManagementSystem
                 return card;
             };
 
-            string query = "SELECT * FROM issues";
+            string query = "SELECT * FROM books where status = 0  ALLOW FILTERING";
             var IssueTable = DataConnection.Ins.session.Execute(query)
-                .Select(IssueSelector);
+                .Select(BookSelector);
 
             admIssueDgvTable.DataSource = IssueTable.ToList();
 
-            // make read only
             admIssueDgvTable.ReadOnly = true;
         }
 
@@ -120,28 +103,20 @@ namespace LibraryManagementSystem
 
         private void admIssueDgvTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // when not column header
             if(e.RowIndex != -1 && e.RowIndex != admIssueDgvTable.Rows.Count)
             {
-                amdIssueTbxBookID.Text = Convert.ToString(admIssueDgvTable.Rows[e.RowIndex].Cells[1].Value);
-                admIssueTbxUserID.Text = Convert.ToString(admIssueDgvTable.Rows[e.RowIndex].Cells[2].Value);
+                amdIssueTbxBookID.Text = Convert.ToString(admIssueDgvTable.Rows[e.RowIndex].Cells[0].Value);
 
             }
         }
 
         private void admIssueBtnIssue_Click(object sender, EventArgs e)
         {
-            // open connection
-            //if (con.State == ConnectionState.Closed)
-            //    con.Open();
-
-            // variables
             int user_id = 0; 
             int book_id = 0;
 
             bool preliminaryAcceptedState = true;
 
-            // check credentials
             try
             {
                 user_id = int.Parse(admIssueTbxUserID.Text);
@@ -165,14 +140,6 @@ namespace LibraryManagementSystem
             }
 
 
-            //// check two issues
-            //cmd = new SqlCommand("select * from issue where i_user_id = @user_id", con);
-            //cmd.Parameters.AddWithValue("@user_id", user_id);
-            //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            //DataSet ds = new DataSet();
-            //sda.Fill(ds);
-
-
             string query = "SELECT * FROM issues Where user = " + admIssueTbxUserID.Text.Trim() + "  ALLOW FILTERING";
 
             var IssueTable = DataConnection.Ins.session.Execute(query)
@@ -187,13 +154,6 @@ namespace LibraryManagementSystem
                 MessageBox.Show("Cannot issue more books.\nA user can only issue 2 books.");
                 preliminaryAcceptedState = false;
             }
-
-            //// check someone already issued
-            //cmd = new SqlCommand("select * from issue where i_book_id = @book_id", con);
-            //cmd.Parameters.AddWithValue("@book_id", book_id);
-            //SqlDataAdapter sda1 = new SqlDataAdapter(cmd);
-            //DataSet ds1 = new DataSet();
-            //sda1.Fill(ds1);
 
 
             string query1 = "SELECT * FROM issues Where book = " + amdIssueTbxBookID.Text.Trim() + "  ALLOW FILTERING";
@@ -211,17 +171,12 @@ namespace LibraryManagementSystem
                 preliminaryAcceptedState = false;
             }
 
-            // issue entry in table
             if(preliminaryAcceptedState == true)
             {
                 try
                 {
-                    //cmd = new SqlCommand("insert into issue values(@user_id, @book_id, CONVERT(date, GETDATE()))", con);
-                    //cmd.Parameters.AddWithValue("@user_id", user_id);
-                    //cmd.Parameters.AddWithValue("@book_id", book_id);
-                    //int result = cmd.ExecuteNonQuery();
 
-                    string booksquery = "SELECT * FROM books where id = "+ Convert.ToInt32(amdIssueTbxBookID.Text.Trim()) + " ALLOW FILTERING;";
+                    string booksquery = "SELECT * FROM books where id = "+ Convert.ToInt32(amdIssueTbxBookID.Text.Trim()) + " and status = 0 ALLOW FILTERING;";
                     string bookname = "";
                     var bookresults = DataConnection.Ins.session.Execute(booksquery).FirstOrDefault();
                     bookname = bookresults.GetValue<string>("title");
@@ -242,25 +197,18 @@ namespace LibraryManagementSystem
                     int issday = tk.Day;
 
                     var ps = DataConnection.Ins.session.Prepare("insert into  issues (id ,book,user,bookname,username,dateissue) values (?,?,?,?,?,?);");
-                    var querycmd = ps.Bind(randomId(), Convert.ToInt32( amdIssueTbxBookID.Text.Trim()), Convert.ToInt32( admIssueTbxUserID.Text.Trim()),bookname,username, new DateTime(issueyear, issuemonth, issday));
-
+                    var querycmd = ps.Bind(randomId(), Convert.ToInt32(amdIssueTbxBookID.Text.Trim()), Convert.ToInt32(admIssueTbxUserID.Text.Trim()), bookname, username, new DateTime(issueyear, issuemonth, issday));
                     DataConnection.Ins.session.Execute(querycmd);
+
+
+                    var updatebooks = DataConnection.Ins.session.Prepare("update books set status=?, userid = ?, dateissue = ? where id=?;");
+                    var updatebooksquery = updatebooks.Bind(1, Convert.ToInt32(admIssueTbxUserID.Text.Trim()), new DateTime(issueyear, issuemonth, issday), Convert.ToInt32(amdIssueTbxBookID.Text.Trim()));
+                    DataConnection.Ins.session.Execute(updatebooksquery);
                     MessageBox.Show("Book successfully issued.");
 
                     display();
                     clearFields();
 
-
-
-
-
-
-                    //if (result == 1)
-                    //{
-                    //    MessageBox.Show("Book successfully issued.");
-                    //    display();
-                    //    clearFields();
-                    //}
                 }
                 catch(Exception ex)
                 {
@@ -281,25 +229,19 @@ namespace LibraryManagementSystem
 
         private void admIssueBtnSearch_Click(object sender, EventArgs e)
         {
-            //if (con.State == ConnectionState.Closed)
-            //    con.Open(); //admIssueDgvTable.DataSource = ds.Tables[0];
-        
+
+            if (admIssueTbxSearchQuery.Text.CompareTo(string.Empty) == 0)
+            {
+                return;
+            }
 
             if (admIssueRbTitle.Checked == true)
             {
-                //cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', publisher as 'Publisher', year_of_pub as 'Y.O.P', genres as 'Genres' from books where title like @searchQuery and book_id not in ( select i_book_id from issue)", con);
-                //cmd.Parameters.AddWithValue("@searchQuery", "%" + admIssueTbxSearchQuery.Text + "%");
 
-                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                //DataSet ds = new DataSet();
-                //sda.Fill(ds);
-
-                //admIssueDgvTable.DataSource = ds.Tables[0];
-
-                string query = "SELECT * FROM issues Where book = " + Convert.ToInt32(admIssueTbxSearchQuery.Text.Trim()) + "  ALLOW FILTERING";
+                string query = "SELECT * FROM books Where title = '" + admIssueTbxSearchQuery.Text.Trim() + "' and status = 0  ALLOW FILTERING ";
 
                 var IssueTable = DataConnection.Ins.session.Execute(query)
-                    .Select(IssueSelector);
+                    .Select(BookSelector);
 
                 admIssueDgvTable.DataSource = IssueTable.ToList();
 
@@ -307,21 +249,10 @@ namespace LibraryManagementSystem
             }
             else if (admIssueRbAuthor.Checked == true)
             {
-                //cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', publisher as 'Publisher', year_of_pub as 'Y.O.P', genres as 'Genres' from books where author like @searchQuery and book_id not in ( select i_book_id from issue)", con);
-                //cmd.Parameters.AddWithValue("@searchQuery", "%" + admIssueTbxSearchQuery.Text + "%");
+                string queryauthor = "SELECT * FROM books Where author = '" + admIssueTbxSearchQuery.Text.Trim() + "' and status = 0  ALLOW FILTERING";
+                var authorresults = DataConnection.Ins.session.Execute(queryauthor).Select(BookSelector);
 
-                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                //DataSet ds = new DataSet();
-                //sda.Fill(ds);
-                
-                //admIssueDgvTable.DataSource = ds.Tables[0];
-
-                string query = "SELECT * FROM issues Where user = " + Convert.ToInt32(admIssueTbxSearchQuery.Text.Trim()) + "  ALLOW FILTERING";
-
-                var IssueTable = DataConnection.Ins.session.Execute(query)
-                    .Select(IssueSelector);
-
-                admIssueDgvTable.DataSource = IssueTable.ToList();
+                admIssueDgvTable.DataSource = authorresults.ToList();
 
             }
         }

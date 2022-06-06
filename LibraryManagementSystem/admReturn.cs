@@ -20,6 +20,7 @@ namespace LibraryManagementSystem
         SqlCommand cmd;
 
         Func<Row, tblIssue> IssueSelector;
+        Func<Row, tblBook> BookSelector;
 
         int issue_id = 0;
 
@@ -30,10 +31,6 @@ namespace LibraryManagementSystem
 
         private void admReturn_Load(object sender, EventArgs e)
         {
-            // establish connection to db
-            //string connectionString = ConfigurationManager.ConnectionStrings["LibraryManagementSystem.Properties.Settings.LibraryDB"].ToString();
-            //con = new SqlConnection(connectionString);
-
             // display table
             display();
         }
@@ -45,19 +42,9 @@ namespace LibraryManagementSystem
             admReturnTbxUserID.Text = string.Empty;
             amdReturnTbxBookID.Text = string.Empty;
 
-            admReturnBooksLblFine.Text = string.Empty;
         }
-
-        // display table
         public void display()
         {
-            // on intialise display books table
-            //cmd = new SqlCommand("select user_id as 'User ID', name as 'Name', book_id as 'Book ID', title as 'Title', date_issued as 'Date Issued', DATEDIFF(day, date_issued, CONVERT(date, GETDATE())) as 'Days Passed' from issue, users, books where i_user_id = user_id and i_book_id = book_id", con);
-            //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            //DataSet ds = new DataSet();
-            //sda.Fill(ds);
-
-            //admReturnDgvTable.DataSource = ds.Tables[0];
 
             IssueSelector = delegate (Row r)
             {
@@ -74,8 +61,25 @@ namespace LibraryManagementSystem
                 return card;
             };
 
+            BookSelector = delegate (Row r)
+            {
+                tblBook card = new tblBook
+                {
+                    Id = r.GetValue<int>("id"),
+                    Title = r.GetValue<string>("title"),
+                    Genres = r.GetValue<string>("genres"),
+                    PublishYear = r.GetValue<string>("publishyear"),
+                    Publisher = r.GetValue<string>("publisher"),
+                    Author = r.GetValue<string>("author"),
+                    Status = r.GetValue<int>("status"),
+                    UserId = r.GetValue<int>("userid"),
+                    UserEmail = r.GetValue<string>("useremail"),
+                    DateIssue = r.GetValue<DateTime>("dateissue"),
+                };
+                return card;
+            };
 
-            string query = "SELECT * FROM issues";
+            string query = "SELECT * FROM issues ALLOW FILTERING";
             var IssueTable = DataConnection.Ins.session.Execute(query)
                 .Select(IssueSelector);
 
@@ -83,34 +87,18 @@ namespace LibraryManagementSystem
 
             admReturnDgvTable.ReadOnly = true;
         }
-
-        // cell click functionality
         private void admReturnDgvTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // not a column header
             if(e.RowIndex != -1 && e.RowIndex != admReturnDgvTable.Rows.Count )
             {
                 issue_id = Convert.ToInt32(admReturnDgvTable.Rows[e.RowIndex].Cells[0].Value);
                 int book_id = Convert.ToInt32(admReturnDgvTable.Rows[e.RowIndex].Cells[1].Value);
                 int user_id = Convert.ToInt32(admReturnDgvTable.Rows[e.RowIndex].Cells[2].Value);
-
                 amdReturnTbxBookID.Text = Convert.ToString(book_id);
                 admReturnTbxUserID.Text = Convert.ToString(user_id);
-
-                // calculate fine too
-                int fine = 0;
-                //int days_passed = Convert.ToInt32(admReturnDgvTable.Rows[e.RowIndex].Cells[5].Value);
-
-                //if(days_passed > 15)
-                //{
-                //    fine = days_passed - 15;
-                //}
-
-                admReturnBooksLblFine.Text = Convert.ToString(fine + " Rs.");
             }
         }
 
-        // SEARCH BUTTON
         private void admReturnBtnSearch_Click(object sender, EventArgs e)
         {
             try
@@ -121,17 +109,12 @@ namespace LibraryManagementSystem
                 }
                 else
                 {
-                    //cmd = new SqlCommand("select user_id as 'User ID', name as 'Name', book_id as 'Book ID', title as 'Title', date_issued as 'Date Issued', DATEDIFF(day, date_issued, CONVERT(date, GETDATE())) as 'Days Passed' from issue, users, books where i_user_id = user_id and i_book_id = book_id and ( book_id = @searchQuery or user_id = @searchQuery )", con);
-                    //cmd.Parameters.AddWithValue("@searchQuery", Convert.ToInt32(admReturnTbxSearchQuery.Text));
+                    string query = "SELECT * FROM issues Where book = " + admReturnTbxSearchQuery.Text.Trim() + "  ALLOW FILTERING ";
 
-                    //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                    //DataSet ds = new DataSet();
-                    //sda.Fill(ds);
+                    var IssueTable = DataConnection.Ins.session.Execute(query)
+                        .Select(IssueSelector);
 
-                    //admReturnDgvTable.DataSource = ds.Tables[0];
-
-
-
+                    admReturnDgvTable.DataSource = IssueTable.ToList();
 
 
                 }
@@ -143,18 +126,11 @@ namespace LibraryManagementSystem
                 
         }
 
-        // RETURN BUTTON CLICK
         private void admReturnBtnReturn_Click(object sender, EventArgs e)
         {
-            // open connection
-            //if (con.State == ConnectionState.Closed)
-            //    con.Open();
-
-            // variables
             int book_id = 0;
             int user_id = 0;
             bool preliminaryAcceptedState = true;
-            // check values
             try
             {
                 book_id = int.Parse(amdReturnTbxBookID.Text);
@@ -179,21 +155,21 @@ namespace LibraryManagementSystem
             {
                 try
                 {
-                    cmd = new SqlCommand("delete from issue where i_book_id = @book_id and i_user_id = @user_id", con);
-                    //cmd.Parameters.AddWithValue("@book_id", book_id);
-                    //cmd.Parameters.AddWithValue("@user_id", user_id);
-
-
-
                     tblIssue tk = new tblIssue();
                     tk.Id = issue_id;
 
-                    var ps = DataConnection.Ins.session.Prepare("DELETE from issues WHERE id=? ");
+                    var ps = DataConnection.Ins.session.Prepare("DELETE from issues WHERE id = ? ;");
                     var query = ps.Bind(tk.Id);
                     DataConnection.Ins.session.Execute(query);
+                    DateTime time = DateTime.Now;
 
+                    int issueyear = 1;
+                    int issuemonth = 1;
+                    int issday = 1;
 
-                    //int result = cmd.ExecuteNonQuery();
+                    var updatebooks = DataConnection.Ins.session.Prepare("update books set status=?, userid = ?, dateissue = ? where id=?;");
+                    var updatebooksquery = updatebooks.Bind(0, 0, new DateTime(issueyear, issuemonth, issday), book_id);
+                    DataConnection.Ins.session.Execute(updatebooksquery);
 
 
                     MessageBox.Show("Book successfully returned.");

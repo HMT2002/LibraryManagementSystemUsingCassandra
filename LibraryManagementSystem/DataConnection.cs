@@ -11,6 +11,7 @@ namespace LibraryManagementSystem
 {
     class DataConnection
     {
+        private static DataConnection _Ins;
         public static DataConnection Ins
         {
             get
@@ -24,17 +25,15 @@ namespace LibraryManagementSystem
                 _Ins = value;
             }
         }
-        private static DataConnection _Ins;
+        private string Datacenter = "datacenter1";
+        public ISession session;
+        private string IP = "192.168.0.102"; 
         private DataConnection()
         {
             session = getConnect();
             session.Execute("use LibraryManagement;");
         }
 
-        public ISession session;
-        private string IP = "192.168.0.104"; 
-
-        private string Datacenter = "datacenter1";
         public ISession getConnect()
         {
             TypeSerializerDefinitions definitions = new TypeSerializerDefinitions();
@@ -43,7 +42,6 @@ namespace LibraryManagementSystem
                                  .AddContactPoints(IP)
                                  .WithPort(9042)
                                  .WithLoadBalancingPolicy(new DCAwareRoundRobinPolicy(Datacenter))
-                                 //.WithAuthProvider(new PlainTextAuthProvider(< Username >, < Password >))
                                  .WithTypeSerializers(definitions)
                                  .Build()
                                  .Connect();

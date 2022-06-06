@@ -16,9 +16,6 @@ namespace LibraryManagementSystem
 {
     public partial class userBookSearch : Form
     {
-        SqlConnection con;
-        SqlCommand cmd ;
-
         // userid and pwd
         public int userid;
         public string password;
@@ -26,23 +23,6 @@ namespace LibraryManagementSystem
 
         private void userBookSearch_Load(object sender, EventArgs e)
         {
-            //// copy userid and pwd
-            //userid = login.userid;
-            //password = login.password;
-
-            //// establish connection to db
-            //string connectionString = ConfigurationManager.ConnectionStrings["LibraryManagementSystem.Properties.Settings.LibraryDB"].ToString();
-            //con = new SqlConnection(connectionString);
-
-            //// on intialise display books table
-            //cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', publisher as 'Publisher', year_of_pub as 'Y.O.P', genres as 'Genres' from books order by book_id asc", con);
-            //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            //DataSet ds = new DataSet();
-            //sda.Fill(ds);
-
-            //userBookSearchDgv.DataSource = ds.Tables[0];
-
-
 
             BookSelector = delegate (Row r)
             {
@@ -70,18 +50,13 @@ namespace LibraryManagementSystem
 
             userBookSearchDgv.DataSource = BookTable.ToList();
 
-            //// make dgv read only
             userBookSearchDgv.ReadOnly = true;
 
-            //// select both radio button by default
             userBookSearchRbTitle.Select();
         }
 
         private void UserBookSearchBtnSearch_Click(object sender, EventArgs e)
         {
-            if (con.State == ConnectionState.Closed)
-                con.Open();
-
             if (userBookSearchRbTitle.Checked == true)
             {
                 string query = "SELECT * FROM books Where title = '" + UserBookSearchTbxQuery.Text.Trim() + "'  ALLOW FILTERING";
@@ -122,10 +97,7 @@ namespace LibraryManagementSystem
         public userBookSearch()
         {
             InitializeComponent();
-
-            
         }
-
         private void usrBookSearchBtnIssuedBooks_Click(object sender, EventArgs e)
         {
             this.Hide();

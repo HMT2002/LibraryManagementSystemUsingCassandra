@@ -150,10 +150,10 @@
             this.admIssueRbAuthor.Location = new System.Drawing.Point(348, 251);
             this.admIssueRbAuthor.Margin = new System.Windows.Forms.Padding(4);
             this.admIssueRbAuthor.Name = "admIssueRbAuthor";
-            this.admIssueRbAuthor.Size = new System.Drawing.Size(91, 29);
+            this.admIssueRbAuthor.Size = new System.Drawing.Size(74, 29);
             this.admIssueRbAuthor.TabIndex = 61;
             this.admIssueRbAuthor.TabStop = true;
-            this.admIssueRbAuthor.Text = "Author";
+            this.admIssueRbAuthor.Text = "User";
             this.admIssueRbAuthor.UseVisualStyleBackColor = true;
             // 
             // admIssueRbTitle

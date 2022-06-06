@@ -42,8 +42,6 @@
             this.admReturnLblUserID = new System.Windows.Forms.Label();
             this.admReturnLblBookID = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.admReturnBooksLblFine = new System.Windows.Forms.Label();
-            this.label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.admReturnDgvTable)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +50,7 @@
             // 
             this.admReturnBooksBtnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.admReturnBooksBtnLogout.Location = new System.Drawing.Point(956, 21);
-            this.admReturnBooksBtnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admReturnBooksBtnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.admReturnBooksBtnLogout.Name = "admReturnBooksBtnLogout";
             this.admReturnBooksBtnLogout.Size = new System.Drawing.Size(103, 37);
             this.admReturnBooksBtnLogout.TabIndex = 68;
@@ -64,7 +62,7 @@
             // 
             this.admReturnBooksBtnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.admReturnBooksBtnBack.Location = new System.Drawing.Point(33, 21);
-            this.admReturnBooksBtnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admReturnBooksBtnBack.Margin = new System.Windows.Forms.Padding(4);
             this.admReturnBooksBtnBack.Name = "admReturnBooksBtnBack";
             this.admReturnBooksBtnBack.Size = new System.Drawing.Size(103, 37);
             this.admReturnBooksBtnBack.TabIndex = 67;
@@ -86,7 +84,7 @@
             // 
             this.admReturnBtnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.admReturnBtnSearch.Location = new System.Drawing.Point(736, 325);
-            this.admReturnBtnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admReturnBtnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.admReturnBtnSearch.Name = "admReturnBtnSearch";
             this.admReturnBtnSearch.Size = new System.Drawing.Size(117, 41);
             this.admReturnBtnSearch.TabIndex = 64;
@@ -98,7 +96,7 @@
             // 
             this.admReturnTbxSearchQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.admReturnTbxSearchQuery.Location = new System.Drawing.Point(265, 289);
-            this.admReturnTbxSearchQuery.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admReturnTbxSearchQuery.Margin = new System.Windows.Forms.Padding(4);
             this.admReturnTbxSearchQuery.Name = "admReturnTbxSearchQuery";
             this.admReturnTbxSearchQuery.Size = new System.Drawing.Size(587, 26);
             this.admReturnTbxSearchQuery.TabIndex = 63;
@@ -110,15 +108,15 @@
             this.admBookSearchLblSearch.Location = new System.Drawing.Point(55, 293);
             this.admBookSearchLblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.admBookSearchLblSearch.Name = "admBookSearchLblSearch";
-            this.admBookSearchLblSearch.Size = new System.Drawing.Size(184, 25);
+            this.admBookSearchLblSearch.Size = new System.Drawing.Size(92, 25);
             this.admBookSearchLblSearch.TabIndex = 59;
-            this.admBookSearchLblSearch.Text = "User ID or Book ID :";
+            this.admBookSearchLblSearch.Text = "Book ID :";
             // 
             // admReturnDgvTable
             // 
             this.admReturnDgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.admReturnDgvTable.Location = new System.Drawing.Point(33, 418);
-            this.admReturnDgvTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admReturnDgvTable.Margin = new System.Windows.Forms.Padding(4);
             this.admReturnDgvTable.Name = "admReturnDgvTable";
             this.admReturnDgvTable.RowHeadersWidth = 51;
             this.admReturnDgvTable.Size = new System.Drawing.Size(1025, 498);
@@ -138,7 +136,7 @@
             // 
             this.admReturnBtnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.admReturnBtnReturn.Location = new System.Drawing.Point(453, 192);
-            this.admReturnBtnReturn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admReturnBtnReturn.Margin = new System.Windows.Forms.Padding(4);
             this.admReturnBtnReturn.Name = "admReturnBtnReturn";
             this.admReturnBtnReturn.Size = new System.Drawing.Size(128, 41);
             this.admReturnBtnReturn.TabIndex = 19;
@@ -150,7 +148,7 @@
             // 
             this.admReturnTbxUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.admReturnTbxUserID.Location = new System.Drawing.Point(499, 80);
-            this.admReturnTbxUserID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admReturnTbxUserID.Margin = new System.Windows.Forms.Padding(4);
             this.admReturnTbxUserID.Name = "admReturnTbxUserID";
             this.admReturnTbxUserID.Size = new System.Drawing.Size(200, 37);
             this.admReturnTbxUserID.TabIndex = 18;
@@ -159,7 +157,7 @@
             // 
             this.amdReturnTbxBookID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.amdReturnTbxBookID.Location = new System.Drawing.Point(499, 23);
-            this.amdReturnTbxBookID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.amdReturnTbxBookID.Margin = new System.Windows.Forms.Padding(4);
             this.amdReturnTbxBookID.Name = "amdReturnTbxBookID";
             this.amdReturnTbxBookID.Size = new System.Drawing.Size(200, 37);
             this.amdReturnTbxBookID.TabIndex = 17;
@@ -189,8 +187,6 @@
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.Controls.Add(this.admReturnBooksLblFine);
-            this.panel1.Controls.Add(this.label);
             this.panel1.Controls.Add(this.admReturnBooksBtnLogout);
             this.panel1.Controls.Add(this.admReturnBooksBtnBack);
             this.panel1.Controls.Add(this.label1);
@@ -205,31 +201,10 @@
             this.panel1.Controls.Add(this.admReturnLblUserID);
             this.panel1.Controls.Add(this.admReturnLblBookID);
             this.panel1.Location = new System.Drawing.Point(51, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1081, 944);
             this.panel1.TabIndex = 1;
-            // 
-            // admReturnBooksLblFine
-            // 
-            this.admReturnBooksLblFine.AutoSize = true;
-            this.admReturnBooksLblFine.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.admReturnBooksLblFine.Location = new System.Drawing.Point(492, 134);
-            this.admReturnBooksLblFine.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.admReturnBooksLblFine.Name = "admReturnBooksLblFine";
-            this.admReturnBooksLblFine.Size = new System.Drawing.Size(0, 31);
-            this.admReturnBooksLblFine.TabIndex = 70;
-            // 
-            // label
-            // 
-            this.label.AutoSize = true;
-            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.label.Location = new System.Drawing.Point(387, 134);
-            this.label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(89, 31);
-            this.label.TabIndex = 69;
-            this.label.Text = "Fine : ";
             // 
             // admReturn
             // 
@@ -237,7 +212,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1183, 974);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "admReturn";
             this.Text = "Return Books";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -266,7 +241,5 @@
         private System.Windows.Forms.Label admReturnLblUserID;
         private System.Windows.Forms.Label admReturnLblBookID;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label admReturnBooksLblFine;
-        private System.Windows.Forms.Label label;
     }
 }
