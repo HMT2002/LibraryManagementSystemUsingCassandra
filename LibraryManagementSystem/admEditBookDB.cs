@@ -22,7 +22,7 @@ namespace LibraryManagementSystem
 
         // selected book id
         int selected_book_id;
-
+        tblBook tb = new tblBook();
         private void admEditBookDB_Load(object sender, EventArgs e)
         {
 
@@ -91,6 +91,7 @@ namespace LibraryManagementSystem
             editBookDBTbxPublisher.Text = string.Empty;
             editBookDBTbxYop.Text = string.Empty;
             editBookDBTbxGenres.Text = string.Empty;
+            pictureBox1.Image = null;
         }
 
         public admEditBookDB()
@@ -197,80 +198,20 @@ namespace LibraryManagementSystem
                 editBookDBTbxPublisher.Text = publisher;
                 editBookDBTbxYop.Text = Convert.ToString(year_of_pub);
                 editBookDBTbxGenres.Text = genres;
+
+
+
+                string booksquery = "SELECT picture FROM books where id = " + selected_book_id + " ALLOW FILTERING;";
+                var bookresults = DataConnection.Ins.session.Execute(booksquery).FirstOrDefault();
+                tb.Data = bookresults.GetValue<byte[]>("picture");
+                tb.convertImgFromByte();
+                pictureBox1.Image = tb.Img;
             }
         }
 
         // SAVE EDIT BUTTON
         private void editBookDBBtnSave_Click(object sender, EventArgs e)
         {
-            //// variables 
-            //int book_id = 0;
-            //string title;
-            //string author;
-            //string publisher;
-            //int year_of_pub = 0000;
-
-            //bool preliminaryAcceptedState = true;
-
-            //// open connection
-            //if (con.State == ConnectionState.Closed)
-            //    con.Open();
-
-            //// copy values
-            //// copy value to variable even make sure correct format
-            //try
-            //{
-            //     book_id = Convert.ToInt32(editBookDBTbxBookID.Text);
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("Please make sure that the BookID is an interger.");
-            //    preliminaryAcceptedState = false;
-            //}
-            //title = editBookDBTbxTitle.Text;
-            //author = editBookDBTbxAuthor.Text;
-            //publisher = editBookDBTbxPublisher.Text;
-            //try
-            //{
-            //    year_of_pub = Convert.ToInt32(editBookDBTbxYop.Text);
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("Please make sure that the Year of Publication is an interger.");
-            //    preliminaryAcceptedState = false;
-            //}
-            //string genres = editBookDBTbxGenres.Text;
-
-            //// try to edit book only if all pevious info is healthy
-            //if(preliminaryAcceptedState == true)
-            //{
-            //    try
-            //    {
-            //        cmd = new SqlCommand("update books set book_id = @book_id, title = @title, author = @author, publisher = @publisher, year_of_pub = @year_of_pub, genres = @genres where book_id = @selected_book_id", con);
-            //        cmd.Parameters.AddWithValue("@book_id", book_id);
-            //        cmd.Parameters.AddWithValue("@title", title);
-            //        cmd.Parameters.AddWithValue("@author", author);
-            //        cmd.Parameters.AddWithValue("@publisher", publisher);
-            //        cmd.Parameters.AddWithValue("@year_of_pub", year_of_pub);
-            //        cmd.Parameters.AddWithValue("@genres", genres);
-            //        cmd.Parameters.AddWithValue("@selected_book_id", selected_book_id);
-
-            //        int result = cmd.ExecuteNonQuery();
-            //        if(result == 1)
-            //        {
-            //            MessageBox.Show("Changes successfully saved.");
-            //            clearFields();
-            //        }
-
-            //        // display updated books
-            //        displayBooks();
-            //    }
-            //    catch
-            //    {
-            //        MessageBox.Show("There is already a book with this BookID.\nBookID's have to be distinct.");
-            //    }
-            //}
-
             if(editBookDBTbxTitle.Text.Trim()==string.Empty||editBookDBTbxGenres.Text.Trim()== string.Empty || editBookDBTbxBookID.Text.Trim()== string.Empty || editBookDBTbxPublisher.Text.Trim()== string.Empty || editBookDBTbxYop.Text.Trim()== string.Empty)
             {
                 MessageBox.Show("Các trường thông tin không được thiếu");
@@ -295,8 +236,8 @@ namespace LibraryManagementSystem
                 int issuemonth = tk.DateIssue.Month;
                 int issday = tk.DateIssue.Day;
 
-                var ps = DataConnection.Ins.session.Prepare("update books set title=? , publisher=? , genres=?, author=?, publishYear=? ,status=? , userId=?,userEmail =?,dateIssue =? where id=?;");
-                var query = ps.Bind( tk.Title, tk.Publisher, tk.Genres, tk.Author, tk.PublishYear, tk.Status, tk.UserId, tk.UserEmail, new DateTime(issueyear, issuemonth, issday), tk.Id);
+                var ps = DataConnection.Ins.session.Prepare("update books set title=? , publisher=? , genres=?, author=?, publishYear=? ,status=? , userId=?,userEmail =?,dateIssue =?, picture=? where id=?;");
+                var query = ps.Bind( tk.Title, tk.Publisher, tk.Genres, tk.Author, tk.PublishYear, tk.Status, tk.UserId, tk.UserEmail, new DateTime(issueyear, issuemonth, issday),tb.Data, tk.Id);
                 DataConnection.Ins.session.Execute(query);
                 displayBooks();
 
@@ -312,74 +253,6 @@ namespace LibraryManagementSystem
         // ADD TO DB BUTTON
         private void editBookDBBtnAddToDB_Click(object sender, EventArgs e)
         {
-            //// variables 
-            //int book_id = 0;
-            //string title;
-            //string author;
-            //string publisher;
-            //int year_of_pub = 0000;
-            //string genres;
-
-            //bool preliminaryAcceptedState = true;
-
-            //// open connection
-            //if (con.State == ConnectionState.Closed)
-            //    con.Open();
-
-            //// copy values
-            //// copy value to variable even make sure correct format
-            //try
-            //{
-            //    book_id = Convert.ToInt32(editBookDBTbxBookID.Text);
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("Please make sure that the BookID is an interger.");
-            //    preliminaryAcceptedState = false;
-            //}
-            //title = editBookDBTbxTitle.Text;
-            //author = editBookDBTbxAuthor.Text;
-            //publisher = editBookDBTbxPublisher.Text;
-            //try
-            //{
-            //    year_of_pub = Convert.ToInt32(editBookDBTbxYop.Text);
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("Please make sure that the Year of Publication is an interger.");
-            //    preliminaryAcceptedState = false;
-            //}
-            //genres = editBookDBTbxGenres.Text;
-
-            //// try to add book only if all pevious info is healthy
-            //if (preliminaryAcceptedState == true)
-            //{
-            //    try
-            //    {
-            //        cmd = new SqlCommand("insert into books values (@book_id, @title, @author, @publisher, @year_of_pub, @genres)", con);
-            //        cmd.Parameters.AddWithValue("@book_id", book_id);
-            //        cmd.Parameters.AddWithValue("@title", title);
-            //        cmd.Parameters.AddWithValue("@author", author);
-            //        cmd.Parameters.AddWithValue("@publisher", publisher);
-            //        cmd.Parameters.AddWithValue("@year_of_pub", year_of_pub);
-            //        cmd.Parameters.AddWithValue("@genres", genres);
-
-            //        int result = cmd.ExecuteNonQuery();
-            //        if (result == 1)
-            //        {
-            //            MessageBox.Show("Book successfully added.");
-            //            clearFields();
-            //        }
-
-            //        // display updated books
-            //        displayBooks();
-            //    }
-            //    catch
-            //    {
-            //        MessageBox.Show("There is already a book with this BookID.\nBookID's have to be distinct.");
-            //    }
-            //}
-
             try
             {
                 tblBook tk = new tblBook();
@@ -398,8 +271,8 @@ namespace LibraryManagementSystem
                 int issuemonth = tk.DateIssue.Month;
                 int issday = tk.DateIssue.Day;
 
-                var ps = DataConnection.Ins.session.Prepare("insert into  books (id ,title,publisher,genres,author,publishYear,status,userId,userEmail,dateIssue) values (?,?,?,?,?,?,?,?,?,?);");
-                var query = ps.Bind(tk.Id, tk.Title, tk.Publisher, tk.Genres, tk.Author,tk.PublishYear, tk.Status, tk.UserId, tk.UserEmail, new DateTime(issueyear, issuemonth, issday));
+                var ps = DataConnection.Ins.session.Prepare("insert into  books (id ,title,publisher,genres,author,publishYear,status,userId,userEmail,dateIssue,picture) values (?,?,?,?,?,?,?,?,?,?,?);");
+                var query = ps.Bind(tk.Id, tk.Title, tk.Publisher, tk.Genres, tk.Author,tk.PublishYear, tk.Status, tk.UserId, tk.UserEmail, new DateTime(issueyear, issuemonth, issday),tb.Data);
                 DataConnection.Ins.session.Execute(query);
 
                 clearFields();
@@ -420,12 +293,6 @@ namespace LibraryManagementSystem
 
             bool preliminaryAcceptedState = true;
 
-            //// open connection
-            //if (con.State == ConnectionState.Closed)
-            //    con.Open();
-
-            // copy values
-            // copy value to variable even make sure correct format
             try
             {
                 book_id = selected_book_id;
@@ -436,15 +303,10 @@ namespace LibraryManagementSystem
                 preliminaryAcceptedState = false;
             }
 
-            // try to edit book only if all pevious info is healthy
             if (preliminaryAcceptedState == true)
             {
                 try
                 {
-                    //cmd = new SqlCommand("delete from books where book_id = @book_id", con);
-                    //cmd.Parameters.AddWithValue("@book_id", book_id);
-
-                    //int result = cmd.ExecuteNonQuery();
 
                     tblBook tk = new tblBook();
                     tk.Id = book_id;
@@ -469,6 +331,12 @@ namespace LibraryManagementSystem
         private void admEditBookDB_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnPickImage_Click(object sender, EventArgs e)
+        {
+            tb.chooseImg();
+            pictureBox1.Image = tb.Img;
         }
     }
 }

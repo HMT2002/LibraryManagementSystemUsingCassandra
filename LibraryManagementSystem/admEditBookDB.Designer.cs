@@ -30,6 +30,8 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPickImage = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.admEditBookDBBtnClear = new System.Windows.Forms.Button();
             this.editBookDBBtnAddToDB = new System.Windows.Forms.Button();
             this.editBookDBBtnDelete = new System.Windows.Forms.Button();
@@ -57,12 +59,15 @@
             this.admEditBookDBBtnLogout = new System.Windows.Forms.Button();
             this.admEditBookDBBtnBack = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editBookDBDgvTable)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Controls.Add(this.btnPickImage);
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.admEditBookDBBtnClear);
             this.panel1.Controls.Add(this.editBookDBBtnAddToDB);
             this.panel1.Controls.Add(this.editBookDBBtnDelete);
@@ -94,6 +99,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1575, 949);
             this.panel1.TabIndex = 0;
+            // 
+            // btnPickImage
+            // 
+            this.btnPickImage.Location = new System.Drawing.Point(748, 712);
+            this.btnPickImage.Name = "btnPickImage";
+            this.btnPickImage.Size = new System.Drawing.Size(125, 23);
+            this.btnPickImage.TabIndex = 69;
+            this.btnPickImage.Text = "Pick image";
+            this.btnPickImage.UseVisualStyleBackColor = true;
+            this.btnPickImage.Click += new System.EventHandler(this.btnPickImage_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(692, 531);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(230, 175);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 68;
+            this.pictureBox1.TabStop = false;
             // 
             // admEditBookDBBtnClear
             // 
@@ -251,7 +276,7 @@
             this.editBookDBTbxGenres.Location = new System.Drawing.Point(248, 705);
             this.editBookDBTbxGenres.Margin = new System.Windows.Forms.Padding(4);
             this.editBookDBTbxGenres.Name = "editBookDBTbxGenres";
-            this.editBookDBTbxGenres.Size = new System.Drawing.Size(684, 26);
+            this.editBookDBTbxGenres.Size = new System.Drawing.Size(236, 26);
             this.editBookDBTbxGenres.TabIndex = 53;
             // 
             // editBookDBTbxTitle
@@ -260,7 +285,7 @@
             this.editBookDBTbxTitle.Location = new System.Drawing.Point(248, 606);
             this.editBookDBTbxTitle.Margin = new System.Windows.Forms.Padding(4);
             this.editBookDBTbxTitle.Name = "editBookDBTbxTitle";
-            this.editBookDBTbxTitle.Size = new System.Drawing.Size(684, 26);
+            this.editBookDBTbxTitle.Size = new System.Drawing.Size(236, 26);
             this.editBookDBTbxTitle.TabIndex = 51;
             // 
             // editBookDBTbxAuthor
@@ -278,7 +303,7 @@
             this.editBookDBTbxPublisher.Location = new System.Drawing.Point(248, 652);
             this.editBookDBTbxPublisher.Margin = new System.Windows.Forms.Padding(4);
             this.editBookDBTbxPublisher.Name = "editBookDBTbxPublisher";
-            this.editBookDBTbxPublisher.Size = new System.Drawing.Size(684, 26);
+            this.editBookDBTbxPublisher.Size = new System.Drawing.Size(236, 26);
             this.editBookDBTbxPublisher.TabIndex = 52;
             // 
             // editBookDBTbxYop
@@ -403,6 +428,7 @@
             this.Load += new System.EventHandler(this.admEditBookDB_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editBookDBDgvTable)).EndInit();
             this.ResumeLayout(false);
 
@@ -437,5 +463,7 @@
         private System.Windows.Forms.Button editBookDBBtnSave;
         private System.Windows.Forms.Button editBookDBBtnAddToDB;
         private System.Windows.Forms.Button admEditBookDBBtnClear;
+        private System.Windows.Forms.Button btnPickImage;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
