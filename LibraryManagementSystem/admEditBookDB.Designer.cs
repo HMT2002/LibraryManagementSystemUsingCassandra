@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnPickImage = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -128,7 +128,7 @@
             this.admEditBookDBBtnClear.Name = "admEditBookDBBtnClear";
             this.admEditBookDBBtnClear.Size = new System.Drawing.Size(175, 48);
             this.admEditBookDBBtnClear.TabIndex = 67;
-            this.admEditBookDBBtnClear.Text = "Clear Boxes";
+            this.admEditBookDBBtnClear.Text = "Dọn";
             this.admEditBookDBBtnClear.UseVisualStyleBackColor = true;
             this.admEditBookDBBtnClear.Click += new System.EventHandler(this.admEditBookDBBtnClear_Click);
             // 
@@ -140,7 +140,7 @@
             this.editBookDBBtnAddToDB.Name = "editBookDBBtnAddToDB";
             this.editBookDBBtnAddToDB.Size = new System.Drawing.Size(199, 66);
             this.editBookDBBtnAddToDB.TabIndex = 56;
-            this.editBookDBBtnAddToDB.Text = "Add to DB";
+            this.editBookDBBtnAddToDB.Text = "Thêm";
             this.editBookDBBtnAddToDB.UseVisualStyleBackColor = true;
             this.editBookDBBtnAddToDB.Click += new System.EventHandler(this.editBookDBBtnAddToDB_Click);
             // 
@@ -152,7 +152,7 @@
             this.editBookDBBtnDelete.Name = "editBookDBBtnDelete";
             this.editBookDBBtnDelete.Size = new System.Drawing.Size(196, 66);
             this.editBookDBBtnDelete.TabIndex = 56;
-            this.editBookDBBtnDelete.Text = "Delete";
+            this.editBookDBBtnDelete.Text = "Xoá";
             this.editBookDBBtnDelete.UseVisualStyleBackColor = true;
             this.editBookDBBtnDelete.Click += new System.EventHandler(this.editBookDBBtnDelete_Click);
             // 
@@ -164,7 +164,7 @@
             this.editBookDBBtnSave.Name = "editBookDBBtnSave";
             this.editBookDBBtnSave.Size = new System.Drawing.Size(189, 66);
             this.editBookDBBtnSave.TabIndex = 56;
-            this.editBookDBBtnSave.Text = "Save Edit";
+            this.editBookDBBtnSave.Text = "Sửa";
             this.editBookDBBtnSave.UseVisualStyleBackColor = true;
             this.editBookDBBtnSave.Click += new System.EventHandler(this.editBookDBBtnSave_Click);
             // 
@@ -176,7 +176,7 @@
             this.editBookDBBtnSearch.Name = "editBookDBBtnSearch";
             this.editBookDBBtnSearch.Size = new System.Drawing.Size(117, 41);
             this.editBookDBBtnSearch.TabIndex = 2;
-            this.editBookDBBtnSearch.Text = "Search";
+            this.editBookDBBtnSearch.Text = "Tìm";
             this.editBookDBBtnSearch.UseVisualStyleBackColor = true;
             this.editBookDBBtnSearch.Click += new System.EventHandler(this.editBookDBBtnSearch_Click);
             // 
@@ -193,7 +193,7 @@
             // 
             this.admEditBookDBRbBoth.AutoSize = true;
             this.admEditBookDBRbBoth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admEditBookDBRbBoth.Location = new System.Drawing.Point(424, 182);
+            this.admEditBookDBRbBoth.Location = new System.Drawing.Point(593, 180);
             this.admEditBookDBRbBoth.Margin = new System.Windows.Forms.Padding(4);
             this.admEditBookDBRbBoth.Name = "admEditBookDBRbBoth";
             this.admEditBookDBRbBoth.Size = new System.Drawing.Size(73, 29);
@@ -207,13 +207,13 @@
             // 
             this.admEditBookDBRbAuthor.AutoSize = true;
             this.admEditBookDBRbAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admEditBookDBRbAuthor.Location = new System.Drawing.Point(316, 182);
+            this.admEditBookDBRbAuthor.Location = new System.Drawing.Point(385, 182);
             this.admEditBookDBRbAuthor.Margin = new System.Windows.Forms.Padding(4);
             this.admEditBookDBRbAuthor.Name = "admEditBookDBRbAuthor";
-            this.admEditBookDBRbAuthor.Size = new System.Drawing.Size(91, 29);
+            this.admEditBookDBRbAuthor.Size = new System.Drawing.Size(98, 29);
             this.admEditBookDBRbAuthor.TabIndex = 60;
             this.admEditBookDBRbAuthor.TabStop = true;
-            this.admEditBookDBRbAuthor.Text = "Author";
+            this.admEditBookDBRbAuthor.Text = "Tác giả";
             this.admEditBookDBRbAuthor.UseVisualStyleBackColor = true;
             // 
             // admEditBookDBRbTitle
@@ -223,10 +223,10 @@
             this.admEditBookDBRbTitle.Location = new System.Drawing.Point(233, 182);
             this.admEditBookDBRbTitle.Margin = new System.Windows.Forms.Padding(4);
             this.admEditBookDBRbTitle.Name = "admEditBookDBRbTitle";
-            this.admEditBookDBRbTitle.Size = new System.Drawing.Size(70, 29);
+            this.admEditBookDBRbTitle.Size = new System.Drawing.Size(99, 29);
             this.admEditBookDBRbTitle.TabIndex = 59;
             this.admEditBookDBRbTitle.TabStop = true;
-            this.admEditBookDBRbTitle.Text = "Title";
+            this.admEditBookDBRbTitle.Text = "Tiêu đề";
             this.admEditBookDBRbTitle.UseVisualStyleBackColor = true;
             // 
             // editBookDBLblSearch
@@ -236,22 +236,22 @@
             this.editBookDBLblSearch.Location = new System.Drawing.Point(132, 150);
             this.editBookDBLblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.editBookDBLblSearch.Name = "editBookDBLblSearch";
-            this.editBookDBLblSearch.Size = new System.Drawing.Size(81, 25);
+            this.editBookDBLblSearch.Size = new System.Drawing.Size(51, 25);
             this.editBookDBLblSearch.TabIndex = 58;
-            this.editBookDBLblSearch.Text = "Search:";
+            this.editBookDBLblSearch.Text = "Tìm:";
             // 
             // editBookDBDgvTable
             // 
             this.editBookDBDgvTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.editBookDBDgvTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.editBookDBDgvTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.editBookDBDgvTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.editBookDBDgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.editBookDBDgvTable.Location = new System.Drawing.Point(136, 254);
             this.editBookDBDgvTable.Margin = new System.Windows.Forms.Padding(4);
@@ -328,34 +328,34 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(131, 652);
+            this.label6.Location = new System.Drawing.Point(101, 652);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 25);
+            this.label6.Size = new System.Drawing.Size(139, 25);
             this.label6.TabIndex = 49;
-            this.label6.Text = "Publisher :";
+            this.label6.Text = "Nhà xuất bản :";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label5.Location = new System.Drawing.Point(132, 564);
+            this.label5.Location = new System.Drawing.Point(102, 564);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 25);
+            this.label5.Size = new System.Drawing.Size(84, 25);
             this.label5.TabIndex = 48;
-            this.label5.Text = "Book ID :";
+            this.label5.Text = "ID sách:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label4.Location = new System.Drawing.Point(131, 705);
+            this.label4.Location = new System.Drawing.Point(101, 705);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 25);
+            this.label4.Size = new System.Drawing.Size(88, 25);
             this.label4.TabIndex = 47;
-            this.label4.Text = "Genres :";
+            this.label4.Text = "Thể loại:";
             // 
             // label3
             // 
@@ -364,9 +364,9 @@
             this.label3.Location = new System.Drawing.Point(1060, 609);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 25);
+            this.label3.Size = new System.Drawing.Size(77, 25);
             this.label3.TabIndex = 46;
-            this.label3.Text = "Author :";
+            this.label3.Text = "Tác giả";
             // 
             // label2
             // 
@@ -375,30 +375,30 @@
             this.label2.Location = new System.Drawing.Point(1060, 656);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(185, 25);
+            this.label2.Size = new System.Drawing.Size(139, 25);
             this.label2.TabIndex = 45;
-            this.label2.Text = "Year of Publication :";
+            this.label2.Text = "Năm xuất bản:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(132, 609);
+            this.label1.Location = new System.Drawing.Point(102, 609);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 25);
+            this.label1.Size = new System.Drawing.Size(89, 25);
             this.label1.TabIndex = 44;
-            this.label1.Text = "Title :";
+            this.label1.Text = "Tiêu đề :";
             // 
             // admEditBookDBBtnLogout
             // 
             this.admEditBookDBBtnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.admEditBookDBBtnLogout.Location = new System.Drawing.Point(1328, 98);
+            this.admEditBookDBBtnLogout.Location = new System.Drawing.Point(1287, 98);
             this.admEditBookDBBtnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.admEditBookDBBtnLogout.Name = "admEditBookDBBtnLogout";
-            this.admEditBookDBBtnLogout.Size = new System.Drawing.Size(100, 43);
+            this.admEditBookDBBtnLogout.Size = new System.Drawing.Size(141, 43);
             this.admEditBookDBBtnLogout.TabIndex = 43;
-            this.admEditBookDBBtnLogout.Text = "Logout";
+            this.admEditBookDBBtnLogout.Text = "Đăng xuất";
             this.admEditBookDBBtnLogout.UseVisualStyleBackColor = true;
             this.admEditBookDBBtnLogout.Click += new System.EventHandler(this.admEditBookDBBtnLogout_Click);
             // 
@@ -410,7 +410,7 @@
             this.admEditBookDBBtnBack.Name = "admEditBookDBBtnBack";
             this.admEditBookDBBtnBack.Size = new System.Drawing.Size(109, 43);
             this.admEditBookDBBtnBack.TabIndex = 42;
-            this.admEditBookDBBtnBack.Text = "Back";
+            this.admEditBookDBBtnBack.Text = "Quay lại";
             this.admEditBookDBBtnBack.UseVisualStyleBackColor = true;
             this.admEditBookDBBtnBack.Click += new System.EventHandler(this.admEditBookDBBtnBack_Click);
             // 

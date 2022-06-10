@@ -39,13 +39,16 @@
             this.admBookSearchRbTitle = new System.Windows.Forms.RadioButton();
             this.admBookSearchLblSearch = new System.Windows.Forms.Label();
             this.admBookSearchDgv = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.admBookSearchDgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.admBookSearchBtnBack);
             this.panel1.Controls.Add(this.admBookSearchBtnLogout);
             this.panel1.Controls.Add(this.admBookSearchBtnSearch);
@@ -69,19 +72,19 @@
             this.admBookSearchBtnBack.Name = "admBookSearchBtnBack";
             this.admBookSearchBtnBack.Size = new System.Drawing.Size(100, 43);
             this.admBookSearchBtnBack.TabIndex = 33;
-            this.admBookSearchBtnBack.Text = "Back";
+            this.admBookSearchBtnBack.Text = "Quay lại";
             this.admBookSearchBtnBack.UseVisualStyleBackColor = true;
             this.admBookSearchBtnBack.Click += new System.EventHandler(this.admBookSearchBtnBack_Click);
             // 
             // admBookSearchBtnLogout
             // 
             this.admBookSearchBtnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.admBookSearchBtnLogout.Location = new System.Drawing.Point(1625, 27);
+            this.admBookSearchBtnLogout.Location = new System.Drawing.Point(1571, 27);
             this.admBookSearchBtnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.admBookSearchBtnLogout.Name = "admBookSearchBtnLogout";
-            this.admBookSearchBtnLogout.Size = new System.Drawing.Size(100, 43);
+            this.admBookSearchBtnLogout.Size = new System.Drawing.Size(154, 43);
             this.admBookSearchBtnLogout.TabIndex = 32;
-            this.admBookSearchBtnLogout.Text = "Logout";
+            this.admBookSearchBtnLogout.Text = "Đăng xuất";
             this.admBookSearchBtnLogout.UseVisualStyleBackColor = true;
             this.admBookSearchBtnLogout.Click += new System.EventHandler(this.admBookSearchBtnLogout_Click);
             // 
@@ -93,7 +96,7 @@
             this.admBookSearchBtnSearch.Name = "admBookSearchBtnSearch";
             this.admBookSearchBtnSearch.Size = new System.Drawing.Size(117, 41);
             this.admBookSearchBtnSearch.TabIndex = 30;
-            this.admBookSearchBtnSearch.Text = "Search";
+            this.admBookSearchBtnSearch.Text = "Tìm";
             this.admBookSearchBtnSearch.UseVisualStyleBackColor = true;
             this.admBookSearchBtnSearch.Click += new System.EventHandler(this.admBookSearchBtnSearch_Click);
             // 
@@ -110,7 +113,7 @@
             // 
             this.admBookSearchRbBoth.AutoSize = true;
             this.admBookSearchRbBoth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admBookSearchRbBoth.Location = new System.Drawing.Point(368, 124);
+            this.admBookSearchRbBoth.Location = new System.Drawing.Point(434, 123);
             this.admBookSearchRbBoth.Margin = new System.Windows.Forms.Padding(4);
             this.admBookSearchRbBoth.Name = "admBookSearchRbBoth";
             this.admBookSearchRbBoth.Size = new System.Drawing.Size(73, 29);
@@ -124,13 +127,13 @@
             // 
             this.admBookSearchRbAuthor.AutoSize = true;
             this.admBookSearchRbAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admBookSearchRbAuthor.Location = new System.Drawing.Point(260, 124);
+            this.admBookSearchRbAuthor.Location = new System.Drawing.Point(284, 123);
             this.admBookSearchRbAuthor.Margin = new System.Windows.Forms.Padding(4);
             this.admBookSearchRbAuthor.Name = "admBookSearchRbAuthor";
-            this.admBookSearchRbAuthor.Size = new System.Drawing.Size(91, 29);
+            this.admBookSearchRbAuthor.Size = new System.Drawing.Size(98, 29);
             this.admBookSearchRbAuthor.TabIndex = 27;
             this.admBookSearchRbAuthor.TabStop = true;
-            this.admBookSearchRbAuthor.Text = "Author";
+            this.admBookSearchRbAuthor.Text = "Tác giả";
             this.admBookSearchRbAuthor.UseVisualStyleBackColor = true;
             // 
             // admBookSearchRbTitle
@@ -140,10 +143,10 @@
             this.admBookSearchRbTitle.Location = new System.Drawing.Point(177, 124);
             this.admBookSearchRbTitle.Margin = new System.Windows.Forms.Padding(4);
             this.admBookSearchRbTitle.Name = "admBookSearchRbTitle";
-            this.admBookSearchRbTitle.Size = new System.Drawing.Size(70, 29);
+            this.admBookSearchRbTitle.Size = new System.Drawing.Size(99, 29);
             this.admBookSearchRbTitle.TabIndex = 26;
             this.admBookSearchRbTitle.TabStop = true;
-            this.admBookSearchRbTitle.Text = "Title";
+            this.admBookSearchRbTitle.Text = "Tiêu đề";
             this.admBookSearchRbTitle.UseVisualStyleBackColor = true;
             // 
             // admBookSearchLblSearch
@@ -153,9 +156,9 @@
             this.admBookSearchLblSearch.Location = new System.Drawing.Point(19, 92);
             this.admBookSearchLblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.admBookSearchLblSearch.Name = "admBookSearchLblSearch";
-            this.admBookSearchLblSearch.Size = new System.Drawing.Size(141, 25);
+            this.admBookSearchLblSearch.Size = new System.Drawing.Size(97, 25);
             this.admBookSearchLblSearch.TabIndex = 25;
-            this.admBookSearchLblSearch.Text = "Search Books:";
+            this.admBookSearchLblSearch.Text = "Tìm kiếm:";
             // 
             // admBookSearchDgv
             // 
@@ -170,12 +173,23 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.admBookSearchDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.admBookSearchDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.admBookSearchDgv.Location = new System.Drawing.Point(27, 230);
+            this.admBookSearchDgv.Location = new System.Drawing.Point(27, 357);
             this.admBookSearchDgv.Margin = new System.Windows.Forms.Padding(4);
             this.admBookSearchDgv.Name = "admBookSearchDgv";
             this.admBookSearchDgv.RowHeadersWidth = 51;
-            this.admBookSearchDgv.Size = new System.Drawing.Size(1699, 596);
+            this.admBookSearchDgv.Size = new System.Drawing.Size(1699, 469);
             this.admBookSearchDgv.TabIndex = 23;
+            this.admBookSearchDgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.admBookSearchDgv_CellClick);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(902, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(391, 323);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 69;
+            this.pictureBox1.TabStop = false;
             // 
             // admBookSearch
             // 
@@ -192,6 +206,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.admBookSearchDgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -208,5 +223,6 @@
         private System.Windows.Forms.Label admBookSearchLblSearch;
         private System.Windows.Forms.DataGridView admBookSearchDgv;
         private System.Windows.Forms.Button admBookSearchBtnBack;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

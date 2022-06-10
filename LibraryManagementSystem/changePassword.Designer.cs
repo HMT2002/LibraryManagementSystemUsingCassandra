@@ -52,7 +52,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(347, 223);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(821, 426);
             this.panel1.TabIndex = 0;
@@ -61,11 +61,11 @@
             // 
             this.changePassBtnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.changePassBtnCancel.Location = new System.Drawing.Point(165, 305);
-            this.changePassBtnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.changePassBtnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.changePassBtnCancel.Name = "changePassBtnCancel";
             this.changePassBtnCancel.Size = new System.Drawing.Size(100, 55);
             this.changePassBtnCancel.TabIndex = 14;
-            this.changePassBtnCancel.Text = "Cancel";
+            this.changePassBtnCancel.Text = "Huỷ";
             this.changePassBtnCancel.UseVisualStyleBackColor = true;
             this.changePassBtnCancel.Click += new System.EventHandler(this.changePassBtnCancel_Click);
             // 
@@ -73,11 +73,11 @@
             // 
             this.chnagePassbtnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chnagePassbtnSubmit.Location = new System.Drawing.Point(416, 303);
-            this.chnagePassbtnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chnagePassbtnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.chnagePassbtnSubmit.Name = "chnagePassbtnSubmit";
             this.chnagePassbtnSubmit.Size = new System.Drawing.Size(223, 55);
             this.chnagePassbtnSubmit.TabIndex = 6;
-            this.chnagePassbtnSubmit.Text = "Submit";
+            this.chnagePassbtnSubmit.Text = "Đổi mật khẩu";
             this.chnagePassbtnSubmit.UseVisualStyleBackColor = true;
             this.chnagePassbtnSubmit.Click += new System.EventHandler(this.chnagePassbtnSubmit_Click);
             // 
@@ -85,7 +85,7 @@
             // 
             this.chnagePassTbxConfirmPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chnagePassTbxConfirmPass.Location = new System.Drawing.Point(396, 212);
-            this.chnagePassTbxConfirmPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chnagePassTbxConfirmPass.Margin = new System.Windows.Forms.Padding(4);
             this.chnagePassTbxConfirmPass.Name = "chnagePassTbxConfirmPass";
             this.chnagePassTbxConfirmPass.PasswordChar = '*';
             this.chnagePassTbxConfirmPass.Size = new System.Drawing.Size(263, 32);
@@ -95,7 +95,7 @@
             // 
             this.chnagePassTbxNewPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chnagePassTbxNewPass.Location = new System.Drawing.Point(396, 156);
-            this.chnagePassTbxNewPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chnagePassTbxNewPass.Margin = new System.Windows.Forms.Padding(4);
             this.chnagePassTbxNewPass.Name = "chnagePassTbxNewPass";
             this.chnagePassTbxNewPass.PasswordChar = '*';
             this.chnagePassTbxNewPass.Size = new System.Drawing.Size(263, 32);
@@ -105,7 +105,7 @@
             // 
             this.chnagePassTbxCurPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chnagePassTbxCurPass.Location = new System.Drawing.Point(396, 105);
-            this.chnagePassTbxCurPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chnagePassTbxCurPass.Margin = new System.Windows.Forms.Padding(4);
             this.chnagePassTbxCurPass.Name = "chnagePassTbxCurPass";
             this.chnagePassTbxCurPass.PasswordChar = '*';
             this.chnagePassTbxCurPass.Size = new System.Drawing.Size(263, 32);
@@ -118,9 +118,9 @@
             this.label3.Location = new System.Drawing.Point(65, 212);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(298, 28);
+            this.label3.Size = new System.Drawing.Size(246, 28);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Conform New Password :";
+            this.label3.Text = "Xác nhận mật khẩu:";
             // 
             // label2
             // 
@@ -129,9 +129,9 @@
             this.label2.Location = new System.Drawing.Point(65, 156);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(194, 28);
+            this.label2.Size = new System.Drawing.Size(181, 28);
             this.label2.TabIndex = 1;
-            this.label2.Text = "New Password :";
+            this.label2.Text = "Mật khẩu mới:";
             // 
             // label1
             // 
@@ -142,7 +142,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(246, 28);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Current Password :";
+            this.label1.Text = "Mật khẩu hiện tại:";
             // 
             // changePassword
             // 
@@ -150,9 +150,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1448, 873);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "changePassword";
-            this.Text = "Chnage Password";
+            this.Text = "Đổi mật khẩu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.changePassword_FormClosing);
             this.Load += new System.EventHandler(this.changePassword_Load);

@@ -17,12 +17,10 @@ namespace LibraryManagementSystem
 {
     public partial class admBookSearch : Form
     {
-        SqlConnection con;
-        SqlCommand cmd;
-
-        // userid and pwd
         public int userid;
         public string password;
+        int selected_book_id;
+        tblBook tb = new tblBook();
 
         Func<Row, tblBook> BookSelector;
 
@@ -66,50 +64,6 @@ namespace LibraryManagementSystem
 
         private void admBookSearch_Load(object sender, EventArgs e)
         {
-            //// copy userid and pwd
-            //userid = login.userid;
-            //password = login.password;
-
-            //// establish connection to db
-            //string connectionString = ConfigurationManager.ConnectionStrings["LibraryManagementSystem.Properties.Settings.LibraryDB"].ToString();
-            //con = new SqlConnection(connectionString);
-
-            //// on intialise display books table
-            //cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', i_user_id as 'User ID', name as 'User Name', date_issued as 'Date Issued', DATEDIFF(day, date_issued, CONVERT(date, GETDATE()))  as 'Total days passed', publisher as 'Publisher', year_of_pub as 'Year of Pub', genres as 'Genres' from books left join issue on i_book_id = book_id left join users on i_user_id = user_id", con);
-            //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            //DataSet ds = new DataSet();
-            //sda.Fill(ds);
-
-            //admBookSearchDgv.DataSource = ds.Tables[0];
-
-            //// make read only
-            //admBookSearchDgv.ReadOnly = true;
-
-            //// select both radio button by default
-            //admBookSearchRbBoth.Select();
-
-
-            //User user = mapper.Fetch<User>(query).ToList().FirstOrDefault();
-            //if (user != null)
-            //{
-            //    userid = user.id;
-            //    password = user.password;
-            //    this.Hide();
-            //    if (user.type == 1)
-            //    {
-            //        admStartPage menuF = new admStartPage();
-            //        menuF.Show();
-            //    }
-            //    else
-            //    {
-            //        userBookSearch ubs = new userBookSearch();
-            //        ubs.Show();
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Wrong email or password!!!!");
-            //}
 
         }
 
@@ -122,32 +76,14 @@ namespace LibraryManagementSystem
 
         private void admBookSearchBtnSearch_Click(object sender, EventArgs e)
         {
-            //if (con.State == ConnectionState.Closed)
-            //    con.Open();
+
 
             if (admBookSearchRbBoth.Checked == true)
             {
-                //cmd = new SqlCommand("select * from books where title like @searchQuery or author like @searchQuery", con);
-                //cmd.Parameters.AddWithValue("@searchQuery", "%" + editBookDBTbxSearch.Text + "%");
-
-                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                //DataSet ds = new DataSet();
-                //sda.Fill(ds);
-
-                //editBookDBDgvTable.DataSource = ds.Tables[0];
 
             }
             else if (admBookSearchRbTitle.Checked == true)
             {
-                //cmd = new SqlCommand("select * from books where title like @searchQuery", con);
-                //cmd.Parameters.AddWithValue("@searchQuery", "%" + editBookDBTbxSearch.Text + "%");
-
-                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                //DataSet ds = new DataSet();
-                //sda.Fill(ds);
-
-                //editBookDBDgvTable.DataSource = ds.Tables[0];
-
                 string query = "SELECT * FROM books Where title = '" + admBookSearchTbxQuery.Text.Trim() + "'  ALLOW FILTERING";
 
                 var BookTable = DataConnection.Ins.session.Execute(query)
@@ -158,16 +94,6 @@ namespace LibraryManagementSystem
             }
             else if (admBookSearchRbAuthor.Checked == true)
             {
-                //cmd = new SqlCommand("select * from books where author like @searchQuery", con);
-                //cmd.Parameters.AddWithValue("@searchQuery", "%" + editBookDBTbxSearch.Text + "%");
-
-                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                //DataSet ds = new DataSet();
-                //sda.Fill(ds);
-
-                //editBookDBDgvTable.DataSource = ds.Tables[0];
-
-
                 string query = "SELECT * FROM books Where author = '" + admBookSearchTbxQuery.Text.Trim() + "'  ALLOW FILTERING";
 
                 var BookTable = DataConnection.Ins.session.Execute(query)
@@ -188,6 +114,22 @@ namespace LibraryManagementSystem
         private void admBookSearch_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void admBookSearchDgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1 && e.RowIndex != admBookSearchDgv.Rows.Count)
+            {
+                // copy value to variable even if unnecessary
+                selected_book_id = Convert.ToInt32(admBookSearchDgv.Rows[e.RowIndex].Cells[0].Value);
+
+
+                string booksquery = "SELECT picture FROM books where id = " + selected_book_id + " ALLOW FILTERING;";
+                var bookresults = DataConnection.Ins.session.Execute(booksquery).FirstOrDefault();
+                tb.Data = bookresults.GetValue<byte[]>("picture");
+                tb.convertImgFromByte();
+                pictureBox1.Image = tb.Img;
+            }
         }
     }
 }

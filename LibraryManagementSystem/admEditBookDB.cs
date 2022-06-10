@@ -17,9 +17,6 @@ namespace LibraryManagementSystem
 {
     public partial class admEditBookDB : Form
     {
-        SqlConnection con;
-        SqlCommand cmd;
-
         // selected book id
         int selected_book_id;
         tblBook tb = new tblBook();
@@ -39,20 +36,6 @@ namespace LibraryManagementSystem
         // display the table of books
         public void displayBooks()
         {
-            //// establish connection to db
-            //string connectionString = ConfigurationManager.ConnectionStrings["LibraryManagementSystem.Properties.Settings.LibraryDB"].ToString();
-            //con = new SqlConnection(connectionString);
-
-            //// on intialise display books table
-            //cmd = new SqlCommand("select book_id as 'Book ID', title as 'Title', author as 'Author', publisher as 'Publisher', year_of_pub as 'Year of Publication', genres as 'Genres' from books order by book_id asc", con);
-            //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            //DataSet ds = new DataSet();
-            //sda.Fill(ds);
-
-            //editBookDBDgvTable.DataSource = ds.Tables[0];
-
-
-
             BookSelector = delegate (Row r)
             {
                 tblBook card = new tblBook
@@ -116,8 +99,6 @@ namespace LibraryManagementSystem
         // search the book DB functionality
         private void editBookDBBtnSearch_Click(object sender, EventArgs e)
         {
-            //if (con.State == ConnectionState.Closed)
-            //    con.Open();
 
             if (admEditBookDBRbBoth.Checked == true)
             {
@@ -133,15 +114,6 @@ namespace LibraryManagementSystem
             }
             else if (admEditBookDBRbTitle.Checked == true)
             {
-                //cmd = new SqlCommand("select * from books where title like @searchQuery", con);
-                //cmd.Parameters.AddWithValue("@searchQuery", "%" + editBookDBTbxSearch.Text + "%");
-
-                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                //DataSet ds = new DataSet();
-                //sda.Fill(ds);
-
-                //editBookDBDgvTable.DataSource = ds.Tables[0];
-
                 string query = "SELECT * FROM Sach Where TieuDe = '" + editBookDBTbxSearch.Text.Trim() + "'  ALLOW FILTERING";
 
                 var BookTable = DataConnection.Ins.session.Execute(query)
@@ -152,16 +124,6 @@ namespace LibraryManagementSystem
             }
             else if (admEditBookDBRbAuthor.Checked == true)
             {
-                //cmd = new SqlCommand("select * from books where author like @searchQuery", con);
-                //cmd.Parameters.AddWithValue("@searchQuery", "%" + editBookDBTbxSearch.Text + "%");
-
-                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                //DataSet ds = new DataSet();
-                //sda.Fill(ds);
-
-                //editBookDBDgvTable.DataSource = ds.Tables[0];
-
-
                 string query = "SELECT * FROM Sach Where TacGia = '" + editBookDBTbxSearch.Text.Trim() + "'  ALLOW FILTERING";
 
                 var BookTable = DataConnection.Ins.session.Execute(query)

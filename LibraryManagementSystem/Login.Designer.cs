@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
             this.panel1 = new System.Windows.Forms.Panel();
             this.LoginBtnSubmit = new System.Windows.Forms.Button();
             this.loginTbxPassword = new System.Windows.Forms.TextBox();
@@ -35,12 +36,15 @@
             this.loginLblPassword = new System.Windows.Forms.Label();
             this.loginLblUserId = new System.Windows.Forms.Label();
             this.loginLblQuote = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.LoginBtnSubmit);
             this.panel1.Controls.Add(this.loginTbxPassword);
             this.panel1.Controls.Add(this.loginTbxUserId);
@@ -57,12 +61,12 @@
             // 
             this.LoginBtnSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LoginBtnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginBtnSubmit.Location = new System.Drawing.Point(608, 375);
+            this.LoginBtnSubmit.Location = new System.Drawing.Point(565, 375);
             this.LoginBtnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.LoginBtnSubmit.Name = "LoginBtnSubmit";
-            this.LoginBtnSubmit.Size = new System.Drawing.Size(99, 39);
+            this.LoginBtnSubmit.Size = new System.Drawing.Size(142, 39);
             this.LoginBtnSubmit.TabIndex = 9;
-            this.LoginBtnSubmit.Text = "Submit";
+            this.LoginBtnSubmit.Text = "Đăng nhập";
             this.LoginBtnSubmit.UseVisualStyleBackColor = true;
             this.LoginBtnSubmit.Click += new System.EventHandler(this.LoginBtnSubmit_Click);
             // 
@@ -89,37 +93,48 @@
             // 
             this.loginLblPassword.AutoSize = true;
             this.loginLblPassword.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginLblPassword.Location = new System.Drawing.Point(299, 321);
+            this.loginLblPassword.Location = new System.Drawing.Point(283, 319);
             this.loginLblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.loginLblPassword.Name = "loginLblPassword";
-            this.loginLblPassword.Size = new System.Drawing.Size(142, 28);
+            this.loginLblPassword.Size = new System.Drawing.Size(129, 28);
             this.loginLblPassword.TabIndex = 6;
-            this.loginLblPassword.Text = "Password :";
+            this.loginLblPassword.Text = "Mật khẩu:";
             // 
             // loginLblUserId
             // 
             this.loginLblUserId.AutoSize = true;
             this.loginLblUserId.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginLblUserId.Location = new System.Drawing.Point(299, 266);
+            this.loginLblUserId.Location = new System.Drawing.Point(283, 264);
             this.loginLblUserId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.loginLblUserId.Name = "loginLblUserId";
-            this.loginLblUserId.Size = new System.Drawing.Size(168, 28);
+            this.loginLblUserId.Size = new System.Drawing.Size(181, 28);
             this.loginLblUserId.TabIndex = 5;
-            this.loginLblUserId.Text = "User Email :";
+            this.loginLblUserId.Text = "Tên đăng nhập";
             // 
             // loginLblQuote
             // 
             this.loginLblQuote.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.loginLblQuote.AutoSize = true;
             this.loginLblQuote.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginLblQuote.Location = new System.Drawing.Point(211, 153);
+            this.loginLblQuote.Location = new System.Drawing.Point(520, 128);
             this.loginLblQuote.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.loginLblQuote.Name = "loginLblQuote";
-            this.loginLblQuote.Size = new System.Drawing.Size(732, 45);
+            this.loginLblQuote.Size = new System.Drawing.Size(255, 45);
             this.loginLblQuote.TabIndex = 3;
-            this.loginLblQuote.Text = "A book is a gift you can open again and again...";
+            this.loginLblQuote.Text = "Thư viện SE301";
             this.loginLblQuote.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.loginLblQuote.UseCompatibleTextRendering = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(901, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(297, 228);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // login
             // 
@@ -136,6 +151,7 @@
             this.Load += new System.EventHandler(this.login_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -149,6 +165,7 @@
         private System.Windows.Forms.TextBox loginTbxUserId;
         private System.Windows.Forms.Label loginLblPassword;
         private System.Windows.Forms.Label loginLblUserId;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

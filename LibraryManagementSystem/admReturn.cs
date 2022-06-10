@@ -16,13 +16,13 @@ namespace LibraryManagementSystem
 {
     public partial class admReturn : Form
     {
-        SqlConnection con;
-        SqlCommand cmd;
 
         Func<Row, tblIssue> IssueSelector;
         Func<Row, tblBook> BookSelector;
 
         int issue_id = 0;
+        tblStudent tbst = new tblStudent();
+        tblBook tb = new tblBook();
 
         public admReturn()
         {
@@ -96,6 +96,21 @@ namespace LibraryManagementSystem
                 int user_id = Convert.ToInt32(admReturnDgvTable.Rows[e.RowIndex].Cells[2].Value);
                 amdReturnTbxBookID.Text = Convert.ToString(book_id);
                 admReturnTbxUserID.Text = Convert.ToString(user_id);
+
+
+
+                string usersquery = "SELECT picture FROM users where id = " + user_id + " ALLOW FILTERING;";
+                var userresults = DataConnection.Ins.session.Execute(usersquery).FirstOrDefault();
+                tbst.Data = userresults.GetValue<byte[]>("picture");
+                tbst.convertImgFromByte();
+                pictureBoxUser.Image = tbst.Img;
+
+
+                string booksquery = "SELECT picture FROM books where id = " + book_id + " ALLOW FILTERING;";
+                var bookresults = DataConnection.Ins.session.Execute(booksquery).FirstOrDefault();
+                tb.Data = bookresults.GetValue<byte[]>("picture");
+                tb.convertImgFromByte();
+                pictureBoxBook.Image = tb.Img;
             }
         }
 

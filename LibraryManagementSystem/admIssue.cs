@@ -16,8 +16,6 @@ namespace LibraryManagementSystem
 {
     public partial class admIssue : Form
     {
-        SqlConnection con;
-        SqlCommand cmd;
 
         Func<Row, tblIssue> IssueSelector;
         Func<Row, tblBook> BookSelector;
@@ -147,8 +145,6 @@ namespace LibraryManagementSystem
 
             int rows = IssueTable.ToList().Count;
 
-            //int rows = ds.Tables[0].Rows.Count;
-
             if(rows >= 2)
             {
                 MessageBox.Show("Cannot issue more books.\nA user can only issue 2 books.");
@@ -162,8 +158,6 @@ namespace LibraryManagementSystem
                 .Select(IssueSelector);
 
             int rows1 = IssueTable1.ToList().Count;
-
-            //int rows1 = ds1.Tables[0].Rows.Count;
 
             if(rows1 > 0)
             {

@@ -36,8 +36,6 @@ namespace LibraryManagementSystem
             password = login.password;
 
             // establish connection to db
-            string connectionString = ConfigurationManager.ConnectionStrings["LibraryManagementSystem.Properties.Settings.LibraryDB"].ToString();
-            con = new SqlConnection(connectionString);
         }
 
         public void clear()
@@ -49,31 +47,22 @@ namespace LibraryManagementSystem
 
         private void chnagePassbtnSubmit_Click(object sender, EventArgs e)
         {
-            // check if original password matches
             if(password == chnagePassTbxCurPass.Text)
             {
-                if(chnagePassTbxNewPass.Text == chnagePassTbxConfirmPass.Text)
+                if (chnagePassTbxNewPass.Text == chnagePassTbxConfirmPass.Text)
                 {
-                    // open connection
-                    if (con.State == ConnectionState.Closed)
-                        con.Open();
 
-                    cmd = new SqlCommand("update users set password = @password where user_id = @user_id", con);
-                    cmd.Parameters.AddWithValue("@password", chnagePassTbxNewPass.Text);
-                    cmd.Parameters.AddWithValue("@user_id", userid);
+                    var ps = DataConnection.Ins.session.Prepare("update users set password=? where id=?;");
+                    var query = ps.Bind(chnagePassTbxConfirmPass.Text.Trim(), userid);
+                    DataConnection.Ins.session.Execute(query);
 
-                    int result = cmd.ExecuteNonQuery();
+                    // show update
+                    MessageBox.Show("Password successfully updated.\nPlease login with the new credentials on the new screen.");
 
-                    if(result == 1)
-                    {
-                        // show update
-                        MessageBox.Show("Password successfully updated.\nPlease login with the new credentials on the new screen.");
-
-                        // login
-                        this.Hide();
-                        login lg = new login();
-                        lg.Show();
-                    }
+                    // login
+                    this.Hide();
+                    login lg = new login();
+                    lg.Show();
                 }
                 else
                 {

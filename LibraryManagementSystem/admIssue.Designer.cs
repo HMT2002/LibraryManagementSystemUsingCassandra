@@ -77,12 +77,12 @@
             // admIssueBooksBtnLogout
             // 
             this.admIssueBooksBtnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admIssueBooksBtnLogout.Location = new System.Drawing.Point(956, 21);
+            this.admIssueBooksBtnLogout.Location = new System.Drawing.Point(880, 21);
             this.admIssueBooksBtnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.admIssueBooksBtnLogout.Name = "admIssueBooksBtnLogout";
-            this.admIssueBooksBtnLogout.Size = new System.Drawing.Size(103, 37);
+            this.admIssueBooksBtnLogout.Size = new System.Drawing.Size(179, 37);
             this.admIssueBooksBtnLogout.TabIndex = 68;
-            this.admIssueBooksBtnLogout.Text = "Logout";
+            this.admIssueBooksBtnLogout.Text = "Đăng xuất";
             this.admIssueBooksBtnLogout.UseVisualStyleBackColor = true;
             this.admIssueBooksBtnLogout.Click += new System.EventHandler(this.admIssueBooksBtnLogout_Click);
             // 
@@ -94,7 +94,7 @@
             this.admIssueBooksBtnBack.Name = "admIssueBooksBtnBack";
             this.admIssueBooksBtnBack.Size = new System.Drawing.Size(103, 37);
             this.admIssueBooksBtnBack.TabIndex = 67;
-            this.admIssueBooksBtnBack.Text = "Back";
+            this.admIssueBooksBtnBack.Text = "Quay lại";
             this.admIssueBooksBtnBack.UseVisualStyleBackColor = true;
             this.admIssueBooksBtnBack.Click += new System.EventHandler(this.admIssueBooksBtnBack_Click);
             // 
@@ -104,9 +104,9 @@
             this.label1.Location = new System.Drawing.Point(412, 313);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(219, 17);
+            this.label1.Size = new System.Drawing.Size(231, 17);
             this.label1.TabIndex = 65;
-            this.label1.Text = "( Only books that are not issued )";
+            this.label1.Text = "(Chỉ hiển thị sách chưa được mượn)";
             // 
             // admIssueBtnSearch
             // 
@@ -116,7 +116,7 @@
             this.admIssueBtnSearch.Name = "admIssueBtnSearch";
             this.admIssueBtnSearch.Size = new System.Drawing.Size(117, 41);
             this.admIssueBtnSearch.TabIndex = 64;
-            this.admIssueBtnSearch.Text = "Search";
+            this.admIssueBtnSearch.Text = "Tìm";
             this.admIssueBtnSearch.UseVisualStyleBackColor = true;
             this.admIssueBtnSearch.Click += new System.EventHandler(this.admIssueBtnSearch_Click);
             // 
@@ -133,7 +133,7 @@
             // 
             this.admIssueRbBoth.AutoSize = true;
             this.admIssueRbBoth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admIssueRbBoth.Location = new System.Drawing.Point(456, 251);
+            this.admIssueRbBoth.Location = new System.Drawing.Point(607, 251);
             this.admIssueRbBoth.Margin = new System.Windows.Forms.Padding(4);
             this.admIssueRbBoth.Name = "admIssueRbBoth";
             this.admIssueRbBoth.Size = new System.Drawing.Size(73, 29);
@@ -147,13 +147,13 @@
             // 
             this.admIssueRbAuthor.AutoSize = true;
             this.admIssueRbAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admIssueRbAuthor.Location = new System.Drawing.Point(348, 251);
+            this.admIssueRbAuthor.Location = new System.Drawing.Point(415, 251);
             this.admIssueRbAuthor.Margin = new System.Windows.Forms.Padding(4);
             this.admIssueRbAuthor.Name = "admIssueRbAuthor";
-            this.admIssueRbAuthor.Size = new System.Drawing.Size(74, 29);
+            this.admIssueRbAuthor.Size = new System.Drawing.Size(133, 29);
             this.admIssueRbAuthor.TabIndex = 61;
             this.admIssueRbAuthor.TabStop = true;
-            this.admIssueRbAuthor.Text = "User";
+            this.admIssueRbAuthor.Text = "Người dùng";
             this.admIssueRbAuthor.UseVisualStyleBackColor = true;
             // 
             // admIssueRbTitle
@@ -163,10 +163,10 @@
             this.admIssueRbTitle.Location = new System.Drawing.Point(265, 251);
             this.admIssueRbTitle.Margin = new System.Windows.Forms.Padding(4);
             this.admIssueRbTitle.Name = "admIssueRbTitle";
-            this.admIssueRbTitle.Size = new System.Drawing.Size(70, 29);
+            this.admIssueRbTitle.Size = new System.Drawing.Size(146, 29);
             this.admIssueRbTitle.TabIndex = 60;
             this.admIssueRbTitle.TabStop = true;
-            this.admIssueRbTitle.Text = "Title";
+            this.admIssueRbTitle.Text = "Tiêu đề sách";
             this.admIssueRbTitle.UseVisualStyleBackColor = true;
             // 
             // admBookSearchLblSearch
@@ -176,9 +176,9 @@
             this.admBookSearchLblSearch.Location = new System.Drawing.Point(172, 219);
             this.admBookSearchLblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.admBookSearchLblSearch.Name = "admBookSearchLblSearch";
-            this.admBookSearchLblSearch.Size = new System.Drawing.Size(81, 25);
+            this.admBookSearchLblSearch.Size = new System.Drawing.Size(51, 25);
             this.admBookSearchLblSearch.TabIndex = 59;
-            this.admBookSearchLblSearch.Text = "Search:";
+            this.admBookSearchLblSearch.Text = "Tìm:";
             // 
             // admIssueDgvTable
             // 
@@ -209,7 +209,7 @@
             this.admIssueBtnIssue.Name = "admIssueBtnIssue";
             this.admIssueBtnIssue.Size = new System.Drawing.Size(128, 41);
             this.admIssueBtnIssue.TabIndex = 19;
-            this.admIssueBtnIssue.Text = "Issue";
+            this.admIssueBtnIssue.Text = "Mượn";
             this.admIssueBtnIssue.UseVisualStyleBackColor = true;
             this.admIssueBtnIssue.Click += new System.EventHandler(this.admIssueBtnIssue_Click);
             // 
@@ -235,23 +235,23 @@
             // 
             this.admIssueLblUserID.AutoSize = true;
             this.admIssueLblUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
-            this.admIssueLblUserID.Location = new System.Drawing.Point(356, 84);
+            this.admIssueLblUserID.Location = new System.Drawing.Point(294, 86);
             this.admIssueLblUserID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.admIssueLblUserID.Name = "admIssueLblUserID";
-            this.admIssueLblUserID.Size = new System.Drawing.Size(122, 31);
+            this.admIssueLblUserID.Size = new System.Drawing.Size(197, 31);
             this.admIssueLblUserID.TabIndex = 16;
-            this.admIssueLblUserID.Text = "User ID: ";
+            this.admIssueLblUserID.Text = "ID người dùng: ";
             // 
             // admIssueLblBookID
             // 
             this.admIssueLblBookID.AutoSize = true;
             this.admIssueLblBookID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admIssueLblBookID.Location = new System.Drawing.Point(351, 27);
+            this.admIssueLblBookID.Location = new System.Drawing.Point(289, 29);
             this.admIssueLblBookID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.admIssueLblBookID.Name = "admIssueLblBookID";
-            this.admIssueLblBookID.Size = new System.Drawing.Size(126, 31);
+            this.admIssueLblBookID.Size = new System.Drawing.Size(122, 31);
             this.admIssueLblBookID.TabIndex = 15;
-            this.admIssueLblBookID.Text = "Book ID: ";
+            this.admIssueLblBookID.Text = "ID sách: ";
             // 
             // admIssue
             // 

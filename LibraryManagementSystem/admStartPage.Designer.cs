@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(admStartPage));
             this.admStartPageBtnBookSearch = new System.Windows.Forms.Button();
             this.admStartPageBtnEditBookDB = new System.Windows.Forms.Button();
             this.admStartPageBtnReturn = new System.Windows.Forms.Button();
@@ -36,72 +37,75 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.admStartPageBtnChangePassword = new System.Windows.Forms.Button();
             this.admStartPageBtnLogout = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // admStartPageBtnBookSearch
             // 
             this.admStartPageBtnBookSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.admStartPageBtnBookSearch.Location = new System.Drawing.Point(51, 64);
-            this.admStartPageBtnBookSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admStartPageBtnBookSearch.Location = new System.Drawing.Point(57, 336);
+            this.admStartPageBtnBookSearch.Margin = new System.Windows.Forms.Padding(4);
             this.admStartPageBtnBookSearch.Name = "admStartPageBtnBookSearch";
             this.admStartPageBtnBookSearch.Size = new System.Drawing.Size(237, 118);
             this.admStartPageBtnBookSearch.TabIndex = 0;
-            this.admStartPageBtnBookSearch.Text = "Book Search";
+            this.admStartPageBtnBookSearch.Text = "Tìm sách";
             this.admStartPageBtnBookSearch.UseVisualStyleBackColor = true;
             this.admStartPageBtnBookSearch.Click += new System.EventHandler(this.admStartPageBtnBookSearch_Click);
             // 
             // admStartPageBtnEditBookDB
             // 
             this.admStartPageBtnEditBookDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.admStartPageBtnEditBookDB.Location = new System.Drawing.Point(195, 218);
-            this.admStartPageBtnEditBookDB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admStartPageBtnEditBookDB.Location = new System.Drawing.Point(201, 490);
+            this.admStartPageBtnEditBookDB.Margin = new System.Windows.Forms.Padding(4);
             this.admStartPageBtnEditBookDB.Name = "admStartPageBtnEditBookDB";
             this.admStartPageBtnEditBookDB.Size = new System.Drawing.Size(237, 118);
             this.admStartPageBtnEditBookDB.TabIndex = 1;
-            this.admStartPageBtnEditBookDB.Text = "Edit Book DB";
+            this.admStartPageBtnEditBookDB.Text = "Dữ liệu sách";
             this.admStartPageBtnEditBookDB.UseVisualStyleBackColor = true;
             this.admStartPageBtnEditBookDB.Click += new System.EventHandler(this.admStartPageBtnEditBookDB_Click);
             // 
             // admStartPageBtnReturn
             // 
             this.admStartPageBtnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.admStartPageBtnReturn.Location = new System.Drawing.Point(605, 64);
-            this.admStartPageBtnReturn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admStartPageBtnReturn.Location = new System.Drawing.Point(611, 336);
+            this.admStartPageBtnReturn.Margin = new System.Windows.Forms.Padding(4);
             this.admStartPageBtnReturn.Name = "admStartPageBtnReturn";
             this.admStartPageBtnReturn.Size = new System.Drawing.Size(237, 118);
             this.admStartPageBtnReturn.TabIndex = 2;
-            this.admStartPageBtnReturn.Text = "Return";
+            this.admStartPageBtnReturn.Text = "Trả sách";
             this.admStartPageBtnReturn.UseVisualStyleBackColor = true;
             this.admStartPageBtnReturn.Click += new System.EventHandler(this.admStartPageBtnReturn_Click);
             // 
             // admStartPageBtnIssue
             // 
             this.admStartPageBtnIssue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.admStartPageBtnIssue.Location = new System.Drawing.Point(323, 64);
-            this.admStartPageBtnIssue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admStartPageBtnIssue.Location = new System.Drawing.Point(329, 336);
+            this.admStartPageBtnIssue.Margin = new System.Windows.Forms.Padding(4);
             this.admStartPageBtnIssue.Name = "admStartPageBtnIssue";
             this.admStartPageBtnIssue.Size = new System.Drawing.Size(237, 118);
             this.admStartPageBtnIssue.TabIndex = 3;
-            this.admStartPageBtnIssue.Text = "Issue";
+            this.admStartPageBtnIssue.Text = "Mượn sách";
             this.admStartPageBtnIssue.UseVisualStyleBackColor = true;
             this.admStartPageBtnIssue.Click += new System.EventHandler(this.admStartPageBtnIssue_Click);
             // 
             // admStartPageBtnEditStudentDB
             // 
             this.admStartPageBtnEditStudentDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.admStartPageBtnEditStudentDB.Location = new System.Drawing.Point(467, 218);
-            this.admStartPageBtnEditStudentDB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admStartPageBtnEditStudentDB.Location = new System.Drawing.Point(473, 490);
+            this.admStartPageBtnEditStudentDB.Margin = new System.Windows.Forms.Padding(4);
             this.admStartPageBtnEditStudentDB.Name = "admStartPageBtnEditStudentDB";
             this.admStartPageBtnEditStudentDB.Size = new System.Drawing.Size(237, 118);
             this.admStartPageBtnEditStudentDB.TabIndex = 4;
-            this.admStartPageBtnEditStudentDB.Text = "Edit User DB";
+            this.admStartPageBtnEditStudentDB.Text = "Dữ liệu người dùng";
             this.admStartPageBtnEditStudentDB.UseVisualStyleBackColor = true;
             this.admStartPageBtnEditStudentDB.Click += new System.EventHandler(this.admStartPageBtnEditStudentDB_Click);
             // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.admStartPageBtnChangePassword);
             this.panel1.Controls.Add(this.admStartPageBtnLogout);
             this.panel1.Controls.Add(this.admStartPageBtnIssue);
@@ -110,7 +114,7 @@
             this.panel1.Controls.Add(this.admStartPageBtnEditBookDB);
             this.panel1.Controls.Add(this.admStartPageBtnReturn);
             this.panel1.Location = new System.Drawing.Point(611, 325);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(905, 642);
             this.panel1.TabIndex = 5;
@@ -118,26 +122,37 @@
             // admStartPageBtnChangePassword
             // 
             this.admStartPageBtnChangePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admStartPageBtnChangePassword.Location = new System.Drawing.Point(51, 405);
-            this.admStartPageBtnChangePassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admStartPageBtnChangePassword.Location = new System.Drawing.Point(4, 25);
+            this.admStartPageBtnChangePassword.Margin = new System.Windows.Forms.Padding(4);
             this.admStartPageBtnChangePassword.Name = "admStartPageBtnChangePassword";
             this.admStartPageBtnChangePassword.Size = new System.Drawing.Size(223, 43);
             this.admStartPageBtnChangePassword.TabIndex = 14;
-            this.admStartPageBtnChangePassword.Text = "Change Password";
+            this.admStartPageBtnChangePassword.Text = "Đổi mật khẩu";
             this.admStartPageBtnChangePassword.UseVisualStyleBackColor = true;
             this.admStartPageBtnChangePassword.Click += new System.EventHandler(this.admStartPageBtnChangePassword_Click);
             // 
             // admStartPageBtnLogout
             // 
             this.admStartPageBtnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.admStartPageBtnLogout.Location = new System.Drawing.Point(743, 405);
-            this.admStartPageBtnLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admStartPageBtnLogout.Location = new System.Drawing.Point(754, 25);
+            this.admStartPageBtnLogout.Margin = new System.Windows.Forms.Padding(4);
             this.admStartPageBtnLogout.Name = "admStartPageBtnLogout";
-            this.admStartPageBtnLogout.Size = new System.Drawing.Size(100, 43);
+            this.admStartPageBtnLogout.Size = new System.Drawing.Size(147, 43);
             this.admStartPageBtnLogout.TabIndex = 13;
-            this.admStartPageBtnLogout.Text = "Logout";
+            this.admStartPageBtnLogout.Text = "Đăng xuất";
             this.admStartPageBtnLogout.UseVisualStyleBackColor = true;
             this.admStartPageBtnLogout.Click += new System.EventHandler(this.admStartPageBtnLogout_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(329, 25);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(297, 228);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 16;
+            this.pictureBox2.TabStop = false;
             // 
             // admStartPage
             // 
@@ -145,13 +160,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "admStartPage";
             this.Text = "Admin Start Pag";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.admStartPage_FormClosing);
             this.Load += new System.EventHandler(this.admStartPage_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -166,5 +182,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button admStartPageBtnLogout;
         private System.Windows.Forms.Button admStartPageBtnChangePassword;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

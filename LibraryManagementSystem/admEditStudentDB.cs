@@ -24,6 +24,7 @@ namespace LibraryManagementSystem
 
 
         Func<Row, tblStudent> StudentSelector;
+        tblStudent tbst = new tblStudent();
 
         private void admEditStudentDB_Load(object sender, EventArgs e)
         {
@@ -40,9 +41,6 @@ namespace LibraryManagementSystem
 
         public void displayUsers()
         {
-            //string query = "Select * from Users";
-            //List<User> users = mapper.Fetch<User>(query).ToList();
-            //editStudentDBDgvTable.DataSource = users;
 
             StudentSelector = delegate (Row r)
             {
@@ -52,7 +50,7 @@ namespace LibraryManagementSystem
                     Name = r.GetValue<string>("name"),
                     Email = r.GetValue<string>("email"),
                     Type = r.GetValue<int>("type"),
-                    Password = r.GetValue<string>("password"),
+                    Password = Converter.Instance.MD5Encrypt(Converter.Instance.Base64Encode(r.GetValue<string>("password"))),
                     Address=r.GetValue<string>("address"),
                 };
                 return card;
@@ -77,6 +75,8 @@ namespace LibraryManagementSystem
             editStudentDBTbxPassword.Text = string.Empty;
             editStudentDBTbxEmail.Text = string.Empty;
             admStudentDBCbAdmin.Checked = false;
+            pictureBox1.Image = null;
+
         }
 
         private void editStudentDBBtnBack_Click(object sender, EventArgs e)
@@ -96,7 +96,21 @@ namespace LibraryManagementSystem
         // search functionality
         private void editStudentDBBtnSearch_Click(object sender, EventArgs e)
         {
-            //need to do
+            string query = "";
+            if (editStudentDBBtnID.Checked == true)
+            {
+                query = "SELECT * FROM users Where id = '" + editStudentDBTbxSearch.Text.Trim() + "'  ALLOW FILTERING";
+
+            }
+            else if (editStudentDBBtnName.Checked == true)
+            {
+            query = "SELECT * FROM users Where name = '" + editStudentDBTbxSearch.Text.Trim() + "'  ALLOW FILTERING";
+            }
+            var StudentTable = DataConnection.Ins.session.Execute(query)
+                .Select(StudentSelector);
+
+            editStudentDBDgvTable.DataSource = StudentTable.ToList();
+
         }
 
         // cell click event
@@ -118,8 +132,18 @@ namespace LibraryManagementSystem
                 admStudentDBCbAdmin.Checked = type;
                 admStudentDBTbxName.Text = name;
                 editStudentDBTbxAddress.Text = address;
-                editStudentDBTbxPassword.Text = password;
+                editStudentDBTbxPassword.Text = Converter.Instance.Base64Decode(Converter.Instance.MD5Decrypt(password));
                 editStudentDBTbxEmail.Text = email;
+
+
+                string usersquery = "SELECT picture FROM users where id = " + selected_user_id + " ALLOW FILTERING;";
+                var userresults = DataConnection.Ins.session.Execute(usersquery).FirstOrDefault();
+                tbst.Data = userresults.GetValue<byte[]>("picture");
+                tbst.convertImgFromByte();
+                pictureBox1.Image = tbst.Img;
+
+
+
             }
         }
 
@@ -167,8 +191,8 @@ namespace LibraryManagementSystem
                 int issuemonth = time.Month;
                 int issday = time.Day;
 
-                var ps = DataConnection.Ins.session.Prepare("update users set name=? , email=? , password=?, type=?, address=? where id=?;");
-                var query = ps.Bind(tk.Name, tk.Email, tk.Password, tk.Type, tk.Address, tk.Id);
+                var ps = DataConnection.Ins.session.Prepare("update users set name=? , email=? , password=?, type=?, address=?,picture=? where id=?;");
+                var query = ps.Bind(tk.Name, tk.Email, tk.Password, tk.Type, tk.Address,tbst.Data, tk.Id);
                 DataConnection.Ins.session.Execute(query);
             }
             catch (Exception ex)
@@ -201,10 +225,6 @@ namespace LibraryManagementSystem
 
             try
             {
-                //string query = String.Format("insert into users(id, email, password, name, address, type) values ({0},'{1}','{2}','{3}','{4}',{5})", user_id, email, password, name, address, type);
-                //Cassandra.RowSet row = DataConnection.Ins.session.Execute(query);
-                //MessageBox.Show("Changes successfully saved.");
-
                 tblStudent tk = new tblStudent();
                 tk.Id = user_id;
                 tk.Name = name;
@@ -219,8 +239,8 @@ namespace LibraryManagementSystem
                 int issuemonth = time.Month;
                 int issday = time.Day;
 
-                var ps = DataConnection.Ins.session.Prepare("insert into  users (id ,email,password,type,name,address) values (?,?,?,?,?,?);");
-                var query = ps.Bind(tk.Id, tk.Email, tk.Password, tk.Type, tk.Name, tk.Address);
+                var ps = DataConnection.Ins.session.Prepare("insert into  users (id ,email,password,type,name,address,picture) values (?,?,?,?,?,?,?);");
+                var query = ps.Bind(tk.Id, tk.Email, tk.Password, tk.Type, tk.Name, tk.Address, tbst.Data);
                 DataConnection.Ins.session.Execute(query);
 
                 clearFields();
@@ -250,15 +270,10 @@ namespace LibraryManagementSystem
                 preliminaryAcceptedState = false;
             }
 
-            // try to edit book only if all pevious info is healthy
             if (preliminaryAcceptedState == true)
             {
                 try
                 {
-                    //cmd = new SqlCommand("delete from books where book_id = @book_id", con);
-                    //cmd.Parameters.AddWithValue("@book_id", book_id);
-
-                    //int result = cmd.ExecuteNonQuery();
 
                     tblStudent tk = new tblStudent();
                     tk.Id = user_id;
@@ -267,7 +282,6 @@ namespace LibraryManagementSystem
                     var query = ps.Bind(tk.Id);
                     DataConnection.Ins.session.Execute(query);
                     clearFields();
-                    // display updated books
                     displayUsers();
                     MessageBox.Show("users successfully deleted.");
 
@@ -291,6 +305,12 @@ namespace LibraryManagementSystem
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnPickImage_Click(object sender, EventArgs e)
+        {
+            tbst.chooseImg();
+            pictureBox1.Image = tbst.Img;
         }
     }
 }
