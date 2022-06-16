@@ -28,18 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(admStartPage));
             this.admStartPageBtnBookSearch = new System.Windows.Forms.Button();
             this.admStartPageBtnEditBookDB = new System.Windows.Forms.Button();
             this.admStartPageBtnReturn = new System.Windows.Forms.Button();
             this.admStartPageBtnIssue = new System.Windows.Forms.Button();
             this.admStartPageBtnEditStudentDB = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.admStartPageBtnChangePassword = new System.Windows.Forms.Button();
             this.admStartPageBtnLogout = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // admStartPageBtnBookSearch
@@ -105,7 +102,6 @@
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.admStartPageBtnChangePassword);
             this.panel1.Controls.Add(this.admStartPageBtnLogout);
             this.panel1.Controls.Add(this.admStartPageBtnIssue);
@@ -118,18 +114,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(905, 642);
             this.panel1.TabIndex = 5;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(329, 25);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(297, 228);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 16;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Visible = false;
             // 
             // admStartPageBtnChangePassword
             // 
@@ -168,7 +152,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.admStartPage_FormClosing);
             this.Load += new System.EventHandler(this.admStartPage_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -183,6 +166,5 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button admStartPageBtnLogout;
         private System.Windows.Forms.Button admStartPageBtnChangePassword;
-        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

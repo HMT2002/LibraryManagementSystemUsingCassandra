@@ -27,7 +27,7 @@ namespace LibraryManagementSystem
         }
         private string Datacenter = "datacenter1";
         public ISession session;
-        private string IP = "192.168.0.105"; 
+        private string IP = "192.168.56.1"; 
         private DataConnection()
         {
             session = getConnect();

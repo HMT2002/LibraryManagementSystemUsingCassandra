@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LoginBtnSubmit = new System.Windows.Forms.Button();
             this.loginTbxPassword = new System.Windows.Forms.TextBox();
             this.loginTbxUserId = new System.Windows.Forms.TextBox();
@@ -38,13 +36,11 @@
             this.loginLblUserId = new System.Windows.Forms.Label();
             this.loginLblQuote = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.LoginBtnSubmit);
             this.panel1.Controls.Add(this.loginTbxPassword);
             this.panel1.Controls.Add(this.loginTbxUserId);
@@ -56,18 +52,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1201, 688);
             this.panel1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(901, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(297, 228);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
             // 
             // LoginBtnSubmit
             // 
@@ -152,7 +136,6 @@
             this.Load += new System.EventHandler(this.login_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -166,7 +149,6 @@
         private System.Windows.Forms.TextBox loginTbxUserId;
         private System.Windows.Forms.Label loginLblPassword;
         private System.Windows.Forms.Label loginLblUserId;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

@@ -40,6 +40,8 @@ namespace LibraryManagementSystem
 
         private void LoginBtnSubmit_Click(object sender, EventArgs e)
         {
+            try
+            {
             string query = "Select * from Users Where Email ='" + loginTbxUserId.Text.Trim() + "' and Password = '" + loginTbxPassword.Text.Trim() + "'  ALLOW FILTERING";
 
             User user = mapper.Fetch<User>(query).ToList().FirstOrDefault();
@@ -62,6 +64,12 @@ namespace LibraryManagementSystem
             {
                 MessageBox.Show("Wrong email or password!!!!");
             }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void login_FormClosing(object sender, FormClosingEventArgs e)

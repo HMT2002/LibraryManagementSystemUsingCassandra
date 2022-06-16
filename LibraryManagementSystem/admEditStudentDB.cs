@@ -42,6 +42,8 @@ namespace LibraryManagementSystem
         public void displayUsers()
         {
 
+            try
+            {
             StudentSelector = delegate (Row r)
             {
                 tblStudent card = new tblStudent
@@ -65,6 +67,12 @@ namespace LibraryManagementSystem
             editStudentDBDgvTable.DataSource = BookTable.ToList();
             editStudentDBDgvTable.ReadOnly = true;
             editStudentDBDgvTable.Columns[1].SortMode = DataGridViewColumnSortMode.Automatic;
+            }
+            catch
+            {
+
+            }
+
         }
 
         public void clearFields()
@@ -96,6 +104,7 @@ namespace LibraryManagementSystem
         // search functionality
         private void editStudentDBBtnSearch_Click(object sender, EventArgs e)
         {
+
             string query = "";
             if (editStudentDBBtnID.Checked == true)
             {
@@ -116,6 +125,8 @@ namespace LibraryManagementSystem
         // cell click event
         private void editStudentDBDgvTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
             // remove column headers
             if (e.RowIndex != -1)
             {
@@ -145,6 +156,12 @@ namespace LibraryManagementSystem
 
 
             }
+            }
+            catch
+            {
+
+            }
+
         }
 
         // CLEAR BUTTON

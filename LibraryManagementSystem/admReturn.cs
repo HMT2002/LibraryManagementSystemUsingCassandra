@@ -89,6 +89,8 @@ namespace LibraryManagementSystem
         }
         private void admReturnDgvTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
             if(e.RowIndex != -1 && e.RowIndex != admReturnDgvTable.Rows.Count )
             {
                 issue_id = Convert.ToInt32(admReturnDgvTable.Rows[e.RowIndex].Cells[0].Value);
@@ -112,6 +114,12 @@ namespace LibraryManagementSystem
                 tb.convertImgFromByte();
                 pictureBoxBook.Image = tb.Img;
             }
+            }
+            catch
+            {
+
+            }
+
         }
 
         private void admReturnBtnSearch_Click(object sender, EventArgs e)

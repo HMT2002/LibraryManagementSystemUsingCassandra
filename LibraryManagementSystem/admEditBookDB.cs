@@ -36,33 +36,41 @@ namespace LibraryManagementSystem
         // display the table of books
         public void displayBooks()
         {
-            BookSelector = delegate (Row r)
+            try
             {
-                tblBook card = new tblBook
+                BookSelector = delegate (Row r)
                 {
-                    Id = r.GetValue<int>("id"),
-                    Title = r.GetValue<string>("title"),
-                    Genres = r.GetValue<string>("genres"),
-                    PublishYear = r.GetValue<string>("publishyear"),
-                    Publisher = r.GetValue<string>("publisher"),
+                    tblBook card = new tblBook
+                    {
+                        Id = r.GetValue<int>("id"),
+                        Title = r.GetValue<string>("title"),
+                        Genres = r.GetValue<string>("genres"),
+                        PublishYear = r.GetValue<string>("publishyear"),
+                        Publisher = r.GetValue<string>("publisher"),
 
-                    Author = r.GetValue<string>("author"),
+                        Author = r.GetValue<string>("author"),
 
-                    Status = r.GetValue<int>("status"),
-                    UserId = r.GetValue<int>("userid"),
-                    UserEmail = r.GetValue<string>("useremail"),
-                    DateIssue = r.GetValue<DateTime>("dateissue"),
+                        Status = r.GetValue<int>("status"),
+                        UserId = r.GetValue<int>("userid"),
+                        UserEmail = r.GetValue<string>("useremail"),
+                        DateIssue = r.GetValue<DateTime>("dateissue"),
+                    };
+                    return card;
                 };
-                return card;
-            };
-            string query = "SELECT * FROM books";
+                string query = "SELECT * FROM books";
 
-            var BookTable = DataConnection.Ins.session.Execute(query)
-                .Select(BookSelector);
+                var BookTable = DataConnection.Ins.session.Execute(query)
+                    .Select(BookSelector);
 
-            editBookDBDgvTable.DataSource = BookTable.ToList();
-            // make read only
-            editBookDBDgvTable.ReadOnly = true;
+                editBookDBDgvTable.DataSource = BookTable.ToList();
+                // make read only
+                editBookDBDgvTable.ReadOnly = true;
+            }
+            catch
+            {
+
+            }
+
         }
 
         // clear the value of the fields
@@ -142,39 +150,49 @@ namespace LibraryManagementSystem
         // Clicking cell of datagridview
         private void editBookDBDgvTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // remove column headers
-            if(e.RowIndex != -1 && e.RowIndex != editBookDBDgvTable.Rows.Count)
+            try
             {
-                // copy value to variable even if unnecessary
-                selected_book_id = Convert.ToInt32(editBookDBDgvTable.Rows[e.RowIndex].Cells[0].Value);
-                string title = Convert.ToString(editBookDBDgvTable.Rows[e.RowIndex].Cells[1].Value);
-                string author = Convert.ToString(editBookDBDgvTable.Rows[e.RowIndex].Cells[4].Value);
-                string publisher = Convert.ToString(editBookDBDgvTable.Rows[e.RowIndex].Cells[2].Value);
-                string year_of_pub = Convert.ToString(editBookDBDgvTable.Rows[e.RowIndex].Cells[5].Value);
-                string genres = Convert.ToString(editBookDBDgvTable.Rows[e.RowIndex].Cells[3].Value);
+                // remove column headers
 
-                // paste into textbox
-                editBookDBTbxBookID.Text = Convert.ToString(selected_book_id);
-                editBookDBTbxTitle.Text = title;
-                editBookDBTbxAuthor.Text = author;
-                editBookDBTbxPublisher.Text = publisher;
-                editBookDBTbxYop.Text = Convert.ToString(year_of_pub);
-                editBookDBTbxGenres.Text = genres;
+                if (e.RowIndex != -1 && e.RowIndex != editBookDBDgvTable.Rows.Count)
+                {
+                    // copy value to variable even if unnecessary
+                    selected_book_id = Convert.ToInt32(editBookDBDgvTable.Rows[e.RowIndex].Cells[0].Value);
+                    string title = Convert.ToString(editBookDBDgvTable.Rows[e.RowIndex].Cells[1].Value);
+                    string author = Convert.ToString(editBookDBDgvTable.Rows[e.RowIndex].Cells[4].Value);
+                    string publisher = Convert.ToString(editBookDBDgvTable.Rows[e.RowIndex].Cells[2].Value);
+                    string year_of_pub = Convert.ToString(editBookDBDgvTable.Rows[e.RowIndex].Cells[5].Value);
+                    string genres = Convert.ToString(editBookDBDgvTable.Rows[e.RowIndex].Cells[3].Value);
+
+                    // paste into textbox
+                    editBookDBTbxBookID.Text = Convert.ToString(selected_book_id);
+                    editBookDBTbxTitle.Text = title;
+                    editBookDBTbxAuthor.Text = author;
+                    editBookDBTbxPublisher.Text = publisher;
+                    editBookDBTbxYop.Text = Convert.ToString(year_of_pub);
+                    editBookDBTbxGenres.Text = genres;
 
 
 
-                string booksquery = "SELECT picture FROM books where id = " + selected_book_id + " ALLOW FILTERING;";
-                var bookresults = DataConnection.Ins.session.Execute(booksquery).FirstOrDefault();
-                tb.Data = bookresults.GetValue<byte[]>("picture");
-                tb.convertImgFromByte();
-                pictureBox1.Image = tb.Img;
+                    string booksquery = "SELECT picture FROM books where id = " + selected_book_id + " ALLOW FILTERING;";
+                    var bookresults = DataConnection.Ins.session.Execute(booksquery).FirstOrDefault();
+                    tb.Data = bookresults.GetValue<byte[]>("picture");
+                    tb.convertImgFromByte();
+                    pictureBox1.Image = tb.Img;
+                }
+
             }
+            catch
+            {
+
+            }
+
         }
 
         // SAVE EDIT BUTTON
         private void editBookDBBtnSave_Click(object sender, EventArgs e)
         {
-            if(editBookDBTbxTitle.Text.Trim()==string.Empty||editBookDBTbxGenres.Text.Trim()== string.Empty || editBookDBTbxBookID.Text.Trim()== string.Empty || editBookDBTbxPublisher.Text.Trim()== string.Empty || editBookDBTbxYop.Text.Trim()== string.Empty)
+            if (editBookDBTbxTitle.Text.Trim() == string.Empty || editBookDBTbxGenres.Text.Trim() == string.Empty || editBookDBTbxBookID.Text.Trim() == string.Empty || editBookDBTbxPublisher.Text.Trim() == string.Empty || editBookDBTbxYop.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("Các trường thông tin không được thiếu");
             }
@@ -199,7 +217,7 @@ namespace LibraryManagementSystem
                 int issday = tk.DateIssue.Day;
 
                 var ps = DataConnection.Ins.session.Prepare("update books set title=? , publisher=? , genres=?, author=?, publishYear=? ,status=? , userId=?,userEmail =?,dateIssue =?, picture=? where id=?;");
-                var query = ps.Bind( tk.Title, tk.Publisher, tk.Genres, tk.Author, tk.PublishYear, tk.Status, tk.UserId, tk.UserEmail, new DateTime(issueyear, issuemonth, issday),tb.Data, tk.Id);
+                var query = ps.Bind(tk.Title, tk.Publisher, tk.Genres, tk.Author, tk.PublishYear, tk.Status, tk.UserId, tk.UserEmail, new DateTime(issueyear, issuemonth, issday), tb.Data, tk.Id);
                 DataConnection.Ins.session.Execute(query);
                 displayBooks();
 
@@ -234,7 +252,7 @@ namespace LibraryManagementSystem
                 int issday = tk.DateIssue.Day;
 
                 var ps = DataConnection.Ins.session.Prepare("insert into  books (id ,title,publisher,genres,author,publishYear,status,userId,userEmail,dateIssue,picture) values (?,?,?,?,?,?,?,?,?,?,?);");
-                var query = ps.Bind(tk.Id, tk.Title, tk.Publisher, tk.Genres, tk.Author,tk.PublishYear, tk.Status, tk.UserId, tk.UserEmail, new DateTime(issueyear, issuemonth, issday),tb.Data);
+                var query = ps.Bind(tk.Id, tk.Title, tk.Publisher, tk.Genres, tk.Author, tk.PublishYear, tk.Status, tk.UserId, tk.UserEmail, new DateTime(issueyear, issuemonth, issday), tb.Data);
                 DataConnection.Ins.session.Execute(query);
 
                 clearFields();

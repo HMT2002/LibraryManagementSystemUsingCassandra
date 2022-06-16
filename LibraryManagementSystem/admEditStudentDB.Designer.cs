@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.editStudentDBBtnDelete = new System.Windows.Forms.Button();
             this.editStudentDBBtnSave = new System.Windows.Forms.Button();
             this.editStudentDBBtnSearch = new System.Windows.Forms.Button();
@@ -38,6 +38,10 @@
             this.editStudentDBTbxEmail = new System.Windows.Forms.TextBox();
             this.admStudentDBTbxName = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.editStudentDBBtnName = new System.Windows.Forms.RadioButton();
+            this.editStudentDBBtnID = new System.Windows.Forms.RadioButton();
+            this.btnPickImage = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.admStudentDBCbAdmin = new System.Windows.Forms.CheckBox();
             this.admEditStudentDBBtnClear = new System.Windows.Forms.Button();
             this.editStudentDBBtnAddToDB = new System.Windows.Forms.Button();
@@ -52,10 +56,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.editStudentDBBtnLogout = new System.Windows.Forms.Button();
             this.editStudentDBBtnBack = new System.Windows.Forms.Button();
-            this.btnPickImage = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.editStudentDBBtnName = new System.Windows.Forms.RadioButton();
-            this.editStudentDBBtnID = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.editStudentDBDgvTable)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -121,14 +121,14 @@
             // 
             this.editStudentDBDgvTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.editStudentDBDgvTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.editStudentDBDgvTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.editStudentDBDgvTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.editStudentDBDgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.editStudentDBDgvTable.Location = new System.Drawing.Point(136, 254);
             this.editStudentDBDgvTable.Margin = new System.Windows.Forms.Padding(4);
@@ -191,6 +191,52 @@
             this.panel1.Size = new System.Drawing.Size(1575, 882);
             this.panel1.TabIndex = 1;
             // 
+            // editStudentDBBtnName
+            // 
+            this.editStudentDBBtnName.AutoSize = true;
+            this.editStudentDBBtnName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editStudentDBBtnName.Location = new System.Drawing.Point(544, 188);
+            this.editStudentDBBtnName.Margin = new System.Windows.Forms.Padding(4);
+            this.editStudentDBBtnName.Name = "editStudentDBBtnName";
+            this.editStudentDBBtnName.Size = new System.Drawing.Size(68, 29);
+            this.editStudentDBBtnName.TabIndex = 73;
+            this.editStudentDBBtnName.TabStop = true;
+            this.editStudentDBBtnName.Text = "Tên";
+            this.editStudentDBBtnName.UseVisualStyleBackColor = true;
+            // 
+            // editStudentDBBtnID
+            // 
+            this.editStudentDBBtnID.AutoSize = true;
+            this.editStudentDBBtnID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editStudentDBBtnID.Location = new System.Drawing.Point(348, 188);
+            this.editStudentDBBtnID.Margin = new System.Windows.Forms.Padding(4);
+            this.editStudentDBBtnID.Name = "editStudentDBBtnID";
+            this.editStudentDBBtnID.Size = new System.Drawing.Size(52, 29);
+            this.editStudentDBBtnID.TabIndex = 72;
+            this.editStudentDBBtnID.TabStop = true;
+            this.editStudentDBBtnID.Text = "ID";
+            this.editStudentDBBtnID.UseVisualStyleBackColor = true;
+            // 
+            // btnPickImage
+            // 
+            this.btnPickImage.Location = new System.Drawing.Point(721, 718);
+            this.btnPickImage.Name = "btnPickImage";
+            this.btnPickImage.Size = new System.Drawing.Size(125, 23);
+            this.btnPickImage.TabIndex = 71;
+            this.btnPickImage.Text = "Chọn ảnh";
+            this.btnPickImage.UseVisualStyleBackColor = true;
+            this.btnPickImage.Click += new System.EventHandler(this.btnPickImage_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(665, 537);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(230, 175);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 70;
+            this.pictureBox1.TabStop = false;
+            // 
             // admStudentDBCbAdmin
             // 
             this.admStudentDBCbAdmin.AutoSize = true;
@@ -251,7 +297,6 @@
             this.editStudentDBTbxPassword.Location = new System.Drawing.Point(1173, 656);
             this.editStudentDBTbxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.editStudentDBTbxPassword.Name = "editStudentDBTbxPassword";
-            this.editStudentDBTbxPassword.ReadOnly = true;
             this.editStudentDBTbxPassword.Size = new System.Drawing.Size(253, 26);
             this.editStudentDBTbxPassword.TabIndex = 51;
             // 
@@ -343,52 +388,6 @@
             this.editStudentDBBtnBack.Text = "Quay lại";
             this.editStudentDBBtnBack.UseVisualStyleBackColor = true;
             this.editStudentDBBtnBack.Click += new System.EventHandler(this.editStudentDBBtnBack_Click);
-            // 
-            // btnPickImage
-            // 
-            this.btnPickImage.Location = new System.Drawing.Point(721, 718);
-            this.btnPickImage.Name = "btnPickImage";
-            this.btnPickImage.Size = new System.Drawing.Size(125, 23);
-            this.btnPickImage.TabIndex = 71;
-            this.btnPickImage.Text = "Chọn ảnh";
-            this.btnPickImage.UseVisualStyleBackColor = true;
-            this.btnPickImage.Click += new System.EventHandler(this.btnPickImage_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(665, 537);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(230, 175);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 70;
-            this.pictureBox1.TabStop = false;
-            // 
-            // editStudentDBBtnName
-            // 
-            this.editStudentDBBtnName.AutoSize = true;
-            this.editStudentDBBtnName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editStudentDBBtnName.Location = new System.Drawing.Point(544, 188);
-            this.editStudentDBBtnName.Margin = new System.Windows.Forms.Padding(4);
-            this.editStudentDBBtnName.Name = "editStudentDBBtnName";
-            this.editStudentDBBtnName.Size = new System.Drawing.Size(68, 29);
-            this.editStudentDBBtnName.TabIndex = 73;
-            this.editStudentDBBtnName.TabStop = true;
-            this.editStudentDBBtnName.Text = "Tên";
-            this.editStudentDBBtnName.UseVisualStyleBackColor = true;
-            // 
-            // editStudentDBBtnID
-            // 
-            this.editStudentDBBtnID.AutoSize = true;
-            this.editStudentDBBtnID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editStudentDBBtnID.Location = new System.Drawing.Point(348, 188);
-            this.editStudentDBBtnID.Margin = new System.Windows.Forms.Padding(4);
-            this.editStudentDBBtnID.Name = "editStudentDBBtnID";
-            this.editStudentDBBtnID.Size = new System.Drawing.Size(52, 29);
-            this.editStudentDBBtnID.TabIndex = 72;
-            this.editStudentDBBtnID.TabStop = true;
-            this.editStudentDBBtnID.Text = "ID";
-            this.editStudentDBBtnID.UseVisualStyleBackColor = true;
             // 
             // admEditStudentDB
             // 

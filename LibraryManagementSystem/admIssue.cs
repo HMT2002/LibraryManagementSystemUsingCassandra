@@ -136,8 +136,6 @@ namespace LibraryManagementSystem
                 return;
 
             }
-
-
             string query = "SELECT * FROM issues Where user = " + admIssueTbxUserID.Text.Trim() + "  ALLOW FILTERING";
 
             var IssueTable = DataConnection.Ins.session.Execute(query)
