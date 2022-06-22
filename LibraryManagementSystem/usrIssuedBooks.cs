@@ -23,7 +23,7 @@ namespace LibraryManagementSystem
         public int userid;
         public string password;
 
-        Func<Row, tblBook> BookSelector;
+        Func<Row, tblBook> IssueSelector;
 
 
         public usrIssuedBooks()
@@ -37,21 +37,7 @@ namespace LibraryManagementSystem
             userid = login.userid;
             password = login.password;
 
-            // establish connection to db
-            //string connectionString = ConfigurationManager.ConnectionStrings["LibraryManagementSystem.Properties.Settings.LibraryDB"].ToString();
-            //con = new SqlConnection(connectionString);
-
-            //// on intialise display books table
-            //cmd = new SqlCommand("select date_issued as 'Date Issued', DATEDIFF(day, date_issued, CONVERT(date, GETDATE()))  as 'Total days passed', book_id as 'Book ID', title as 'Title', author as 'Author', publisher as 'Publisher', year_of_pub as 'Year of Publication', genres as 'Genres' from issue, books where i_user_id = @user_id and i_book_id = book_id", con);
-            //cmd.Parameters.AddWithValue("@user_id", userid);
-            //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            //DataSet ds = new DataSet();
-            //sda.Fill(ds);
-
-            //usrIssuedBooksDgvBooks.DataSource = ds.Tables[0];
-            //usrIssuedBooksDgvBooks.ReadOnly = true;
-
-            BookSelector = delegate (Row r)
+            IssueSelector = delegate (Row r)
             {
                 tblBook card = new tblBook
                 {
@@ -70,12 +56,12 @@ namespace LibraryManagementSystem
             };
 
 
-            string query = "SELECT * FROM books";
+            string query = "SELECT * FROM books where status = 1 ALLOW FILTERING";
 
-            var BookTable = DataConnection.Ins.session.Execute(query)
-                .Select(BookSelector);
+            var IssueTable = DataConnection.Ins.session.Execute(query)
+                .Select(IssueSelector);
 
-            usrIssuedBooksDgvBooks.DataSource = BookTable.ToList();
+            usrIssuedBooksDgvBooks.DataSource = IssueTable.ToList();
         }
 
         private void usrIssuedBooksBtnBack_Click(object sender, EventArgs e)

@@ -12,6 +12,7 @@ using System.Data.SqlClient;
 using Cassandra;
 using LibraryManagementSystem.Model;
 using Cassandra.Serialization;
+using System.Threading;
 
 namespace LibraryManagementSystem
 {
@@ -38,6 +39,7 @@ namespace LibraryManagementSystem
         {
             try
             {
+                Thread.Sleep(2000);
                 BookSelector = delegate (Row r)
                 {
                     tblBook card = new tblBook
@@ -110,19 +112,11 @@ namespace LibraryManagementSystem
 
             if (admEditBookDBRbBoth.Checked == true)
             {
-                //cmd = new SqlCommand("select * from books where title like @searchQuery or author like @searchQuery", con);
-                //cmd.Parameters.AddWithValue("@searchQuery", "%" + editBookDBTbxSearch.Text + "%");
-
-                //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                //DataSet ds = new DataSet();
-                //sda.Fill(ds);
-
-                //editBookDBDgvTable.DataSource = ds.Tables[0];
 
             }
             else if (admEditBookDBRbTitle.Checked == true)
             {
-                string query = "SELECT * FROM Sach Where TieuDe = '" + editBookDBTbxSearch.Text.Trim() + "'  ALLOW FILTERING";
+                string query = "SELECT * FROM books Where title = '" + editBookDBTbxSearch.Text.Trim() + "'  ALLOW FILTERING";
 
                 var BookTable = DataConnection.Ins.session.Execute(query)
                     .Select(BookSelector);
@@ -132,7 +126,7 @@ namespace LibraryManagementSystem
             }
             else if (admEditBookDBRbAuthor.Checked == true)
             {
-                string query = "SELECT * FROM Sach Where TacGia = '" + editBookDBTbxSearch.Text.Trim() + "'  ALLOW FILTERING";
+                string query = "SELECT * FROM books Where author = '" + editBookDBTbxSearch.Text.Trim() + "'  ALLOW FILTERING";
 
                 var BookTable = DataConnection.Ins.session.Execute(query)
                     .Select(BookSelector);
@@ -144,7 +138,9 @@ namespace LibraryManagementSystem
 
         private void admEditBookDBBtnClear_Click(object sender, EventArgs e)
         {
+            editBookDBTbxBookID.Enabled = true;
             clearFields();
+            displayBooks();
         }
 
         // Clicking cell of datagridview
@@ -180,7 +176,7 @@ namespace LibraryManagementSystem
                     tb.convertImgFromByte();
                     pictureBox1.Image = tb.Img;
                 }
-
+                editBookDBTbxBookID.Enabled = false;
             }
             catch
             {
@@ -220,11 +216,13 @@ namespace LibraryManagementSystem
                 var query = ps.Bind(tk.Title, tk.Publisher, tk.Genres, tk.Author, tk.PublishYear, tk.Status, tk.UserId, tk.UserEmail, new DateTime(issueyear, issuemonth, issday), tb.Data, tk.Id);
                 DataConnection.Ins.session.Execute(query);
                 displayBooks();
+                MessageBox.Show("Edit sách thành công.");
+
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi edit sách. " + ex.Message);
             }
 
 
@@ -233,6 +231,7 @@ namespace LibraryManagementSystem
         // ADD TO DB BUTTON
         private void editBookDBBtnAddToDB_Click(object sender, EventArgs e)
         {
+
             try
             {
                 tblBook tk = new tblBook();
@@ -257,10 +256,12 @@ namespace LibraryManagementSystem
 
                 clearFields();
                 displayBooks();
+                MessageBox.Show("Thêm sách thành công.");
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi thêm sách. "+ex.Message);
             }
 
         }
@@ -298,7 +299,7 @@ namespace LibraryManagementSystem
                     clearFields();
                     // display updated books
                     displayBooks();
-                    MessageBox.Show("Book successfully deleted.");
+                    MessageBox.Show("Xoá sách thành công.");
 
                 }
                 catch

@@ -42,7 +42,7 @@
             this.panel1.Controls.Add(this.usrIssuedBooksBtnBack);
             this.panel1.Controls.Add(this.usrIssuedBooksDgvBooks);
             this.panel1.Location = new System.Drawing.Point(31, 43);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1425, 788);
             this.panel1.TabIndex = 0;
@@ -52,11 +52,11 @@
             this.usrIssuedBooksBtnBack.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.usrIssuedBooksBtnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.usrIssuedBooksBtnBack.Location = new System.Drawing.Point(1231, 34);
-            this.usrIssuedBooksBtnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usrIssuedBooksBtnBack.Margin = new System.Windows.Forms.Padding(4);
             this.usrIssuedBooksBtnBack.Name = "usrIssuedBooksBtnBack";
             this.usrIssuedBooksBtnBack.Size = new System.Drawing.Size(141, 50);
             this.usrIssuedBooksBtnBack.TabIndex = 3;
-            this.usrIssuedBooksBtnBack.Text = "Back";
+            this.usrIssuedBooksBtnBack.Text = "Quay lại";
             this.usrIssuedBooksBtnBack.UseVisualStyleBackColor = true;
             this.usrIssuedBooksBtnBack.Click += new System.EventHandler(this.usrIssuedBooksBtnBack_Click);
             // 
@@ -74,7 +74,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.usrIssuedBooksDgvBooks.DefaultCellStyle = dataGridViewCellStyle1;
             this.usrIssuedBooksDgvBooks.Location = new System.Drawing.Point(25, 126);
-            this.usrIssuedBooksDgvBooks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usrIssuedBooksDgvBooks.Margin = new System.Windows.Forms.Padding(4);
             this.usrIssuedBooksDgvBooks.Name = "usrIssuedBooksDgvBooks";
             this.usrIssuedBooksDgvBooks.RowHeadersWidth = 51;
             this.usrIssuedBooksDgvBooks.RowTemplate.Height = 30;
@@ -87,7 +87,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1497, 860);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "usrIssuedBooks";
             this.Text = "Issued Books";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

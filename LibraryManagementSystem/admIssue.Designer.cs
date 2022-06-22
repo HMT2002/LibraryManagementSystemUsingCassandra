@@ -34,7 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.admIssueBtnSearch = new System.Windows.Forms.Button();
             this.admIssueTbxSearchQuery = new System.Windows.Forms.TextBox();
-            this.admIssueRbBoth = new System.Windows.Forms.RadioButton();
             this.admIssueRbAuthor = new System.Windows.Forms.RadioButton();
             this.admIssueRbTitle = new System.Windows.Forms.RadioButton();
             this.admBookSearchLblSearch = new System.Windows.Forms.Label();
@@ -57,7 +56,6 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.admIssueBtnSearch);
             this.panel1.Controls.Add(this.admIssueTbxSearchQuery);
-            this.panel1.Controls.Add(this.admIssueRbBoth);
             this.panel1.Controls.Add(this.admIssueRbAuthor);
             this.panel1.Controls.Add(this.admIssueRbTitle);
             this.panel1.Controls.Add(this.admBookSearchLblSearch);
@@ -129,25 +127,11 @@
             this.admIssueTbxSearchQuery.Size = new System.Drawing.Size(587, 26);
             this.admIssueTbxSearchQuery.TabIndex = 63;
             // 
-            // admIssueRbBoth
-            // 
-            this.admIssueRbBoth.AutoSize = true;
-            this.admIssueRbBoth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admIssueRbBoth.Location = new System.Drawing.Point(607, 251);
-            this.admIssueRbBoth.Margin = new System.Windows.Forms.Padding(4);
-            this.admIssueRbBoth.Name = "admIssueRbBoth";
-            this.admIssueRbBoth.Size = new System.Drawing.Size(73, 29);
-            this.admIssueRbBoth.TabIndex = 62;
-            this.admIssueRbBoth.TabStop = true;
-            this.admIssueRbBoth.Text = "Both";
-            this.admIssueRbBoth.UseVisualStyleBackColor = true;
-            this.admIssueRbBoth.Visible = false;
-            // 
             // admIssueRbAuthor
             // 
             this.admIssueRbAuthor.AutoSize = true;
             this.admIssueRbAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.admIssueRbAuthor.Location = new System.Drawing.Point(415, 251);
+            this.admIssueRbAuthor.Location = new System.Drawing.Point(455, 251);
             this.admIssueRbAuthor.Margin = new System.Windows.Forms.Padding(4);
             this.admIssueRbAuthor.Name = "admIssueRbAuthor";
             this.admIssueRbAuthor.Size = new System.Drawing.Size(133, 29);
@@ -284,7 +268,6 @@
         private System.Windows.Forms.DataGridView admIssueDgvTable;
         private System.Windows.Forms.Button admIssueBtnSearch;
         private System.Windows.Forms.TextBox admIssueTbxSearchQuery;
-        private System.Windows.Forms.RadioButton admIssueRbBoth;
         private System.Windows.Forms.RadioButton admIssueRbAuthor;
         private System.Windows.Forms.RadioButton admIssueRbTitle;
         private System.Windows.Forms.Label admBookSearchLblSearch;

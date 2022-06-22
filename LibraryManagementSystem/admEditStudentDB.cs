@@ -12,6 +12,7 @@ using System.Configuration;
 using Cassandra.Mapping;
 using LibraryManagementSystem.Model;
 using Cassandra;
+using System.Threading;
 
 namespace LibraryManagementSystem
 {
@@ -41,6 +42,7 @@ namespace LibraryManagementSystem
 
         public void displayUsers()
         {
+            Thread.Sleep(2000);
 
             try
             {
@@ -127,35 +129,35 @@ namespace LibraryManagementSystem
         {
             try
             {
-            // remove column headers
-            if (e.RowIndex != -1)
-            {
-                // copy value to variable even if unnecessary
-                selected_user_id = Convert.ToInt32(editStudentDBDgvTable.Rows[e.RowIndex].Cells[0].Value);
-                string email = Convert.ToString(editStudentDBDgvTable.Rows[e.RowIndex].Cells[3].Value);
-                string password = Convert.ToString(editStudentDBDgvTable.Rows[e.RowIndex].Cells[5].Value);
-                string name = Convert.ToString(editStudentDBDgvTable.Rows[e.RowIndex].Cells[1].Value);
-                string address = Convert.ToString(editStudentDBDgvTable.Rows[e.RowIndex].Cells[2].Value);
-                bool type = Convert.ToBoolean(editStudentDBDgvTable.Rows[e.RowIndex].Cells[4].Value);
+                // remove column headers
+                if (e.RowIndex != -1)
+                {
+                    // copy value to variable even if unnecessary
+                    selected_user_id = Convert.ToInt32(editStudentDBDgvTable.Rows[e.RowIndex].Cells[0].Value);
+                    string email = Convert.ToString(editStudentDBDgvTable.Rows[e.RowIndex].Cells[3].Value);
+                    string password = Convert.ToString(editStudentDBDgvTable.Rows[e.RowIndex].Cells[5].Value);
+                    string name = Convert.ToString(editStudentDBDgvTable.Rows[e.RowIndex].Cells[1].Value);
+                    string address = Convert.ToString(editStudentDBDgvTable.Rows[e.RowIndex].Cells[2].Value);
+                    bool type = Convert.ToBoolean(editStudentDBDgvTable.Rows[e.RowIndex].Cells[4].Value);
 
-                // paste into textbox
-                editStudentDBTbxUserID.Text = Convert.ToString(selected_user_id);
-                admStudentDBCbAdmin.Checked = type;
-                admStudentDBTbxName.Text = name;
-                editStudentDBTbxAddress.Text = address;
-                editStudentDBTbxPassword.Text = Converter.Instance.Base64Decode(Converter.Instance.MD5Decrypt(password));
-                editStudentDBTbxEmail.Text = email;
-
-
-                string usersquery = "SELECT picture FROM users where id = " + selected_user_id + " ALLOW FILTERING;";
-                var userresults = DataConnection.Ins.session.Execute(usersquery).FirstOrDefault();
-                tbst.Data = userresults.GetValue<byte[]>("picture");
-                tbst.convertImgFromByte();
-                pictureBox1.Image = tbst.Img;
+                    // paste into textbox
+                    editStudentDBTbxUserID.Text = Convert.ToString(selected_user_id);
+                    admStudentDBCbAdmin.Checked = type;
+                    admStudentDBTbxName.Text = name;
+                    editStudentDBTbxAddress.Text = address;
+                    editStudentDBTbxPassword.Text = Converter.Instance.Base64Decode(Converter.Instance.MD5Decrypt(password));
+                    editStudentDBTbxEmail.Text = email;
 
 
+                    string usersquery = "SELECT picture FROM users where id = " + selected_user_id + " ALLOW FILTERING;";
+                    var userresults = DataConnection.Ins.session.Execute(usersquery).FirstOrDefault();
+                    tbst.Data = userresults.GetValue<byte[]>("picture");
+                    tbst.convertImgFromByte();
+                    pictureBox1.Image = tbst.Img;
 
-            }
+                }
+                editStudentDBTbxUserID.Enabled = false;
+
             }
             catch
             {
@@ -167,7 +169,9 @@ namespace LibraryManagementSystem
         // CLEAR BUTTON
         private void admEditStudentDBBtnClear_Click(object sender, EventArgs e)
         {
+            editStudentDBTbxUserID.Enabled = true;
             clearFields();
+            displayUsers();
         }
 
         // SAVE EDIT BUTTON
@@ -211,10 +215,12 @@ namespace LibraryManagementSystem
                 var ps = DataConnection.Ins.session.Prepare("update users set name=? , email=? , password=?, type=?, address=?,picture=? where id=?;");
                 var query = ps.Bind(tk.Name, tk.Email, tk.Password, tk.Type, tk.Address,tbst.Data, tk.Id);
                 DataConnection.Ins.session.Execute(query);
+                MessageBox.Show("Edit user thành công.");
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi edit user. " + ex.Message);
             }
             displayUsers();
 
@@ -223,6 +229,7 @@ namespace LibraryManagementSystem
         // ADD TO DB BUTTON
         private void editStudentDBBtnAddToDB_Click(object sender, EventArgs e)
         {
+
             // variables 
             int user_id = 0;
             int type;
@@ -259,13 +266,15 @@ namespace LibraryManagementSystem
                 var ps = DataConnection.Ins.session.Prepare("insert into  users (id ,email,password,type,name,address,picture) values (?,?,?,?,?,?,?);");
                 var query = ps.Bind(tk.Id, tk.Email, tk.Password, tk.Type, tk.Name, tk.Address, tbst.Data);
                 DataConnection.Ins.session.Execute(query);
-
                 clearFields();
                 displayUsers();
+
+                MessageBox.Show("Thêm user thành công.");
+
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Lỗi thêm user. "+ex.Message);
             }
         }
 
@@ -300,7 +309,7 @@ namespace LibraryManagementSystem
                     DataConnection.Ins.session.Execute(query);
                     clearFields();
                     displayUsers();
-                    MessageBox.Show("users successfully deleted.");
+                    MessageBox.Show("Xoá user thành công.");
 
                 }
                 catch

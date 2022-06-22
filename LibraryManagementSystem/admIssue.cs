@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using LibraryManagementSystem.Model;
 using Cassandra;
+using System.Threading;
 
 namespace LibraryManagementSystem
 {
@@ -35,6 +36,8 @@ namespace LibraryManagementSystem
 
         public void display()
         {
+            Thread.Sleep(2000);
+
             IssueSelector = delegate (Row r)
             {
                 tblIssue card = new tblIssue
@@ -121,7 +124,7 @@ namespace LibraryManagementSystem
             }
             catch
             {
-                MessageBox.Show("User ID should be an integer.");
+                MessageBox.Show("ID phải là 1 số.");
                 preliminaryAcceptedState = false;
                 return;
             }
@@ -131,7 +134,7 @@ namespace LibraryManagementSystem
             }
             catch
             {
-                MessageBox.Show("Book ID should be an interger.");
+                MessageBox.Show("ID phải là 1 số.");
                 preliminaryAcceptedState = false;
                 return;
 
@@ -145,7 +148,7 @@ namespace LibraryManagementSystem
 
             if(rows >= 2)
             {
-                MessageBox.Show("Cannot issue more books.\nA user can only issue 2 books.");
+                MessageBox.Show("Mỗi người chỉ được mượn 2 quyển.");
                 preliminaryAcceptedState = false;
             }
 
@@ -159,7 +162,7 @@ namespace LibraryManagementSystem
 
             if(rows1 > 0)
             {
-                MessageBox.Show("The book has already been issued by someone else.\nCannot issue book.");
+                MessageBox.Show("Người khác đã mượn cuốn sách này.");
                 preliminaryAcceptedState = false;
             }
 
@@ -196,15 +199,16 @@ namespace LibraryManagementSystem
                     var updatebooks = DataConnection.Ins.session.Prepare("update books set status=?, userid = ?, dateissue = ? where id=?;");
                     var updatebooksquery = updatebooks.Bind(1, Convert.ToInt32(admIssueTbxUserID.Text.Trim()), new DateTime(issueyear, issuemonth, issday), Convert.ToInt32(amdIssueTbxBookID.Text.Trim()));
                     DataConnection.Ins.session.Execute(updatebooksquery);
-                    MessageBox.Show("Book successfully issued.");
+                    MessageBox.Show("Mượn sách thành công.");
 
                     display();
+
                     clearFields();
 
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show("Please make sure that the the Book ID and User ID is valid.\nIf you still get an error then contact the developer. "+ex.Message);
+                    MessageBox.Show("Hãy xác nhận nhập đúng ID người mượn. "+ex.Message);
                 }
 
             }
@@ -224,6 +228,7 @@ namespace LibraryManagementSystem
 
             if (admIssueTbxSearchQuery.Text.CompareTo(string.Empty) == 0)
             {
+                display();
                 return;
             }
 

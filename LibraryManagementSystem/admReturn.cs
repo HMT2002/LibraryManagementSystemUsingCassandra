@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using LibraryManagementSystem.Model;
 using Cassandra;
+using System.Threading;
 
 namespace LibraryManagementSystem
 {
@@ -45,6 +46,7 @@ namespace LibraryManagementSystem
         }
         public void display()
         {
+            Thread.Sleep(2000);
 
             IssueSelector = delegate (Row r)
             {
@@ -142,9 +144,9 @@ namespace LibraryManagementSystem
 
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Please make sure that you enter only an integer in the search box.");
+                MessageBox.Show("Lỗi tìm sách. "+ex.Message);
             }
                 
         }
@@ -160,7 +162,7 @@ namespace LibraryManagementSystem
             }
             catch
             {
-                MessageBox.Show("Book ID should be an integer.");
+                MessageBox.Show("ID phải là 1 số.");
                 preliminaryAcceptedState = false;
             }
             try
@@ -169,7 +171,7 @@ namespace LibraryManagementSystem
             }
             catch
             {
-                MessageBox.Show("User ID should be an interger.");
+                MessageBox.Show("ID phải là 1 số.");
                 preliminaryAcceptedState = false;
             }
 
@@ -195,14 +197,14 @@ namespace LibraryManagementSystem
                     DataConnection.Ins.session.Execute(updatebooksquery);
 
 
-                    MessageBox.Show("Book successfully returned.");
+                    MessageBox.Show("Trả sách thành công.");
                     clear();
                     display();
 
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show("Internal system error.\nPlease contact the developer."+ex.Message);
+                    MessageBox.Show("Lỗi. "+ex.Message);
                 }
             }
         }

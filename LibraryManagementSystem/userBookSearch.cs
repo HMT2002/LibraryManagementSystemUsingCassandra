@@ -43,12 +43,13 @@ namespace LibraryManagementSystem
             };
 
 
-            string query = "SELECT * FROM books";
+            string query = "SELECT * FROM books where status = 0  ALLOW FILTERING";
 
-            var BookTable = DataConnection.Ins.session.Execute(query)
+            var IssueTable = DataConnection.Ins.session.Execute(query)
                 .Select(BookSelector);
 
-            userBookSearchDgv.DataSource = BookTable.ToList();
+
+            userBookSearchDgv.DataSource = IssueTable.ToList();
 
             userBookSearchDgv.ReadOnly = true;
 
@@ -59,7 +60,7 @@ namespace LibraryManagementSystem
         {
             if (userBookSearchRbTitle.Checked == true)
             {
-                string query = "SELECT * FROM books Where title = '" + UserBookSearchTbxQuery.Text.Trim() + "'  ALLOW FILTERING";
+                string query = "SELECT * FROM books Where title = '" + UserBookSearchTbxQuery.Text.Trim() + "' and  status = 0 ALLOW FILTERING";
 
                 var BookTable = DataConnection.Ins.session.Execute(query)
                     .Select(BookSelector);
@@ -69,7 +70,7 @@ namespace LibraryManagementSystem
 
             else if(userBookSearchRbAuthor.Checked == true)
             {
-                string query = "SELECT * FROM books Where author = '" + UserBookSearchTbxQuery.Text.Trim() + "'  ALLOW FILTERING";
+                string query = "SELECT * FROM books Where author = '" + UserBookSearchTbxQuery.Text.Trim() + "' and  status = 0 ALLOW FILTERING";
 
                 var BookTable = DataConnection.Ins.session.Execute(query)
                     .Select(BookSelector);
